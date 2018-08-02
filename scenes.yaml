@@ -1,0 +1,187 @@
+# Scene definition
+
+- name: Master Bedroom On
+  entities:
+    light.bedroom__tyler:
+        state: on
+        xy_color: [0.4449, 0.4066]
+        brightness: 254
+    light.bedroom__amy:
+        state: on
+        xy_color: [0.4449, 0.4066]
+        brightness: 254
+        
+- name: Master Bedroom Off
+  entities:
+    light.bedroom__tyler:
+        state: off
+    light.bedroom__amy:
+        state: off
+    light.unterbett:
+        state: off
+        
+- name: Living Room Normal
+  entities:
+    light.living_room_short_lamp:
+        state: on
+        xy_color: [0.4486, 0.4077]
+        brightness: 254
+    light.living_room_tall_lamp:
+        state: on
+        xy_color: [0.4486, 0.4077]
+        brightness: 254
+        
+- name: Living Room Morning
+  entities:
+    light.living_room_short_lamp:
+        state: on
+        xy_color: [0.5186, 0.4142]
+        brightness: 177
+    light.living_room_tall_lamp:
+        state: on
+        xy_color: [0.5186, 0.4142]
+        brightness: 177
+        
+- name: Living Room Off
+  entities:
+    light.living_room_short_lamp:
+        state: off
+    light.living_room_tall_lamp:
+        state: off
+        
+# - name: Master Bath Bright Red
+  # entities:
+    # light.master_bathroom:
+        # state: on
+        # xy_color: [0.5249,0.4134]
+        # brightness: 85
+        
+# - name: Master Bath Dim Red
+  # entities:
+    # light.master_bathroom:
+        # state: on
+        # xy_color: [0.6736,0.3221]
+        # brightness: 34
+
+# - name: Master Bath Off
+  # entities:
+    # light.master_bathroom:
+        # state: off
+
+- name: Exterior Lights On
+  entities:
+    switch.back_porch_grill_light: on
+    switch.front_porch_light: on
+    switch.back_porch_dining_light: on
+    
+- name: Exterior Lights Off
+  entities:
+    switch.back_porch_grill_light: off
+    switch.front_porch_light: off
+    switch.back_porch_dining_light: off
+    
+# - name: Kitchen Off
+  # entities:
+    # light.under_cabinet:
+        # state: off
+    # light.under_cabinet__fridge:
+        # state: off
+    # light.under_cabinet__passthrough:
+        # state: off
+
+# - name: Kitchen On
+  # entities:
+    # light.under_cabinet:
+        # state: on
+        # xy_color: [0.3637,0.3657]
+        # brightness: 254
+    # light.under_cabinet__fridge:
+        # state: on
+        # xy_color: [0.3637,0.3657]
+        # brightness: 254
+    # light.under_cabinet__passthrough:
+        # state: on
+        # xy_color: [0.3916,0.3834]
+        # brightness: 254
+        
+- name: Guest Bedroom On
+  entities:
+    light.guest_bedroom__closet:
+        state: on
+        xy_color: [0.4449,0.4066]
+        brightness: 254
+    light.guest_bedroom__window:
+        state: on
+        xy_color: [0.4449,0.4066]
+        brightness: 254
+        
+- name: Guest Bedroom Off
+  entities:
+    light.guest_bedroom__closet:
+        state: off        
+    light.guest_bedroom__window:
+        state: off
+        
+        
+# - name: Flash Living Rm
+  # entities:
+    # light.living_room_tall_lamp:
+      # state: on
+      # flash: short
+    # light.living_room_short_lamp:
+      # state: on
+      # flash: short
+    # light.office:
+      # state: on
+      # flash: short
+      
+- name: House Blue
+  entities:
+    light.under_cabinet:
+        state: on
+        xy_color: [0.1909,0.0874]
+        brightness: 44
+    light.under_cabinet__fridge:
+        state: on
+        xy_color: [0.1909,0.0874]
+        brightness: 44
+    light.under_cabinet__passthrough:
+        state: on
+        xy_color: [0.1909,0.0874]
+        brightness: 44
+    light.living_room_short_lamp:
+        state: on
+        xy_color: [0.191,0.0867]
+        brightness: 48
+    light.living_room_tall_lamp:
+        state: on
+        xy_color: [0.191,0.0867]
+        brightness: 48
+    light.bedroom__tyler:
+        state: on
+        xy_color: [0.191,0.0867]
+        brightness: 48
+    light.bedroom__amy:
+        state: on
+        xy_color: [0.191,0.0867]
+        brightness: 48
+        
+- name: Under Bed Blue
+  entities:
+    light.unterbett:
+        state: on
+        xy_color: [0.1426,0.1285]
+        brightness: 30
+        effect: colorloop
+        
+- name: Under Bed Morning
+  entities:
+    light.unterbett:
+        state: on
+        xy_color: [0.5903,0.3738]
+        brightness: 20
+
+- name: All Exterior But Front Off
+  entities:
+    switch.back_porch_dining_light: off
+    switch.back_porch_grill_light: off

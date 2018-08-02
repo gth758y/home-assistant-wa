@@ -1,0 +1,48 @@
+
+  - platform: mqtt
+    name: "Garage Door - Tyler"
+    state_topic: "garage/door/1/status"
+    command_topic: "garage/door/1/action"
+    availability_topic: "GarHAge/availability"
+    qos: 0
+    optimistic: false
+    retain: false
+    payload_open: "OPEN"
+    payload_close: "CLOSE"
+    payload_stop: "STATE"
+    state_open: "open"
+    state_closed: "closed"
+    payload_available: "online"
+    payload_not_available: "offline"
+
+  - platform: mqtt
+    name: "Garage Door - Amy"
+    state_topic: "garage/door/2/status"
+    command_topic: "garage/door/2/action"
+    availability_topic: "GarHAge/availability"
+    qos: 0
+    optimistic: false
+    retain: false
+    payload_open: "OPEN"
+    payload_close: "CLOSE"
+    payload_stop: "STATE"
+    state_open: "open"
+    state_closed: "closed"
+    payload_available: "online"
+    payload_not_available: "offline"
+    
+  - platform: mqtt
+    name: "Garage Door - Bikes"
+    state_topic: "garage/door/3/status"
+    command_topic: "garage/door/3/action"
+    availability_topic: "GarHAge/availability"
+    qos: 0
+    optimistic: false
+    retain: false
+    payload_open: "OPEN"
+    payload_close: "CLOSE"
+    payload_stop: "STATE"
+    state_open: "open"
+    state_closed: "closed"
+    payload_available: "online"
+    payload_not_available: "offline"

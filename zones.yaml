@@ -1,0 +1,37 @@
+# Zones #
+
+- name: home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  radius: 100
+  icon: mdi:home
+
+- name: Insitu - Eagle Point
+  latitude: !secret insitu_ep_lat
+  longitude: !secret insitu_ep_long
+  radius: 300
+  icon: mdi:briefcase
+  
+- name: Insitu - Waucoma
+  latitude: !secret insitu_wa_lat
+  longitude: !secret insitu_wa_long
+  radius: 100
+  icon: mdi:briefcase
+  
+- name: Simplexity
+  latitude: !secret simplexity_lat
+  longitude: !secret simplexity_long
+  radius: 175
+  icon: mdi:briefcase
+
+- name: Eagle One - Camas Stop
+  latitude: 45.581328
+  longitude: -122.386525
+  radius: 75
+  icon: mdi:bus
+
+- name: LASC
+  latitude: 45.6890943
+  longitude: -122.6956240
+  radius: 200
+  icon: mdi:pool

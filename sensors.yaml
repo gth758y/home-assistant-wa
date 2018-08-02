@@ -1,0 +1,95 @@
+### Weather/Forecast Info
+
+ - platform: darksky
+   api_key: !secret forecast_io_api_key
+   monitored_conditions:
+    - summary
+    - icon
+    - nearest_storm_distance
+    - nearest_storm_bearing
+    - precip_type
+    - precip_intensity
+    - precip_probability
+    - temperature
+    - apparent_temperature
+    - dew_point
+    - wind_speed
+    - wind_bearing
+    - cloud_cover
+    - humidity
+    - pressure
+    - visibility
+    - ozone
+    - minutely_summary
+    - hourly_summary
+    - daily_summary
+    - temperature_high
+    - temperature_low
+    - apparent_temperature_high
+    - apparent_temperature_low
+    - precip_intensity_max
+
+### Speedtest
+
+ # - platform: speedtest
+   # monitored_conditions:
+    # - ping
+    # - download
+    # - upload
+    
+### OctoPrint
+ # - platform: octoprint
+   # name: OctoPrint
+   # monitored_conditions:
+    # - Current State
+    # - Temperatures
+    # - Job Percentage
+
+ - platform: mqtt
+   state_topic: "bruh/sensornode1"
+   name: "Living Room Light Level"
+   ##This sensor is not calibrated to actual LUX. Rather, this a map of the input voltage ranging from 0 - 1023.
+   unit_of_measurement: "LUX"
+   value_template: '{{ value_json.ldr }}'
+
+   
+## occupancy https://community.home-assistant.io/t/reliable-multi-user-distributed-bluetooth-occupancy-presence-detection/50674
+ - platform: mqtt
+   state_topic: 'location/owner/master_bedrm/40:4E:36:48:08:1B'
+   value_template: '{{ value_json.confidence }}'
+   unit_of_measurement: '%'
+   name: 'Tyler Master Bedroom'
+
+ - platform: mqtt
+   state_topic: 'location/owner/kitchen/40:4E:36:48:08:1B'
+   value_template: '{{ value_json.confidence }}'
+   unit_of_measurement: '%'
+   name: 'Tyler Kitchen'
+   
+ - platform: mqtt
+   state_topic: 'location/owner/master_bedrm/40:4E:36:48:08:07'
+   value_template: '{{ value_json.confidence }}'
+   unit_of_measurement: '%'
+   name: 'Amy Master Bedroom'
+
+ - platform: mqtt
+   state_topic: 'location/owner/kitchen/40:4E:36:48:08:07'
+   value_template: '{{ value_json.confidence }}'
+   unit_of_measurement: '%'
+   name: 'Amy Kitchen'
+   
+ - platform: min_max
+   name: "Tyler Home Occupancy Confidence"
+   type: mean
+   round_digits: 0
+   entity_ids:
+     - sensor.tyler_master_bedroom
+     - sensor.tyler_kitchen
+
+ - platform: min_max
+   name: "Amy Home Occupancy Confidence"
+   type: mean
+   round_digits: 0
+   entity_ids:
+     - sensor.amy_master_bedroom
+     - sensor.amy_kitchen
