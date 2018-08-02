@@ -1,0 +1,10 @@
+alias: It's light out
+trigger:
+    platform: state
+    entity_id: binary_sensor.is_it_dark
+    from: 'on'
+    to: 'off' 
+action:
+  - service: scene.turn_on
+    data:
+      entity_id: scene.exterior_lights_off

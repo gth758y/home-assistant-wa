@@ -1,0 +1,12 @@
+alias: Bedtime Shutdown Routine
+trigger: 
+    platform: state
+    entity_id: binary_sensor.house_asleep
+    from: 'off'
+    to: 'on'
+# condition:
+#   condition: state
+#   entity_id: binary_sensor.anybody_home
+#   state: 'on'
+action:
+    service: script.nighttime_shutdown
