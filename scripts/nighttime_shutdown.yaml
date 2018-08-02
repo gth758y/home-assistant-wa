@@ -1,0 +1,60 @@
+# Shutdown the house in an orderly manner
+
+
+  sequence:
+
+    - service: scene.turn_on
+      entity_id: scene.master_bedroom_off
+      
+    - service: script.turn_on
+      entity_id: script.make_white_noise
+      
+    - delay: "00:{{ (range(1, 20)|random|int) }}:00"
+    
+    - service: scene.turn_on
+      entity_id: scene.all_exterior_but_front_off
+      
+    - delay: "00:{{ (range(1, 8)|random|int) }}:00"
+      
+    - service: scene.turn_on
+      entity_id: scene.living_room_off
+      
+    - condition: state
+      entity_id: input_select.visitars
+      state: 'disabled'
+      
+    - delay: "00:{{ (range(1, 8)|random|int) }}:00"
+     
+    - service: scene.turn_on
+      entity_id: scene.guest_bedroom_off
+      
+
+    # - service: scene.turn_on
+      # entity_id: scene.master_bedroom_off
+
+    # - service: scene.turn_on
+      # entity_id: scene.master_bath_dim_red
+      
+    # - service: switch.turn_off
+      # entity_id: switch.ge_unknown_type4f50_id3031_switch
+
+    # - delay:
+          # minutes: 10
+
+    # - service: input_select.select_option
+      # data:
+          # entity_id: input_select.exterior_light_state
+          # option: 'lights_off'
+    
+    # - service: scene.turn_on
+      # entity_id: scene.exterior_lights_off
+      
+    # - delay:
+          # minutes: 2
+
+    # - service: scene.turn_on
+      # entity_id: scene.living_room_off
+
+    # - service: scene.turn_on
+      # entity_id: scene.kitchen_off
+      
