@@ -1,0 +1,62 @@
+tyler_status:
+    name: Tyler Status
+    options:
+      - driving
+      - running
+      - sleeping
+      - standby
+      - alarming
+    initial: standby
+    icon: mdi:human-male
+
+amy_status:
+    name: Amy Status
+    options:
+      - driving
+      - running
+      - sleeping
+      - standby
+      - alarming
+    initial: standby
+    icon: mdi:human-female
+      
+visitars:
+    name: Visitarrrs
+    options:
+      - "enabled"
+      - "disabled"
+    initial: "disabled"
+    icon: mdi:human-greeting
+    
+house_status:
+    name: House Status
+    options:
+      - awake
+      - asleep
+    initial: awake
+    icon: mdi:home
+    
+# hvac_timeframe:
+    # name: HVAC Timeframe
+    # options:
+      # - one awake
+      # - both awake
+      # - both away
+      # - someone at home
+      # - evening at home
+      # - sleeping
+ 
+bug_zapper_state:
+    name: Bug Zapper State
+    options:
+      - bug_on
+      - bug_off
+    initial: bug_off
+    icon: mdi:bug
+    
+darkness_state:
+    name: Darkness State
+    options:
+      - its_dark
+      - its_daytime
+    initial: its_daytime

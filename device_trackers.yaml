@@ -1,0 +1,8 @@
+- platform: owntracks
+
+# - platform: unifi
+  # host: !secret unifi_host
+  # port: !secret unifi_port
+  # username: !secret unifi_user
+  # password: !secret unifi_pass
+  # site_id: !secret unifi_site

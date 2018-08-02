@@ -1,0 +1,68 @@
+homeassistant:
+  name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: !secret home_elevation
+  unit_system: imperial
+  time_zone: !secret home_time_zone
+  customize: !include customize.yaml
+
+frontend:
+updater:
+conversation:
+discovery:
+logbook:
+history:
+sun:
+sensor: !include sensors.yaml
+binary_sensor: !include binary_sensor.yaml
+
+# Enables configuration UI
+config:
+
+http:
+  api_password: !secret ha_api_pass
+  ssl_certificate: !secret ha_ssl_cert
+  ssl_key: !secret ha_ssl_key
+
+device_tracker: !include device_trackers.yaml
+
+mqtt:
+    broker: 10.99.1.79
+    port: 1883
+    client_id: home-assistant-1
+    username: !secret mmqtt_user
+    password: !secret mmqtt_pass
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Text to speech
+tts:
+  - platform: google
+  
+cover: !include cover.yaml
+
+# Cloud
+#cloud:
+
+group: !include groups.yaml
+automation: !include_dir_list automation
+script: !include_dir_named scripts
+zone: !include zones.yaml
+zwave:
+    usb_path: /dev/ttyACM0
+    
+recorder:
+  purge_interval: 2
+  purge_keep_days: 30
+  db_url: !secret mariaDB_url
+
+input_select: !include input_select.yaml
+scene: !include scenes.yaml
+
+#climate:
+#  platform: honeywell
+#  username: !secret honeywell_user
+#  password: !secret honeywell_pass
+#  region: us
