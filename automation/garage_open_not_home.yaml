@@ -1,0 +1,19 @@
+alias: Not at Home - Garage Door Open
+trigger:
+  platform: state
+  entity_id: binary_sensor.garage_open
+  to: 'on'
+condition:
+  condition: state
+  entity_id: binary_sensor.anybody_home
+  state: 'off'
+action:
+  - delay: '00:02:00'
+  - condition: state
+    entity_id: binary_sensor.anybody_home
+    state: 'off'
+    for:
+      minutes: 2
+  - service: notify.notify
+    data_template:
+      message: "Garage opened and you're not home!"

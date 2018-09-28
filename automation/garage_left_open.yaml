@@ -1,0 +1,16 @@
+alias: At Home - Garage Door Open
+trigger:
+  platform: state
+  entity_id: binary_sensor.garage_open
+  from: 'off'
+  to: 'on'
+  for:
+    minutes: 20
+condition:
+  condition: state
+  entity_id: binary_sensor.anybody_home
+  state: 'on'
+action:
+  service: notify.notify
+  data_template:
+    message: "Garage left open"
