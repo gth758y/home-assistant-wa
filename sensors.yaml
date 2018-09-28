@@ -93,3 +93,12 @@
    entity_ids:
      - sensor.amy_master_bedroom
      - sensor.amy_kitchen
+     
+ - platform: time_date
+   display_options:
+     - 'time'
+     - 'date'
+     - 'date_time'
+     - 'time_date'
+     - 'time_utc'
+     - 'beat'

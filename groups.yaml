@@ -14,30 +14,72 @@
       - sensor.dark_sky_cloud_coverage
       - sensor.dark_sky_dew_point
       - sensor.dark_sky_humidity
+      - sensor.dark_sky_icon
+      - sensor.dark_sky_ozone
       - sensor.dark_sky_precip
       - sensor.dark_sky_precip_intensity
+      - sensor.dark_sky_pressure
+      - sensor.dark_sky_summary
       - sensor.dark_sky_temperature
       - sensor.dark_sky_visibility
       - sensor.dark_sky_wind_bearing
       - sensor.dark_sky_wind_speed
-      - sensor.dark_sky_ozone
-      - sensor.dark_sky_pressure
       
   almanac:
     name: Almanac Data
     entities:
-      - sensor.dark_sky_daily_high_apparent_temperature
-      - sensor.dark_sky_daily_high_temperature
-      - sensor.dark_sky_daily_low_apparent_temperature
-      - sensor.dark_sky_daily_low_temperature
       - sensor.dark_sky_daily_max_precip_intensity
+      - sensor.dark_sky_daily_summary
+      - sensor.dark_sky_daytime_high_apparent_temperature
+      - sensor.dark_sky_daytime_high_temperature
 
   forecast:
     name: Forecast
     entities:
-      - sensor.dark_sky_precip_probability
-      - sensor.dark_sky_daily_summary
       - sensor.dark_sky_hourly_summary
       - sensor.dark_sky_minutely_summary
+      - sensor.dark_sky_overnight_low_apparent_temperature
+      - sensor.dark_sky_overnight_low_temperature
+      - sensor.dark_sky_precip_probability
       - sensor.dark_sky_nearest_storm_bearing
       - sensor.dark_sky_nearest_storm_distance
+       
+  tesla:
+    name: Tesla
+    entities:
+      - binary_sensor.tesla_model_3_5yj3e1ebxjf063608_charger_sensor
+      - binary_sensor.tesla_model_3_5yj3e1ebxjf063608_parking_brake_sensor
+      - climate.tesla_model_3_5yj3e1ebxjf063608_hvac_climate_system
+      - device_tracker.tesla_model_3_5yj3e1ebxjf063608_location_tracker
+      - lock.tesla_model_3_5yj3e1ebxjf063608_door_lock
+      - sensor.tesla_model_3_5yj3e1ebxjf063608_battery_sensor
+      - sensor.tesla_model_3_5yj3e1ebxjf063608_mileage_sensor
+      - sensor.tesla_model_3_5yj3e1ebxjf063608_range_sensor
+      - sensor.tesla_model_3_5yj3e1ebxjf063608_temperature_sensor_inside
+      - sensor.tesla_model_3_5yj3e1ebxjf063608_temperature_sensor_outside
+      - switch.tesla_model_3_5yj3e1ebxjf063608_charger_switch
+      - switch.tesla_model_3_5yj3e1ebxjf063608_maxrange_switch
+
+  tesla_v:
+    view: yes
+    name: Tesla
+    entities:
+      - group.tesla
+  
+  garage_v:
+    view: yes
+    name: Garage
+    entities:
+      - cover.garage_door__amy 
+      - cover.garage_door__bikes 
+      - cover.garage_door__tyler 
+      
+  date_and_time:
+    name: Date and Time
+    entities:
+      - sensor.date
+      - sensor.date__time
+      - sensor.internet_time
+      - sensor.time
+      - sensor.time__date
+      - sensor.time_utc

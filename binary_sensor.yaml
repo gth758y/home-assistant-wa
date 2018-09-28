@@ -5,9 +5,11 @@
     hysteresis: 50
     entity_id: sensor.living_room_light_level
     
+  - platform: iss
+    
   # - platform: threshold
     # name: "Darkness Threshold for Lights Off"
-    # upper: 400    
+    # upper: 400
     # entity_id: sensor.living_room_light_level
 
   - platform: template
@@ -33,7 +35,8 @@
     sensors:
       house_asleep:
         value_template: >-
-          {{ (is_state('binary_sensor.anybody_home', 'off') and (now().hour|float > 22 or now().hour|float < 6))
+          {% set hour = states('sensor.time').split(':')[0]|int %}
+          {{ (is_state('binary_sensor.anybody_home', 'off') and (hour > 22 or hour < 6))
               or (is_state('binary_sensor.tyler_home', 'on') and is_state('binary_sensor.amy_home', 'off') and is_state('input_select.tyler_status', 'sleeping'))
               or (is_state('binary_sensor.amy_home', 'on') and is_state('binary_sensor.tyler_home', 'off') and is_state('input_select.amy_status', 'sleeping'))
               or (is_state('binary_sensor.tyler_home', 'on') and is_state('binary_sensor.amy_home', 'on') and is_state('input_select.tyler_status', 'sleeping') and is_state('input_select.amy_status', 'sleeping')) }}
@@ -63,4 +66,15 @@
     payload_off: "closed"
     availability_topic: "GarHAge/availability"
     device_class: opening
-    qos: 0      
+    qos: 0
+
+  - platform: template
+    sensors:
+      garage_open:
+        value_template: >-
+          {{ is_state('binary_sensor.garage_door__amy', 'on')
+             or is_state('binary_sensor.garage_door__bikes', 'on')
+             or is_state('binary_sensor.garage_door__tyler', 'on')
+          }}
+          
+          

@@ -46,17 +46,17 @@ house_status:
       # - evening at home
       # - sleeping
  
-bug_zapper_state:
-    name: Bug Zapper State
-    options:
-      - bug_on
-      - bug_off
-    initial: bug_off
-    icon: mdi:bug
+# bug_zapper_state:
+    # name: Bug Zapper State
+    # options:
+      # - bug_on
+      # - bug_off
+    # initial: bug_off
+    # icon: mdi:bug
     
-darkness_state:
-    name: Darkness State
-    options:
-      - its_dark
-      - its_daytime
-    initial: its_daytime
+# darkness_state:
+    # name: Darkness State
+    # options:
+      # - its_dark
+      # - its_daytime
+    # initial: its_daytime

@@ -70,15 +70,15 @@
 
 - name: Exterior Lights On
   entities:
-    switch.back_porch_grill_light: on
-    switch.front_porch_light: on
-    switch.back_porch_dining_light: on
+    switch.ge_14291_inwall_smart_switch_switch : on
+    switch.ge_12722_onoff_relay_switch_switch : on
+    switch.ge_12722_onoff_relay_switch_switch_2 : on
     
 - name: Exterior Lights Off
   entities:
-    switch.back_porch_grill_light: off
-    switch.front_porch_light: off
-    switch.back_porch_dining_light: off
+    switch.ge_14291_inwall_smart_switch_switch : off
+    switch.ge_12722_onoff_relay_switch_switch : off
+    switch.ge_12722_onoff_relay_switch_switch_2 : off
     
 # - name: Kitchen Off
   # entities:
@@ -183,5 +183,5 @@
 
 - name: All Exterior But Front Off
   entities:
-    switch.back_porch_dining_light: off
-    switch.back_porch_grill_light: off
+    switch.ge_12722_onoff_relay_switch_switch_2: off
+    switch.ge_14291_inwall_smart_switch_switch : off
