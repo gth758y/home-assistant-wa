@@ -3,8 +3,20 @@ trigger:
     platform: state
     entity_id: binary_sensor.is_it_dark
     from: 'on'
-    to: 'off' 
+    to: 'off'
 action:
   - service: scene.turn_on
     data:
       entity_id: scene.exterior_lights_off
+      
+  - service: scene.turn_on
+    data:
+      entity_id: scene.living_room_off
+      
+  - service: scene.turn_on
+    data:
+      entity_id: scene.master_bedroom_off
+      
+  - service: scene.turn_on
+    data:
+      entity_id: scene.guest_bedroom_off

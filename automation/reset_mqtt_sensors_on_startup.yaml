@@ -1,0 +1,20 @@
+alias: Update MQTT sensors on startup
+trigger:
+  - platform: homeassistant
+    event: start
+action:
+  - service: mqtt.publish
+    data:
+      topic: "garage/door/1/action"
+      payload: "STATE"
+  - service: mqtt.publish
+    data:
+      topic: "garage/door/2/action"
+      payload: "STATE"
+  - service: mqtt.publish
+    data:
+      topic: "garage/door/3/action"
+      payload: "STATE"
+  - service: mqtt.publish
+    data:
+      topic: "location/scan/restart"

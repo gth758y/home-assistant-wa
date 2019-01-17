@@ -1,20 +1,22 @@
 alias: Interior Lights On
-trigger: 
-    platform: state
-    entity_id: binary_sensor.is_it_dark
-    from: 'off'
-    to: 'on'
+trigger:
+    platform: template
+    value_template: >-
+          {{ is_state('binary_sensor.is_it_dark', 'on')
+             or is_state('binary_sensor.is_it_cloudy', 'on') }}
 condition:
   condition: state
   entity_id: binary_sensor.house_asleep
   state: 'off'
 action:
+  - service: switch.turn_on
+    entity_id: switch.circadian_lighting_circadian_lighting
   - service: scene.turn_on
     entity_id: scene.living_room_normal
   - service: scene.turn_on
     entity_id: scene.master_bedroom_on
-  # - service: scene.turn_on
-    # entity_id: scene.guest_bedroom_on
+  - service: scene.turn_on
+    entity_id: scene.guest_bedroom_on
   # - service: scene.turn_on
     # entity_id: scene.kitchen_on
   - service: scene.turn_on

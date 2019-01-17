@@ -1,0 +1,18 @@
+alias: Unlock Tesla Charger
+trigger:
+  platform: state
+  entity_id: binary_sensor.garage_door__tyler
+  from: 'off'
+  to: 'on'
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: binary_sensor.tesla_model_3_5yj3e1ebxjf063608_charger_sensor 
+      state: 'on'
+    - condition: state
+      entity_id: device_tracker.tesla_model_3_5yj3e1ebxjf063608_location_tracker 
+      state: 'home'
+action:
+  service: lock.unlock
+  entity_id: lock.tesla_model_3_5yj3e1ebxjf063608_door_lock
