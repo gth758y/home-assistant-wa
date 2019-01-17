@@ -28,13 +28,13 @@ visitars:
     initial: "disabled"
     icon: mdi:human-greeting
     
-house_status:
-    name: House Status
-    options:
-      - awake
-      - asleep
-    initial: awake
-    icon: mdi:home
+#house_status:
+#    name: House Status
+#    options:
+#      - awake
+#      - asleep
+#    initial: awake
+#    icon: mdi:home
     
 # hvac_timeframe:
     # name: HVAC Timeframe

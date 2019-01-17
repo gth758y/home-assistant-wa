@@ -19,17 +19,27 @@
         state: off
     light.unterbett:
         state: off
+    light.hallways:
+        state: off
         
 - name: Living Room Normal
   entities:
     light.living_room_short_lamp:
         state: on
-        xy_color: [0.4486, 0.4077]
-        brightness: 254
+#        xy_color: [0.4486, 0.4077]
+#        brightness: 254
     light.living_room_tall_lamp:
         state: on
-        xy_color: [0.4486, 0.4077]
-        brightness: 254
+#        xy_color: [0.4486, 0.4077]
+#        brightness: 254
+    light.living_room_shortest_lamp:
+        state: on
+#        xy_color: [0.4486, 0.4077]
+#        brightness: 254
+#    light.bay_window:
+#        state: on
+#        xy_color: [0.4486, 0.4077]
+#        brightness: 254
         
 - name: Living Room Morning
   entities:
@@ -41,12 +51,24 @@
         state: on
         xy_color: [0.5186, 0.4142]
         brightness: 177
+    light.living_room_shortest_lamp:
+        state: on
+        xy_color: [0.5186, 0.4142]
+        brightness: 177
+#    light.bay_window:
+#        state: on
+#        xy_color: [0.5186, 0.4142]
+#        brightness: 177]
         
 - name: Living Room Off
   entities:
     light.living_room_short_lamp:
         state: off
     light.living_room_tall_lamp:
+        state: off
+    light.living_room_shortest_lamp:
+        state: off
+    light.bay_window:
         state: off
         
 # - name: Master Bath Bright Red
@@ -79,16 +101,15 @@
     switch.ge_14291_inwall_smart_switch_switch : off
     switch.ge_12722_onoff_relay_switch_switch : off
     switch.ge_12722_onoff_relay_switch_switch_2 : off
+    switch.back_porch : off
+    switch.ge_12720_outdoor_smart_switch : off
+    switch.ge_unknown_type4f50_id3032_switch : off
     
-# - name: Kitchen Off
-  # entities:
-    # light.under_cabinet:
-        # state: off
-    # light.under_cabinet__fridge:
-        # state: off
-    # light.under_cabinet__passthrough:
-        # state: off
-
+- name: Kitchen Off
+  entities:
+    light.kitchen:
+        state: off
+        
 # - name: Kitchen On
   # entities:
     # light.under_cabinet:
@@ -118,7 +139,7 @@
 - name: Guest Bedroom Off
   entities:
     light.guest_bedroom__closet:
-        state: off        
+        state: off
     light.guest_bedroom__window:
         state: off
         
@@ -165,6 +186,10 @@
         state: on
         xy_color: [0.191,0.0867]
         brightness: 48
+    light.living_room_shortest_lamp:
+        state: on
+        xy_color: [0.191,0.0867]
+        brightness: 48
         
 - name: Under Bed Blue
   entities:
@@ -172,7 +197,7 @@
         state: on
         xy_color: [0.1426,0.1285]
         brightness: 30
-        effect: colorloop
+#        effect: colorloop
         
 - name: Under Bed Morning
   entities:
@@ -185,3 +210,6 @@
   entities:
     switch.ge_12722_onoff_relay_switch_switch_2: off
     switch.ge_14291_inwall_smart_switch_switch : off
+    switch.back_porch : off
+    switch.ge_12720_outdoor_smart_switch : off
+    switch.ge_unknown_type4f50_id3032_switch : off

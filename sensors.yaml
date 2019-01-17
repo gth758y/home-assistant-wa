@@ -55,25 +55,25 @@
    
 ## occupancy https://community.home-assistant.io/t/reliable-multi-user-distributed-bluetooth-occupancy-presence-detection/50674
  - platform: mqtt
-   state_topic: 'location/owner/master_bedrm/40:4E:36:48:08:1B'
+   state_topic: 'location/master_bedrm/40:4E:36:48:08:1B'
    value_template: '{{ value_json.confidence }}'
    unit_of_measurement: '%'
    name: 'Tyler Master Bedroom'
 
  - platform: mqtt
-   state_topic: 'location/owner/kitchen/40:4E:36:48:08:1B'
+   state_topic: 'location/kitchen/40:4E:36:48:08:1B'
    value_template: '{{ value_json.confidence }}'
    unit_of_measurement: '%'
    name: 'Tyler Kitchen'
    
  - platform: mqtt
-   state_topic: 'location/owner/master_bedrm/40:4E:36:48:08:07'
+   state_topic: 'location/master_bedrm/40:4E:36:48:08:07'
    value_template: '{{ value_json.confidence }}'
    unit_of_measurement: '%'
    name: 'Amy Master Bedroom'
 
  - platform: mqtt
-   state_topic: 'location/owner/kitchen/40:4E:36:48:08:07'
+   state_topic: 'location/kitchen/40:4E:36:48:08:07'
    value_template: '{{ value_json.confidence }}'
    unit_of_measurement: '%'
    name: 'Amy Kitchen'

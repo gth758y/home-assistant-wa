@@ -12,6 +12,14 @@ updater:
 conversation:
 discovery:
 logbook:
+  exclude:
+    entities:
+      - sensor.date
+      - sensor.date__time
+      - sensor.internet_time
+      - sensor.time
+      - sensor.time__date
+      - sensor.time_utc
 history:
 sun:
 sensor: !include sensors.yaml
@@ -46,6 +54,7 @@ cover: !include cover.yaml
 #cloud:
 
 group: !include groups.yaml
+light: !include lights.yaml
 automation: !include_dir_list automation
 script: !include_dir_named scripts
 zone: !include zones.yaml
@@ -80,3 +89,20 @@ vacuum:
     host: 10.99.1.140
     username: !secret roomba_user
     password: !secret roomba_pass
+    
+circadian_lighting:
+    latitude: 22
+    longitude: -140
+    min_colortemp: 2700
+
+switch:
+  - platform: circadian_lighting
+    min_brightness: 70
+    lights_ct:
+      - light.living_room_short_lamp
+      - light.living_room_shortest_lamp
+      - light.living_room_tall_lamp
+      - light.bedroom__tyler
+      - light.bedroom__amy
+      - light.bay_window
+      - light.hallways

@@ -128,3 +128,113 @@ switch.back_porch:
   name: Shop Door
   platform: wemo
   unique_id: 221435K13005F3
+light.living_room_shortest_lamp:
+  config_entry_id: 3f0654e2fb8c4b27ba7e46fbce416f7c
+  name: Living Room Shortest Lamp
+  platform: hue
+  unique_id: 00:17:88:01:03:f3:76:b0-0b
+light.hue_color_downlight_1:
+  config_entry_id: 3f0654e2fb8c4b27ba7e46fbce416f7c
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:04:8a:3f:b9-0b
+light.hue_color_downlight_2:
+  config_entry_id: 3f0654e2fb8c4b27ba7e46fbce416f7c
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:04:68:a1:6f-0b
+light.hue_color_downlight_3:
+  config_entry_id: 3f0654e2fb8c4b27ba7e46fbce416f7c
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:04:68:c3:a1-0b
+light.hue_color_lamp_1:
+  config_entry_id: 3f0654e2fb8c4b27ba7e46fbce416f7c
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:d0:e3:68-0b
+light.hue_color_lamp_1_2:
+  config_entry_id: 3f0654e2fb8c4b27ba7e46fbce416f7c
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:ab:b1:ac-0b
+light.bay_window:
+  config_entry_id: 3f0654e2fb8c4b27ba7e46fbce416f7c
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:ec:9d:43-0b
+media_player.whole_house_speaker:
+  config_entry_id: 2304f0816f404ebcb564e6bc2fc679d7
+  name:
+  platform: cast
+  unique_id: 5aa1d7dd-9f33-6672-9aa7-f58d084f0932
+media_player.my_afts:
+  config_entry_id:
+  name:
+  platform: plex
+  unique_id: 763ed0ce956f8d8f-com-plexapp-android
+media_player.apple_tv:
+  config_entry_id:
+  name:
+  platform: apple_tv
+  unique_id: 8166004e9db263bbc712506278f70ab16ece3848e1ea2127de0dbe9028225184
+remote.apple_tv:
+  config_entry_id:
+  name:
+  platform: apple_tv
+  unique_id: 8166004e9db263bbc712506278f70ab16ece3848e1ea2127de0dbe9028225184
+zwave.ge_12720_outdoor_smart_switch:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: node-5
+switch.ge_12720_outdoor_smart_switch:
+  config_entry_id:
+  name: Probably Broken
+  platform: zwave
+  unique_id: 5-72057594126614528
+zwave.ge_unknown_type4f50_id3032:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: node-6
+switch.ge_unknown_type4f50_id3032_switch:
+  config_entry_id:
+  name: Basement Path Light
+  platform: zwave
+  unique_id: 6-72057594143391744
+light.hue_ambiance_downlight_1:
+  config_entry_id: 3f0654e2fb8c4b27ba7e46fbce416f7c
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:04:e8:f8:be-0b
+light.hue_ambiance_downlight_2:
+  config_entry_id: 3f0654e2fb8c4b27ba7e46fbce416f7c
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:04:e8:f8:b1-0b
+light.hue_ambiance_downlight_3:
+  config_entry_id: 3f0654e2fb8c4b27ba7e46fbce416f7c
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:af:c1:48-0b
+light.hue_ambiance_downlight_5:
+  config_entry_id: 3f0654e2fb8c4b27ba7e46fbce416f7c
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:04:e8:f9:b8-0b
+light.hue_ambiance_downlight_4:
+  config_entry_id: 3f0654e2fb8c4b27ba7e46fbce416f7c
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:04:e8:f9:14-0b
+media_player.amys_ipad:
+  config_entry_id:
+  name:
+  platform: plex
+  unique_id: D5AD3DB6-5F15-498A-966F-E1FE903A2D3C
+media_player.pixel_2_2:
+  config_entry_id:
+  name:
+  platform: plex
+  unique_id: 5412df9d5c66cb1e-com-plexapp-android
