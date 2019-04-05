@@ -1,7 +1,7 @@
 # Binary sensors
   - platform: threshold
     name: "Is It Dark"
-    lower: 375
+    lower: 400
     hysteresis: 50
     entity_id: sensor.living_room_light_level
     
@@ -84,6 +84,16 @@
              or is_state('binary_sensor.garage_door__tyler', 'on')
           }}
           
-            
-            
-           
+  - platform: template
+    sensors:
+      bt_monitor_disagree:
+        value_template: >-
+          {{ (((states.sensor.tyler_kitchen.state == 0 or states.sensor.tyler_master_bedroom.state == 0)
+          and
+          (not(states.sensor.tyler_kitchen.state == 0) or not(states.sensor.tyler_master_bedroom.state == 0)))
+          and (states.sensor.tyler_kitchen.state + states.sensor.tyler_master_bedroom.state) > 60)
+          or
+          (((states.sensor.amy_kitchen.state == 0 or states.sensor.amy_master_bedroom.state == 0)
+          and
+          (not(states.sensor.amy_kitchen.state == 0) or not(states.sensor.amy_master_bedroom.state == 0)))
+          and (states.sensor.amy_kitchen.state + states.sensor.amy_master_bedroom.state) > 60) }}

@@ -2,20 +2,20 @@
 
 - name: Master Bedroom On
   entities:
-    light.bedroom__tyler:
+    light.bedroom_tyler:
         state: on
         xy_color: [0.4449, 0.4066]
         brightness: 254
-    light.bedroom__amy:
+    light.bedroom_amy:
         state: on
         xy_color: [0.4449, 0.4066]
         brightness: 254
         
 - name: Master Bedroom Off
   entities:
-    light.bedroom__tyler:
+    light.bedroom_tyler:
         state: off
-    light.bedroom__amy:
+    light.bedroom_amy:
         state: off
     light.unterbett:
         state: off
@@ -40,6 +40,8 @@
 #        state: on
 #        xy_color: [0.4486, 0.4077]
 #        brightness: 254
+    light.hallways:
+        state: on
         
 - name: Living Room Morning
   entities:
@@ -69,6 +71,8 @@
     light.living_room_shortest_lamp:
         state: off
     light.bay_window:
+        state: off
+    light.hallways:
         state: off
         
 # - name: Master Bath Bright Red
@@ -127,20 +131,20 @@
         
 - name: Guest Bedroom On
   entities:
-    light.guest_bedroom__closet:
+    light.guest_bedroom_closet:
         state: on
         xy_color: [0.4449,0.4066]
         brightness: 254
-    light.guest_bedroom__window:
+    light.guest_bedroom_window:
         state: on
         xy_color: [0.4449,0.4066]
         brightness: 254
         
 - name: Guest Bedroom Off
   entities:
-    light.guest_bedroom__closet:
+    light.guest_bedroom_closet:
         state: off
-    light.guest_bedroom__window:
+    light.guest_bedroom_window:
         state: off
         
         
@@ -162,11 +166,11 @@
         state: on
         xy_color: [0.1909,0.0874]
         brightness: 44
-    light.under_cabinet__fridge:
+    light.under_cabinet_fridge:
         state: on
         xy_color: [0.1909,0.0874]
         brightness: 44
-    light.under_cabinet__passthrough:
+    light.under_cabinet_passthrough:
         state: on
         xy_color: [0.1909,0.0874]
         brightness: 44
@@ -178,11 +182,11 @@
         state: on
         xy_color: [0.191,0.0867]
         brightness: 48
-    light.bedroom__tyler:
+    light.bedroom_tyler:
         state: on
         xy_color: [0.191,0.0867]
         brightness: 48
-    light.bedroom__amy:
+    light.bedroom_amy:
         state: on
         xy_color: [0.191,0.0867]
         brightness: 48
