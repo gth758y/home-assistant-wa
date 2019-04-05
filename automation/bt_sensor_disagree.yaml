@@ -1,0 +1,12 @@
+alias: BT Monitor Sensor Disagree
+trigger:
+  - platform: state
+    entity_id: binary_sensor.bt_monitor_disagree
+    from: 'off'
+    to: 'on'
+    for:
+      minutes: 20
+action:
+  - service: mqtt.publish
+    data:
+        topic: "monitor/scan/restart"
