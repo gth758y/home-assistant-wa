@@ -6,14 +6,14 @@
   
     - service: homeassistant.turn_on
       data:
-        entity_id: light.bedroom__tyler
+        entity_id: light.bedroom_tyler
         rgb_color: [1,0,0]
         brightness: 1
         transition: 15
         
     - service: homeassistant.turn_on
       data:
-        entity_id: light.bedroom__amy
+        entity_id: light.bedroom_amy
         rgb_color: [1,0,0]
         brightness: 1
         transition: 15
@@ -22,6 +22,9 @@
 
     - service: scene.turn_on
       entity_id: scene.master_bedroom_off
+      
+    - service: scene.turn_on
+      entity_id: scene.kitchen_off
       
     - service: script.turn_on
       entity_id: script.make_white_noise
