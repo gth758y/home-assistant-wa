@@ -1,7 +1,7 @@
 alias: Unlock Tesla Charger
 trigger:
   platform: state
-  entity_id: binary_sensor.garage_door__tyler
+  entity_id: binary_sensor.garage_door_tyler
   from: 'off'
   to: 'on'
 condition:
