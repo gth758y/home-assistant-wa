@@ -1,0 +1,12 @@
+# turns off circadian lights when it reaches 0%
+
+alias: Turn off circadian lights
+trigger:
+    platform: numeric_state
+    entity_id: sensor.circadian_values
+    below: 0
+
+action:
+  - service: switch.turn_off
+    data:
+      entity_id: switch.circadian_lighting_circadian_lighting

@@ -1,0 +1,15 @@
+
+alias: Kitchen on for Motion Nighttime
+trigger:
+    platform: state
+    entity_id: binary_sensor.kitchen_motion_delay
+    to: 'on'
+condition:
+  - condition: state
+    entity_id: switch.circadian_lighting_circadian_lighting
+    state: 'off'
+action:
+  - service: hue.hue_activate_scene
+    data:
+      group_name: "kitchen"
+      scene_name: "Relax"

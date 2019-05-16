@@ -1,0 +1,13 @@
+alias: Motion Expire - Kitchen Off
+trigger:
+    platform: state
+    entity_id: binary_sensor.kitchen_motion_delay
+    to: 'off'
+condition:
+  - condition: state
+    entity_id: switch.circadian_lighting_circadian_lighting
+    state: 'on'
+action:
+  - service: scene.turn_on
+    data:
+      entity_id: scene.kitchen_off

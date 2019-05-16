@@ -1,0 +1,20 @@
+#trigger - binarysensor_anybody home goes to off
+
+#condition - any kitchen light is on - use light.kitchen to get them all
+
+#action - turn that shit off
+
+
+alias: Stop Leaving the Kitchen Lights On
+trigger:
+    platform: state
+    entity_id: binary_sensor.anybody_home
+    to: 'off'
+condition:
+  - condition: state
+    entity_id: light.kitchen
+    state: 'on'
+action:
+  - service: scene.turn_on
+    data:
+      entity_id: scene.kitchen_off
