@@ -5,13 +5,19 @@
     hysteresis: 50
     entity_id: sensor.living_room_light_level
     
+  - platform: threshold
+    name: "Is It Kind Of Dark"
+    lower: 550
+    hysteresis: 50
+    entity_id: sensor.living_room_light_level
+    
   - platform: iss
   
-  - platform: threshold
-    name: "Is It Cloudy"
-    upper: 80
-    hysteresis: 5
-    entity_id: sensor.dark_sky_cloud_coverage
+  # - platform: threshold
+    # name: "Is It Cloudy"
+    # upper: 80
+    # hysteresis: 5
+    # entity_id: sensor.dark_sky_cloud_coverage
 
   - platform: template
     sensors:
@@ -54,7 +60,7 @@
     payload_on: "open"
     payload_off: "closed"
     availability_topic: "GarHAge/availability"
-    device_class: opening
+    device_class: garage_door
     qos: 0
 
   - platform: mqtt
@@ -63,7 +69,7 @@
     payload_on: "open"
     payload_off: "closed"
     availability_topic: "GarHAge/availability"
-    device_class: opening
+    device_class: garage_door
     qos: 0
 
   - platform: mqtt
@@ -72,16 +78,16 @@
     payload_on: "open"
     payload_off: "closed"
     availability_topic: "GarHAge/availability"
-    device_class: opening
+    device_class: garage_door
     qos: 0
 
   - platform: template
     sensors:
       garage_open:
         value_template: >-
-          {{ is_state('binary_sensor.garage_door__amy', 'on')
-             or is_state('binary_sensor.garage_door__bikes', 'on')
-             or is_state('binary_sensor.garage_door__tyler', 'on')
+          {{ is_state('binary_sensor.garage_door_amy', 'on')
+             or is_state('binary_sensor.garage_door_bikes', 'on')
+             or is_state('binary_sensor.garage_door_tyler', 'on')
           }}
           
   - platform: template
@@ -97,3 +103,12 @@
           and
           (not(states.sensor.amy_kitchen.state == 0) or not(states.sensor.amy_master_bedroom.state == 0)))
           and (states.sensor.amy_kitchen.state + states.sensor.amy_master_bedroom.state) > 60) }}
+          
+  - platform: template
+    sensors:
+      kitchen_motion_delay:
+        friendly_name: "Kitchen Motion Detection"
+        delay_off:
+          minutes: 3
+        value_template: >-
+          {{ is_state('sensor.kitchen_motion', 'motion detected') }}

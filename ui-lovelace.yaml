@@ -1,0 +1,30 @@
+title: Home
+resources:
+  - url: /local/custom-lovelace/card-tools.js?v=1
+    type: js
+  - url: /local/custom-lovelace/layout-card.js?v=1
+    type: js
+  - url: /local/custom-lovelace/popup-card.js?v=1
+    type: js
+  - url: /local/custom-lovelace/compact-custom-header/compact-custom-header.js?v.1
+    type: module
+  - url: /local/custom-lovelace/mini-graph-card-bundle.js?v=0.3.2
+    type: module
+    
+views:
+  - !include lovelace/00_home_view.yaml
+
+
+# icon: mdi:home-assistant
+# panel: true
+# path: home
+
+# cards:
+  # - type: custom:layout-card
+    # layout: vertical
+    # cards:
+      # - type: picture-entity
+        # entity: sensor.tyler_home
+        # image: /local/lovelace/tyler.jpg
+        # show_name: false
+        

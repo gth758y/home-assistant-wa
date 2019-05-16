@@ -2,198 +2,90 @@
 
 - name: Master Bedroom On
   entities:
-    light.bedroom_tyler:
+    light.master_bedroom:
         state: on
-        xy_color: [0.4449, 0.4066]
-        brightness: 254
-    light.bedroom_amy:
-        state: on
-        xy_color: [0.4449, 0.4066]
-        brightness: 254
         
 - name: Master Bedroom Off
   entities:
-    light.bedroom_tyler:
+    light.master_bedroom:
         state: off
-    light.bedroom_amy:
-        state: off
-    light.unterbett:
-        state: off
-    light.hallways:
-        state: off
-        
+
 - name: Living Room Normal
   entities:
-    light.living_room_short_lamp:
-        state: on
-#        xy_color: [0.4486, 0.4077]
-#        brightness: 254
-    light.living_room_tall_lamp:
-        state: on
-#        xy_color: [0.4486, 0.4077]
-#        brightness: 254
-    light.living_room_shortest_lamp:
-        state: on
-#        xy_color: [0.4486, 0.4077]
-#        brightness: 254
-#    light.bay_window:
-#        state: on
-#        xy_color: [0.4486, 0.4077]
-#        brightness: 254
-    light.hallways:
+    light.living_room:
         state: on
         
 - name: Living Room Morning
   entities:
-    light.living_room_short_lamp:
+    light.living_room:
         state: on
         xy_color: [0.5186, 0.4142]
         brightness: 177
-    light.living_room_tall_lamp:
-        state: on
-        xy_color: [0.5186, 0.4142]
-        brightness: 177
-    light.living_room_shortest_lamp:
-        state: on
-        xy_color: [0.5186, 0.4142]
-        brightness: 177
-#    light.bay_window:
-#        state: on
-#        xy_color: [0.5186, 0.4142]
-#        brightness: 177]
         
 - name: Living Room Off
   entities:
-    light.living_room_short_lamp:
+    light.living_room:
         state: off
-    light.living_room_tall_lamp:
-        state: off
-    light.living_room_shortest_lamp:
-        state: off
-    light.bay_window:
-        state: off
-    light.hallways:
-        state: off
-        
-# - name: Master Bath Bright Red
-  # entities:
-    # light.master_bathroom:
-        # state: on
-        # xy_color: [0.5249,0.4134]
-        # brightness: 85
-        
-# - name: Master Bath Dim Red
-  # entities:
-    # light.master_bathroom:
-        # state: on
-        # xy_color: [0.6736,0.3221]
-        # brightness: 34
-
-# - name: Master Bath Off
-  # entities:
-    # light.master_bathroom:
-        # state: off
 
 - name: Exterior Lights On
   entities:
-    switch.ge_14291_inwall_smart_switch_switch : on
-    switch.ge_12722_onoff_relay_switch_switch : on
-    switch.ge_12722_onoff_relay_switch_switch_2 : on
+    switch.front_door_exterior:
+        state: on
+    switch.grill_area_exterior:
+        state: on
+    switch.dining_room_exterior:
+        state: on
     
 - name: Exterior Lights Off
   entities:
-    switch.ge_14291_inwall_smart_switch_switch : off
-    switch.ge_12722_onoff_relay_switch_switch : off
-    switch.ge_12722_onoff_relay_switch_switch_2 : off
-    switch.back_porch : off
-    switch.ge_12720_outdoor_smart_switch : off
-    switch.ge_unknown_type4f50_id3032_switch : off
+    switch.front_door_exterior:
+        state: off
+    switch.grill_area_exterior:
+        state: off
+    switch.dining_room_exterior:
+        state: off
+    switch.back_porch:
+        state: off
+    switch.basement_pathway_exterior:
+        state: off
+    switch.ge_unknown_type4f50_id3032_switch:
+        state: off
     
 - name: Kitchen Off
   entities:
     light.kitchen:
         state: off
         
-# - name: Kitchen On
-  # entities:
-    # light.under_cabinet:
-        # state: on
-        # xy_color: [0.3637,0.3657]
-        # brightness: 254
-    # light.under_cabinet__fridge:
-        # state: on
-        # xy_color: [0.3637,0.3657]
-        # brightness: 254
-    # light.under_cabinet__passthrough:
-        # state: on
-        # xy_color: [0.3916,0.3834]
-        # brightness: 254
-        
+- name: Kitchen On
+  entities:
+    light.kitchen:
+        state: on
+
+
 - name: Guest Bedroom On
   entities:
-    light.guest_bedroom_closet:
+    light.guest_room:
         state: on
-        xy_color: [0.4449,0.4066]
-        brightness: 254
-    light.guest_bedroom_window:
-        state: on
-        xy_color: [0.4449,0.4066]
-        brightness: 254
         
 - name: Guest Bedroom Off
   entities:
-    light.guest_bedroom_closet:
+    light.guest_room:
         state: off
-    light.guest_bedroom_window:
-        state: off
-        
-        
-# - name: Flash Living Rm
-  # entities:
-    # light.living_room_tall_lamp:
-      # state: on
-      # flash: short
-    # light.living_room_short_lamp:
-      # state: on
-      # flash: short
-    # light.office:
-      # state: on
-      # flash: short
       
 - name: House Blue
   entities:
-    light.under_cabinet:
+    light.kitchen:
         state: on
         xy_color: [0.1909,0.0874]
         brightness: 44
-    light.under_cabinet_fridge:
+    light.living_room:
         state: on
         xy_color: [0.1909,0.0874]
         brightness: 44
-    light.under_cabinet_passthrough:
+    light.master_bedroom:
         state: on
         xy_color: [0.1909,0.0874]
         brightness: 44
-    light.living_room_short_lamp:
-        state: on
-        xy_color: [0.191,0.0867]
-        brightness: 48
-    light.living_room_tall_lamp:
-        state: on
-        xy_color: [0.191,0.0867]
-        brightness: 48
-    light.bedroom_tyler:
-        state: on
-        xy_color: [0.191,0.0867]
-        brightness: 48
-    light.bedroom_amy:
-        state: on
-        xy_color: [0.191,0.0867]
-        brightness: 48
-    light.living_room_shortest_lamp:
-        state: on
-        xy_color: [0.191,0.0867]
-        brightness: 48
         
 - name: Under Bed Blue
   entities:
@@ -212,8 +104,13 @@
 
 - name: All Exterior But Front Off
   entities:
-    switch.ge_12722_onoff_relay_switch_switch_2: off
-    switch.ge_14291_inwall_smart_switch_switch : off
-    switch.back_porch : off
-    switch.ge_12720_outdoor_smart_switch : off
-    switch.ge_unknown_type4f50_id3032_switch : off
+    switch.dining_room_exterior:
+        state: off
+    switch.grill_area_exterior:
+        state: off
+    switch.back_porch:
+        state: off
+    switch.basement_pathway_exterior: 
+        state: off
+    switch.ge_unknown_type4f50_id3032_switch: 
+        state: off

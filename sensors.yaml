@@ -51,6 +51,11 @@
    ##This sensor is not calibrated to actual LUX. Rather, this a map of the input voltage ranging from 0 - 1023.
    unit_of_measurement: "LUX"
    value_template: '{{ value_json.ldr }}'
+   
+ - platform: mqtt
+   state_topic: "sensor/kitchen"
+   name: "Kitchen Motion"
+   value_template: '{{ value_json.motion }}'
 
    
 ## occupancy https://community.home-assistant.io/t/reliable-multi-user-distributed-bluetooth-occupancy-presence-detection/50674
@@ -102,3 +107,41 @@
      - 'time_date'
      - 'time_utc'
      - 'beat'
+     
+ # - platform: waze_travel_time
+   # name: "Tyler to Eagle Point"
+   # origin: device_tracker.tyler_tyler
+   # destination: zone.insitu_eagle_point
+   # region: 'US'
+   
+ # - platform: waze_travel_time
+   # name: "Tyler to Waucoma"
+   # origin: device_tracker.tyler_tyler
+   # destination: zone.insitu_waucoma
+   # region: 'US'
+   
+ # - platform: waze_travel_time
+   # name: "Tyler to Home"
+   # origin: device_tracker.tyler_tyler
+   # destination: zone.home
+   # region: 'US'
+   
+ # - platform: waze_travel_time
+   # name: "Tyler to Tesla M3"
+   # origin: device_tracker.tyler_tyler
+   # destination: device_tracker.tesla_model_3_5yj3e1ebxjf063608_location_tracker
+   # region: 'US'
+
+ - platform: template
+   sensors:
+     tyler_status:
+       value_template: >-
+           {% if is_state("binary_sensor.tyler_home","on") %}
+           home
+           {% elif is_state("input_select.tyler_status","running") and is_state("device_tracker.tyler_tyler","LSAC") %}
+           swimming
+           {% elif not is_state("input_select.tyler_status", "standby") %}
+           {{ states("input_select.tyler_status") }}
+           {% else %}
+           {{ states("device_tracker.tyler_tyler") }}
+           {%- endif %}

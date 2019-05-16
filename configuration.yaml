@@ -8,6 +8,7 @@ homeassistant:
   customize: !include customize.yaml
 
 frontend:
+  themes: !include themes.yaml
 updater:
 conversation:
 discovery:
@@ -15,10 +16,10 @@ logbook:
   exclude:
     entities:
       - sensor.date
-      - sensor.date__time
+      - sensor.date_time
       - sensor.internet_time
       - sensor.time
-      - sensor.time__date
+      - sensor.time_date
       - sensor.time_utc
 history:
 sun:
@@ -30,14 +31,22 @@ config:
 
 http:
   #api_password: !secret ha_api_pass
-  base_url: https://gth758yha.ddns.net
-  ssl_certificate: /ssl/fullchain.pem
-  ssl_key: /ssl/privkey.pem
+  
+  ###################### These three lines commented out to try to make reverse proxy work #############
+  # base_url: https://gth758yha.ddns.net
+  # ssl_certificate: /ssl/fullchain.pem
+  # ssl_key: /ssl/privkey.pem
+  
+    ###################### Three lines below are for the reverse proxy #############
+  base_url: https://homeassistant.gth758y.com
+  use_x_forwarded_for: true
+  trusted_proxies: 10.99.1.23
 
 device_tracker: !include device_trackers.yaml
 
 mqtt:
-    broker: core-mosquitto
+    broker: 10.99.1.23
+    port: 1883
     username: !secret mmqtt_user
     password: !secret mmqtt_pass
 
@@ -67,6 +76,7 @@ recorder:
   db_url: !secret mariaDB_url
 
 input_select: !include input_select.yaml
+input_boolean: !include input_boolean.yaml
 scene: !include scenes.yaml
 
 climate:
@@ -84,11 +94,11 @@ tesla:
   username: !secret tesla_username
   password: !secret tesla_pass
 
-vacuum:
-  - platform: roomba
-    host: 10.99.1.12
-    username: !secret roomba_user
-    password: !secret roomba_pass
+# vacuum:
+  # - platform: roomba
+    # host: 10.99.1.12
+    # username: !secret roomba_user
+    # password: !secret roomba_pass
     
 circadian_lighting:
     latitude: 22
@@ -107,9 +117,28 @@ switch:
       - light.bedroom_amy
       - light.bay_winow
       - light.hallways
+      - light.kitchen_overhead_1
+      - light.kitchen_overhead_2
+      - light.kitchen_overhead_3
+      - light.kitchen_overhead_4
+      - light.kitchen_overhead_5
+      - light.kitchen_overhead_6
+      - light.kitchen_overhead_7
+      - light.kitchen_overhead_8
+      
+# switch:
+  # - platform: circadian_lighting
+    # min_brightness: 70
+    # lights_ct:
+      # - light.kitchen
+      
+
       
 system_health:
 
-ambient_station:
-  api_key: !secret pws_api_key
-  app_key: !secret pws_app_key
+#ambient_station:
+  #api_key: !secret pws_api_key
+  #app_key: !secret pws_app_key
+  
+lovelace:
+  mode: yaml

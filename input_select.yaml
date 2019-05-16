@@ -20,13 +20,13 @@ amy_status:
     initial: standby
     icon: mdi:human-female
       
-visitars:
-    name: Visitarrrs
-    options:
-      - "enabled"
-      - "disabled"
-    initial: "disabled"
-    icon: mdi:human-greeting
+# visitars:
+    # name: Visitarrrs
+    # options:
+      # - "enabled"
+      # - "disabled"
+    # initial: "disabled"
+    # icon: mdi:human-greeting
     
 #house_status:
 #    name: House Status
