@@ -40,8 +40,8 @@
       entity_id: scene.living_room_off
       
     - condition: state
-      entity_id: input_select.visitars
-      state: 'disabled'
+      entity_id: input_boolean.visitars
+      state: 'off'
       
     - delay: "00:{{ (range(1, 8)|random|int) }}:00"
      

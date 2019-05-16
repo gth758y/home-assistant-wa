@@ -1,0 +1,30 @@
+  sequence:
+  
+    # dark red to medium warm orange
+    - service: homeassistant.turn_on
+      data:
+        entity_id: light.master_bedroom_lights
+        rgb_color: [82,0,255]
+        brightness: 1
+        transition: 15
+        
+    - delay:
+        seconds: 10
+        
+    - service: homeassistant.turn_on
+      data:
+        entity_id: light.master_bedroom_lights
+        rgb_color: [255,0,0]
+        brightness: 1
+        transition: 15
+        
+    - delay:
+        seconds: 30
+        
+    - service: homeassistant.turn_on
+      data:
+        entity_id: light.master_bedroom_lights
+        rgb_color: [249,123,0]
+        brightness: 103
+        transition: 120
+        
