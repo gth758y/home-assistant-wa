@@ -1,0 +1,160 @@
+title: Home
+icon: mdi:home-assistant
+panel: true
+path: home
+
+cards:
+  - type: vertical-stack
+    cards:
+      # - type: custom:compact-custom-header
+        # main_config: true
+        # disable: false
+        # header: true
+        # menu: show
+        # background_image: true
+        # notifications: show
+        # voice: hide
+        # options: clock
+        # clock_format: 24
+        # exceptions:
+          # - conditions:
+              # user: dashboard
+            # config:
+              # show_tabs: 12
+              # # header: false
+              
+
+      - type: custom:layout-card
+        layout: vertical
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: picture-entity
+                entity: sensor.tyler_status
+                state_image:
+                  "home": /local/tyler_square.jpg
+                  "not_home": /local/tyler_square_gray.jpg
+                  "standby": /local/tyler_square_gray.jpg
+                  "driving": /local/tyler_driving.jpg
+                  "swimming": /local/swimming.jpg
+                  "Insitu - Eagle Point": /local/insitu_ep.jpg
+                  "Eagle One - Camas Stop": /local/eagle_one_bus.jpg
+                  "sleeping": /local/tyler_sleeping.jpg
+                  "running": /local/tyler_running.jpg
+                  "Insitu - Waucoma": /local/insitu_waucoma.jpg
+                  "Simplexity": /local/simplexity.jpg
+                show_name: true
+                tap_action:
+                  action: more-info
+              - type: picture-entity
+                entity: sensor.amy_status
+                state_image:
+                  "home": /local/amy_square.jpeg
+                  "not_home": /local/amy_square_gray.jpeg
+                  "standby": /local/amy_square_gray.jpeg
+                  "driving": /local/amy_driving.jpg
+                  "swimming": /local/swimming.jpg
+                  "Insitu - Eagle Point": /local/insitu_ep.jpg
+                  "sleeping": /local/amy_sleeping.jpg
+                  "running": /local/amy_running_2.jpg
+                  "Insitu - Waucoma": /local/insitu_waucoma.jpg
+                  "Simplexity": /local/simplexity.jpg
+                show_name: true
+                tap_action:
+                  action: more-info
+                  
+          - type: horizontal-stack
+            cards:
+              - type: entity-button
+                entity: light.living_room
+                tap_action:
+                  action: toggle
+                icon: mdi:sofa
+                name: "living room"
+                  
+              - type: entity-button
+                entity: light.master_bedroom
+                tap_action:
+                  action: toggle
+                icon: mdi:hotel
+                name: bedroom
+                
+              - type: entity-button
+                entity: light.kitchen
+                tap_action:
+                  action: toggle
+                icon: mdi:silverware-fork-knife
+                
+              - type: entity-button
+                entity: light.guest_room
+                tap_action:
+                  action: toggle
+                icon: mdi:bed-empty
+
+          - type: horizontal-stack
+            cards:
+              - type: glance
+                entities:
+                  - entity: cover.garage_door_tyler
+                    name: tyler
+                  - entity: cover.garage_door_amy
+                    name: amy
+                  - entity: cover.garage_door_bikes
+                    name: bikes
+                    
+          - type: horizontal-stack
+            cards:
+              - type: picture-entity
+                entity: switch.circadian_lighting_circadian_lighting
+                state_image:
+                  "on": /local/circadian_lighting_on.jpg
+                  "off": /local/circadian_lighting_off.jpg
+                show_name: true
+                tap_action:
+                  action: toggle
+              - type: picture-entity
+                entity: input_boolean.visitars
+                state_image:
+                  "on": /local/visitars_on.jpg
+                  "off": /local/visitars_off.jpg
+                show_name: true
+                tap_action:
+                  action: toggle
+                  
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                show:
+                  icon: false
+                entities:
+                  - sensor.living_room_light_level
+
+              - type: custom:mini-graph-card
+                show:
+                  icon: false
+                entities:
+                  - sensor.tesla_model_3_5yj3e1ebxjf063608_range_sensor
+                color_thresholds:
+                  - value: 0
+                    color: "#FF0000"
+                  - value: 30
+                    color: "#FFFF00"
+                  - value: 60
+                    color: "#00FF00"
+          
+          # - type: horizontal-stack
+            # cards:
+              # - type: iframe
+                # url: https://tripcheck.com/roadcams/cams/I-84%20at%20Multnomah%20Falls%20Parking_pid2732.JPG?0.4765034520784486
+                
+          - type: horizontal-stack
+            cards:
+              - type: map
+                entities:
+                  - device_tracker.tyler_tyler
+                  - device_tracker.tyler_amy
+                  - zone.eagle_one_camas_stop
+                  - zone.insitu_eagle_point
+                  - zone.insitu_waucoma
+                  - zone.simplexity
+                  - zone.lsac
