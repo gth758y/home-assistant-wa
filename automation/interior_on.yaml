@@ -9,8 +9,8 @@ condition:
   entity_id: binary_sensor.house_asleep
   state: 'off'
 action:
-  - service: switch.turn_on
-    entity_id: switch.circadian_lighting_circadian_lighting
+  # - service: switch.turn_on
+    # entity_id: switch.circadian_lighting_circadian_lighting
   - service: scene.turn_on
     entity_id: scene.living_room_normal
   - service: scene.turn_on

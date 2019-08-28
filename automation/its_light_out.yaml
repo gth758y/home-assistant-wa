@@ -21,6 +21,6 @@ action:
     data:
       entity_id: scene.guest_bedroom_off
       
-  - service: switch.turn_on
-    data:
-      entity_id: switch.circadian_lighting_circadian_lighting
+  # - service: switch.turn_on
+    # data:
+      # entity_id: switch.circadian_lighting_circadian_lighting

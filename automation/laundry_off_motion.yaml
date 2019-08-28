@@ -1,0 +1,9 @@
+alias: Motion Expire - Laundry Off
+trigger:
+    platform: state
+    entity_id: binary_sensor.laundry_room_motion_delay
+    to: 'off'
+action:
+  - service: light.turn_off
+    data:
+      entity_id: light.laundry_room

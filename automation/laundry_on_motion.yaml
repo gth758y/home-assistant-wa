@@ -1,0 +1,11 @@
+
+alias: Laundry on for Motion
+trigger:
+    platform: state
+    entity_id: binary_sensor.laundry_room_motion_delay
+    to: 'on'
+
+action:
+  - service: light.turn_on
+    data:
+      entity_id: light.laundry_room
