@@ -1,21 +1,19 @@
   sequence:
   
-    # dark red to medium warm orange
     - service: homeassistant.turn_on
       data:
-        entity_id: light.master_bedroom_lights
-        rgb_color: [82,0,255]
+        entity_id: light.under_cabinet_passthrough
+        xy_color: [0.2122, 0.1992]
         brightness: 1
-        transition: 15
         
     - delay:
         seconds: 10
         
     - service: homeassistant.turn_on
       data:
-        entity_id: light.master_bedroom_lights
-        rgb_color: [255,0,0]
-        brightness: 1
+        entity_id: light.under_cabinet_passthrough
+        xy_color: [0.1775, 0.1591]
+        brightness: 2
         transition: 15
         
     - delay:
@@ -23,8 +21,57 @@
         
     - service: homeassistant.turn_on
       data:
-        entity_id: light.master_bedroom_lights
-        rgb_color: [249,123,0]
-        brightness: 103
-        transition: 120
+        entity_id: light.under_cabinet_passthrough
+        xy_color: [0.1790, 0.1642]
+        brightness: 6
+        transition: 30
         
+    - delay:
+        seconds: 90
+        
+    - service: homeassistant.turn_on
+      data:
+        entity_id: light.under_cabinet_passthrough
+        xy_color: [0.1785, 0.1627]
+        brightness: 14
+        transition: 15
+        
+    - delay:
+        seconds: 30
+        
+    - service: homeassistant.turn_on
+      data:
+        entity_id: light.under_cabinet_passthrough
+        xy_color: [0.2079, 0.2399]
+        brightness: 25
+        transition: 30
+        
+    - delay:
+        seconds: 90
+        
+    - service: homeassistant.turn_on
+      data:
+        entity_id: light.under_cabinet_passthrough
+        xy_color: [0.4205, 0.4143]
+        brightness: 30
+        transition: 30
+        
+    - delay:
+        seconds: 30
+        
+    - service: homeassistant.turn_on
+      data:
+        entity_id: light.under_cabinet_passthrough
+        xy_color: [0.5498, 0.3907]
+        brightness: 100
+        transition: 30
+        
+    - delay:
+        seconds: 30
+        
+    - service: homeassistant.turn_on
+      data:
+        entity_id: light.under_cabinet_passthrough
+        kelvin: 2300
+        brightness: 130
+        transition: 120

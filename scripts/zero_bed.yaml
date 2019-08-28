@@ -1,0 +1,6 @@
+  alias: Tare Bed
+  sequence:
+    - service: mqtt.publish
+      data_template:
+        topic: "/room/master_bedrm/bed/tare"
+        payload: '0'
