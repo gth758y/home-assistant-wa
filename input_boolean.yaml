@@ -2,3 +2,8 @@ visitars:
     name: Visitarrrs
     initial: off
     icon: mdi:human-greeting
+    
+in_bed:
+    name: Bed Occupancy
+    initial: off
+    icon: mdi:hotel

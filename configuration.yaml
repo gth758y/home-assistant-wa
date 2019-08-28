@@ -90,9 +90,9 @@ notify:
     gcm_api_key: !secret gcm-server-key
     gcm_sender_id: !secret gcm-sender-id
     
-tesla:
-  username: !secret tesla_username
-  password: !secret tesla_pass
+# tesla:
+  # username: !secret tesla_username
+  # password: !secret tesla_pass
 
 # vacuum:
   # - platform: roomba
@@ -115,7 +115,7 @@ switch:
       - light.living_room_tall_lamp
       - light.bedroom_tyler
       - light.bedroom_amy
-      - light.bay_winow
+      - light.bay_window
       - light.hallways
       - light.kitchen_overhead_1
       - light.kitchen_overhead_2
@@ -125,6 +125,8 @@ switch:
       - light.kitchen_overhead_6
       - light.kitchen_overhead_7
       - light.kitchen_overhead_8
+      - light.laundry_room_1
+      - light.laundry_room_2
       
 # switch:
   # - platform: circadian_lighting

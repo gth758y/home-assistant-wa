@@ -56,29 +56,34 @@
    state_topic: "sensor/kitchen"
    name: "Kitchen Motion"
    value_template: '{{ value_json.motion }}'
+   
+ - platform: mqtt
+   state_topic: "room/laundry/sensor"
+   name: "Laundry Room Motion"
+   value_template: '{{ value_json.motion }}'
 
    
 ## occupancy https://community.home-assistant.io/t/reliable-multi-user-distributed-bluetooth-occupancy-presence-detection/50674
  - platform: mqtt
-   state_topic: 'location/master_bedrm/40:4E:36:48:08:1B'
+   state_topic: 'location/master_bedrm/tyler'
    value_template: '{{ value_json.confidence }}'
    unit_of_measurement: '%'
    name: 'Tyler Master Bedroom'
 
  - platform: mqtt
-   state_topic: 'location/kitchen/40:4E:36:48:08:1B'
+   state_topic: 'location/kitchen/tyler'
    value_template: '{{ value_json.confidence }}'
    unit_of_measurement: '%'
    name: 'Tyler Kitchen'
    
  - platform: mqtt
-   state_topic: 'location/master_bedrm/40:4E:36:48:08:07'
+   state_topic: 'location/master_bedrm/amy'
    value_template: '{{ value_json.confidence }}'
    unit_of_measurement: '%'
    name: 'Amy Master Bedroom'
 
  - platform: mqtt
-   state_topic: 'location/kitchen/40:4E:36:48:08:07'
+   state_topic: 'location/kitchen/amy'
    value_template: '{{ value_json.confidence }}'
    unit_of_measurement: '%'
    name: 'Amy Kitchen'
@@ -145,3 +150,38 @@
            {% else %}
            {{ states("device_tracker.tyler_tyler") }}
            {%- endif %}
+           
+ - platform: template
+   sensors:
+     amy_status:
+       value_template: >-
+           {% if is_state("binary_sensor.amy_home","on") %}
+           home
+           {% elif is_state("input_select.amy_status","running") and is_state("device_tracker.tyler_amy","LSAC") %}
+           swimming
+           {% elif not is_state("input_select.amy_status", "standby") %}
+           {{ states("input_select.amy_status") }}
+           {% else %}
+           {{ states("device_tracker.tyler_amy") }}
+           {%- endif %}
+           
+ - platform: mqtt
+   state_topic: "/room/master_bedrm/bed/load"
+   name: Bed Mass
+   unit_of_measurement: "units"
+   
+ - platform: filter
+   name: bed_mass_raw_smoothed
+   entity_id: sensor.bed_mass
+   filters:
+     - filter: time_simple_moving_average
+       window_size: 00:00:02
+       precision: 1
+   
+ - platform: template
+   sensors:
+     bed_mass_calibrated:
+       value_template: "{{ (states('sensor.bed_mass_raw_smoothed')|float / -1.845238) | round(0) }}"
+       unit_of_measurement: 'kg'
+       
+     

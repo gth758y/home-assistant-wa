@@ -59,7 +59,7 @@
     state_topic: "garage/door/1/status"
     payload_on: "open"
     payload_off: "closed"
-    availability_topic: "GarHAge/availability"
+    availability_topic: "GarHAge_PoE/availability"
     device_class: garage_door
     qos: 0
 
@@ -68,7 +68,7 @@
     state_topic: "garage/door/2/status"
     payload_on: "open"
     payload_off: "closed"
-    availability_topic: "GarHAge/availability"
+    availability_topic: "GarHAge_PoE/availability"
     device_class: garage_door
     qos: 0
 
@@ -77,7 +77,7 @@
     state_topic: "garage/door/3/status"
     payload_on: "open"
     payload_off: "closed"
-    availability_topic: "GarHAge/availability"
+    availability_topic: "GarHAge_PoE/availability"
     device_class: garage_door
     qos: 0
 
@@ -112,3 +112,49 @@
           minutes: 3
         value_template: >-
           {{ is_state('sensor.kitchen_motion', 'motion detected') }}
+      laundry_room_motion_delay:
+        friendly_name: "Laundry Room Motion Detection"
+        delay_off:
+          minutes: 3
+        value_template: >-
+          {{ is_state('sensor.laundry_room_motion', 'motion detected') }}
+          
+  # - platform: template
+    # sensors:
+      # laundry_room_motion_delay:
+        # friendly_name: "Laundry Room Motion Detection"
+        # delay_off:
+          # minutes: 3
+        # value_template: >-
+          # {{ is_state('sensor.laundry_room_motion', 'motion detected') }}
+          
+  - platform: template
+    sensors:
+      tyler_in_bed:
+        value_template: >-
+            {{ states('sensor.bed_mass_calibrated')|float >= 70 }}
+            
+  - platform: template
+    sensors:
+      amy_in_bed:
+        value_template: >-
+            {{ (states('sensor.bed_mass_calibrated')|float > 50 and states('sensor.bed_mass_calibrated')|float < 70) or states('sensor.bed_mass_calibrated')|float > 130 }}
+            
+  - platform: template
+    sensors:
+      both_in_bed:
+        value_template: >-
+            {{ states('sensor.bed_mass_calibrated')|float > 130 }}
+            
+  - platform: template
+    sensors:
+      anybody_in_bed:
+        value_template: >-
+            {{ is_state('binary_sensor.tyler_in_bed', 'on') or is_state('binary_sensor.amy_in_bed', 'on') }}
+            
+  - platform: mqtt
+    name: "Front Door Motion"
+    state_topic: blue_iris/motion/front_door/state
+    payload_on: "ON"
+    payload_off: "OFF"
+    device_class: motion

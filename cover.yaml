@@ -1,9 +1,9 @@
 
   - platform: mqtt
     name: "Garage Door - Tyler"
-    state_topic: "garage/door/1/status"
-    command_topic: "garage/door/1/action"
-    availability_topic: "GarHAge/availability"
+    state_topic: "garagev2/door/1/status"
+    command_topic: "garagev2/door/1/action"
+    availability_topic: "GarHAge_PoE/availability"
     qos: 0
     optimistic: false
     retain: false
@@ -17,9 +17,9 @@
 
   - platform: mqtt
     name: "Garage Door - Amy"
-    state_topic: "garage/door/2/status"
-    command_topic: "garage/door/2/action"
-    availability_topic: "GarHAge/availability"
+    state_topic: "garagev2/door/2/status"
+    command_topic: "garagev2/door/2/action"
+    availability_topic: "GarHAge_PoE/availability"
     qos: 0
     optimistic: false
     retain: false
@@ -33,9 +33,9 @@
     
   - platform: mqtt
     name: "Garage Door - Bikes"
-    state_topic: "garage/door/3/status"
-    command_topic: "garage/door/3/action"
-    availability_topic: "GarHAge/availability"
+    state_topic: "garagev2/door/3/status"
+    command_topic: "garagev2/door/3/action"
+    availability_topic: "GarHAge_PoE/availability"
     qos: 0
     optimistic: false
     retain: false
