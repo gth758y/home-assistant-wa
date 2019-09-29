@@ -6,8 +6,7 @@ trigger:
     value_template: >-
           {{ states('sensor.circadian_values') | float > 0
              and is_state('binary_sensor.house_asleep', 'off')
-             and is_state('binary_sensor.anybody_in_bed', 'off')
-             and is_state('binary_sensor.is_it_dark', 'off') }}
+             and is_state('binary_sensor.anybody_in_bed', 'off') }}
 
 action:
   - service: switch.turn_on

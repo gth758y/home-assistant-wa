@@ -9,4 +9,7 @@ trigger:
 #   entity_id: binary_sensor.anybody_home
 #   state: 'on'
 action:
-    service: script.nighttime_shutdown
+  - service: script.check_garage_doors
+  - delay: '00:00:02'
+  - service: script.nighttime_shutdown
+    

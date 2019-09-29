@@ -1,0 +1,13 @@
+alias: Clear Hold for Open Garage
+trigger:
+  platform: state
+  entity_id: binary_sensor.garage_open
+  from: 'on'
+  to: 'off'
+condition:
+  condition: state
+  entity_id: input_boolean.nighttime_shutdown_hold
+  state: 'on'
+action:
+  service: input_boolean.turn_off
+  entity_id: input_boolean.nighttime_shutdown_hold

@@ -1,0 +1,18 @@
+alias: 3D Print Started
+trigger:
+  platform: state
+  entity_id: binary_sensor.octoprint_printing
+  from: 'off'
+  to: 'on'
+  # for:
+    # minutes: 20
+# condition:
+  # condition: state
+  # entity_id: binary_sensor.anybody_home
+  # state: 'on'
+action:
+  - service: light.turn_on
+    data:
+      entity_id: light.under_cabinet
+    data_template:
+      xy_color: "{{ states.sensor.circadian_values.attributes.xy_color }}"

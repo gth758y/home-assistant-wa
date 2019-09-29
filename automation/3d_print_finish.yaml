@@ -1,0 +1,16 @@
+alias: 3D Print Finished
+trigger:
+  platform: state
+  entity_id: binary_sensor.octoprint_printing
+  from: 'on'
+  to: 'off'
+  for:
+    minutes: 5
+# condition:
+  # condition: state
+  # entity_id: binary_sensor.anybody_home
+  # state: 'on'
+action:
+  - service: light.turn_off
+    data:
+      entity_id: light.under_cabinet
