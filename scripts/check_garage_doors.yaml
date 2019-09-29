@@ -1,0 +1,26 @@
+# Check if the garage is closed
+  sequence:
+    - condition: state
+      entity_id: input_boolean.bedtime_garage_check_bypass
+      state: 'off'
+      
+    - condition: state
+      entity_id: binary_sensor.garage_open
+      state: 'on'
+      
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.nighttime_shutdown_hold
+      
+      #color loop bedroom lights      
+    - service: switch.turn_off
+      data:
+        entity_id: switch.circadian_lighting_circadian_lighting
+        
+    - service: light.turn_on
+      data:
+        entity_id: light.master_bedroom_lights
+        brightness: 75
+        effect: random
+        
+      #push notifications
+      #make google home announcement
