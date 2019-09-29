@@ -3,7 +3,12 @@ visitars:
     initial: off
     icon: mdi:human-greeting
     
-in_bed:
-    name: Bed Occupancy
+nighttime_shutdown_hold:
+    name: Nighttime Shutdown Script Hold
     initial: off
-    icon: mdi:hotel
+    icon: mdi:sleep-off
+    
+bedtime_garage_check_bypass:
+    name: Bypass Shutdown Script Garage Check
+    initial: off
+    icon: mdi:garage-alert

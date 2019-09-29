@@ -10,21 +10,15 @@ resources:
     type: module
   - url: /local/custom-lovelace/mini-graph-card-bundle.js?v=0.3.2
     type: module
+  - url: /local/custom-lovelace/monster-card.js?v=1
+    type: js
     
 views:
   - !include lovelace/00_home_view.yaml
-
-
-# icon: mdi:home-assistant
-# panel: true
-# path: home
-
-# cards:
-  # - type: custom:layout-card
-    # layout: vertical
-    # cards:
-      # - type: picture-entity
-        # entity: sensor.tyler_home
-        # image: /local/lovelace/tyler.jpg
-        # show_name: false
-        
+  - !include lovelace/10_lights_view.yaml
+  - !include lovelace/20_sensors_view.yaml
+  - !include lovelace/30_automations_view.yaml
+  - !include lovelace/40_weather_view.yaml
+  - !include lovelace/50_ip_cams_view.yaml
+  - !include lovelace/60_traffic_view.yaml
+  - !include lovelace/70_3d_printer_view.yaml

@@ -1,7 +1,8 @@
 
   - platform: mqtt
     name: "Garage Door - Tyler"
-    state_topic: "garagev2/door/1/status"
+    # vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv this should be changed back to 1 after the board is reprogrammed
+    state_topic: "garagev2/door/3/status" 
     command_topic: "garagev2/door/1/action"
     availability_topic: "GarHAge_PoE/availability"
     qos: 0
@@ -33,7 +34,8 @@
     
   - platform: mqtt
     name: "Garage Door - Bikes"
-    state_topic: "garagev2/door/3/status"
+    # vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv this should be changed back to 3 after the board is reprogrammed
+    state_topic: "garagev2/door/1/status"
     command_topic: "garagev2/door/3/action"
     availability_topic: "GarHAge_PoE/availability"
     qos: 0
