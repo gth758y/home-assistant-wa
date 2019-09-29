@@ -1,0 +1,66 @@
+title: Sensors
+icon: mdi:smoke-detector
+panel: true
+path: sensors
+
+cards:
+  - type: custom:layout-card
+    layout: vertical
+    cards:
+      - type: entities
+        title: Status
+        show_header_toggle: false
+        entities:
+          - entity: input_select.amy_status
+          - entity: input_select.tyler_status
+      - type: glance
+        title: Presence
+        entities:
+          - entity: binary_sensor.anybody_home
+            name: Anybody
+          - entity: binary_sensor.amy_home
+            name: Amy
+          - entity: binary_sensor.tyler_home
+            name: Tyler
+          
+      - type: glance
+        title: Bed
+        entities:
+          - entity: binary_sensor.anybody_in_bed
+            name: Anybody
+          - entity: binary_sensor.amy_in_bed
+            name: Amy
+          - entity: binary_sensor.tyler_in_bed
+            name: Tyler
+          - entity: binary_sensor.both_in_bed
+            name: Both
+          - entity: sensor.bed_mass_calibrated
+            name: Mass
+          
+      - type: glance
+        title: Motion
+        entities:
+          - entity: binary_sensor.kitchen_motion_delay
+            name: Kitchen
+          - entity: binary_sensor.laundry_room_motion_delay
+            name: Laundry Room
+          
+      - type: glance
+        title: Garage
+        entities:
+          - entity: binary_sensor.garage_open
+            name: Any Open
+          - entity: binary_sensor.garage_door_tyler
+            name: Tyler
+          - entity: binary_sensor.garage_door_amy
+            name: Amy
+          - entity: binary_sensor.garage_door_bikes
+            name: Bikes
+          
+      - type: glance
+        title: House
+        entities:
+          - entity: binary_sensor.house_asleep
+            name: House Asleep
+          - entity: binary_sensor.is_it_dark
+          - entity: binary_sensor.is_it_kind_of_dark

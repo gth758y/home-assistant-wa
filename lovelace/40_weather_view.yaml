@@ -1,0 +1,65 @@
+title: Weather
+icon: mdi:weather-partlycloudy
+panel: true
+path: weather
+
+cards:
+  - type: vertical-stack
+    cards:
+      - type: glance
+        title: Temperature
+        entities:
+          - entity: sensor.dark_sky_temperature
+            name: Temperature
+          - entity: sensor.dark_sky_apparent_temperature
+            name: Apparent Temperature
+
+      - type: glance
+        title: Wind
+        entities:
+          - entity: sensor.dark_sky_wind_speed
+            name: Wind Speed
+          - entity: sensor.dark_sky_wind_bearing
+            name: Wind Direction
+            
+      - type: glance
+        title: Humidity
+        entities:
+          - entity: sensor.dark_sky_dew_point
+            name: Dew Point
+          - entity: sensor.dark_sky_humidity
+            name: Humidity
+            
+      - type: glance
+        title: Pressure
+        entities:
+          - entity: sensor.dark_sky_pressure_inhg
+            name: Pressure
+            
+      - type: glance
+        title: Visibility
+        entities:
+          - entity: sensor.dark_sky_visibility
+            name: Visibility
+            
+      - type: glance
+        title: Sky Conditions
+        entities:
+          - entity: sensor.dark_sky_summary
+            name: Summary
+          - entity: sensor.dark_sky_cloud_coverage
+            name: Cloud Coverage
+          - entity: sensor.dark_sky_precip
+            name: Precipitation
+          - entity: sensor.dark_sky_precip_intensity
+            name: Precip Rate
+            
+      - type: glance
+        title: Forecast
+        entities:
+          - entity: sensor.dark_sky_precip_probability
+            name: Rain Chance
+          - entity: sensor.dark_sky_nearest_storm_bearing
+            name: Storm Bearing
+          - entity: sensor.dark_sky_nearest_storm_distance
+            name: Storm Distance

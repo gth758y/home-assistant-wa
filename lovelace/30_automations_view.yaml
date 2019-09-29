@@ -1,0 +1,71 @@
+title: Automations
+icon: mdi:home-automation
+panel: true
+path: automations
+
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:monster-card
+        show_empty: true
+        card:
+          type: entities
+          title: 'Running Scripts'
+          show_header_toggle: false
+        filter:
+          include:
+            - entity_id: "script.*"
+              state: "on"
+              
+      - type: custom:monster-card
+        show_empty: true
+        card:
+          type: entities
+          title: 'Standby Scripts'
+          show_header_toggle: false
+        filter:
+          include:
+            - entity_id: "script.*"
+              state: "off"
+
+      - type: custom:monster-card
+        show_empty: false
+        card:
+          type: entities
+          title: 'Active Automations'
+          show_header_toggle: false
+        filter:
+          include:
+            - entity_id: "automation.*"
+              state: "on"
+
+      - type: custom:monster-card
+        show_empty: false
+        card:
+          type: entities
+          title: 'Inactive Automations'
+          show_header_toggle: false
+        filter:
+          include:
+            - entity_id: "automation.*"
+              state: "off"
+              
+      - type: custom:monster-card
+        show_empty: false        
+        card:
+          type: entities
+          title: 'Scenes'
+          show_header_toggle: false
+        filter:
+          include:
+            - entity_id: "scene.*"
+            
+      - type: custom:monster-card
+        show_empty: false
+        card:
+          type: entities
+          title: 'Boolean Switches'
+          show_header_toggle: true
+        filter:
+          include:
+            - entity_id: "input_boolean.*"

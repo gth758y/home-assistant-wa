@@ -1,5 +1,5 @@
 title: Home
-icon: mdi:home-assistant
+icon: mdi:information-outline
 panel: true
 path: home
 
@@ -29,6 +29,19 @@ cards:
         cards:
           - type: horizontal-stack
             cards:
+              - type: custom:monster-card
+                show_empty: false
+                card:
+                  type: entities
+                  title: 'Boolean Switches'
+                  show_header_toggle: false
+                filter:
+                  include:
+                    - entity_id: "input_boolean.nighttime_shutdown_hold"
+                      state: "on"
+
+          - type: horizontal-stack
+            cards:
               - type: picture-entity
                 entity: sensor.tyler_status
                 state_image:
@@ -37,6 +50,7 @@ cards:
                   "standby": /local/tyler_square_gray.jpg
                   "driving": /local/tyler_driving.jpg
                   "swimming": /local/swimming.jpg
+                  "LSAC": /local/swimming.jpg
                   "Insitu - Eagle Point": /local/insitu_ep.jpg
                   "Eagle One - Camas Stop": /local/eagle_one_bus.jpg
                   "sleeping": /local/tyler_sleeping.jpg
@@ -54,6 +68,7 @@ cards:
                   "standby": /local/amy_square_gray.jpeg
                   "driving": /local/amy_driving.jpg
                   "swimming": /local/swimming.jpg
+                  "LSAC": /local/swimming.jpg
                   "Insitu - Eagle Point": /local/insitu_ep.jpg
                   "sleeping": /local/amy_sleeping.jpg
                   "running": /local/amy_running_2.jpg
@@ -124,23 +139,25 @@ cards:
           - type: horizontal-stack
             cards:
               - type: custom:mini-graph-card
+                points_per_hour: 2
                 show:
                   icon: false
                 entities:
                   - sensor.living_room_light_level
 
               - type: custom:mini-graph-card
+                hours_to_show: 24
+                points_per_hour: 2
                 show:
+                  # points: true
                   icon: false
                 entities:
-                  - sensor.tesla_model_3_5yj3e1ebxjf063608_range_sensor
-                color_thresholds:
-                  - value: 0
-                    color: "#FF0000"
-                  - value: 30
-                    color: "#FFFF00"
-                  - value: 60
-                    color: "#00FF00"
+                  - entity: sensor.dark_sky_temperature
+                    name: OAT
+                    color: green
+                  - entity: sensor.inside_air_temperature
+                    name: IAT
+                    color: blue
           
           # - type: horizontal-stack
             # cards:
@@ -153,8 +170,11 @@ cards:
                 entities:
                   - device_tracker.tyler_tyler
                   - device_tracker.tyler_amy
-                  - zone.eagle_one_camas_stop
-                  - zone.insitu_eagle_point
-                  - zone.insitu_waucoma
-                  - zone.simplexity
-                  - zone.lsac
+                  # - zone.eagle_one_camas_stop
+                  # - zone.insitu_eagle_point
+                  # - zone.insitu_waucoma
+                  # - zone.simplexity
+                  # - zone.lsac
+
+   # - zone.lsac
+

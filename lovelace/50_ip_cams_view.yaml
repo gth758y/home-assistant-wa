@@ -1,0 +1,36 @@
+title: Cameras
+icon: mdi:cctv
+panel: true
+path: cameras
+
+cards:
+  - type: custom:layout-card
+    layout: vertical
+    cards:
+      - camera_image: camera.back_walkway
+        camera_view: live
+        entity: camera.back_walkway
+        show_info: true
+        title: Back Walkway
+        type: picture-entity
+        
+      - camera_image: camera.front_door
+        camera_view: live
+        entity: camera.front_door
+        show_info: true
+        title: Front Door
+        type: picture-entity
+        
+      - camera_image: camera.back_porch
+        camera_view: live
+        entity: camera.back_porch
+        show_info: true
+        title: Back Porch
+        type: picture-entity
+        
+      - camera_image: camera.driveway
+        camera_view: live
+        entity: camera.driveway
+        show_info: true
+        title: Driveway
+        type: picture-entity

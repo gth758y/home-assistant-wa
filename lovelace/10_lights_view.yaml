@@ -1,0 +1,142 @@
+title: Lights
+icon: mdi:lightbulb-on
+panel: true
+path: lights
+
+cards:
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: Lights
+        show_header_toggle: false
+        entities:
+          - type: section
+            label: Exterior
+          - entity: switch.front_door_exterior
+            name: Front Door
+            icon: bha:outdoor-lamp
+            toggle: true
+          - entity: switch.grill_area_exterior
+            name: Grill Area
+            icon: bha:outdoor-lamp
+            toggle: true
+          - entity: switch.dining_room_exterior
+            name: Upper Deck
+            icon: bha:outdoor-lamp
+            toggle: true
+          - entity: switch.back_porch
+            name: Basement Entrance
+            icon: bha:outdoor-lamp-solo
+            toggle: true
+          - entity: switch.basement_pathway_exterior
+            name: Under Deck Walkway
+            icon: bha:light-string
+            toggle: true
+        
+          - type: section
+            label: Living Room
+          - entity: light.living_room_short_lamp
+            name: Short Lamp
+            icon: mdi:lamp
+            toggle: true
+          - entity: light.living_room_shortest_lamp
+            name: Shortest Lamp
+            icon: mdi:lamp
+            toggle: true
+          - entity: light.living_room_tall_lamp
+            name: Tall Lamp
+            icon: bha:floor-lamp
+            toggle: true
+            
+          - type: section
+            label: Hallways
+          - entity: light.office_hallway_1
+            name: Office Hallway 1
+            icon: mdi:wall-sconce
+            toggle: true
+          - entity: light.office_hallway_2
+            name: Office Hallway 2
+            icon: mdi:wall-sconce
+            toggle: true
+          - entity: light.bay_window
+            name: Dining Room Bay Window
+            icon: bha:floor-lamp
+            toggle: true
+            
+            
+          - type: section
+            label: Master Bedroom
+          - entity: light.bedroom_amy
+            name: Amy's Side
+            icon: mdi:lamp
+            toggle: true
+          - entity: light.bedroom_tyler
+            name: Tyler's Side
+            icon: mdi:lamp
+            toggle: true
+          - entity: light.unterbett
+            name: Amy's Side Under Bed
+            icon: bha:led-strip
+            toggle: true
+          - entity: light.unterbett_2
+            name: Tyler's Side Under Bed
+            icon: bha:led-strip
+            
+
+            
+          - type: section
+            label: Guest Bedroom
+          - entity: light.guest_bedroom_closet
+            name: Guest Room 1
+            icon: mdi:lamp
+            toggle: true
+          - entity: light.guest_bedroom_window
+            name: Guest Room 2
+            icon: mdi:lamp
+            toggle: true
+
+            
+          - type: section
+            label: Kitchen
+          - entity: light.kitchen_overhead_1
+            name: Overhead Light 1
+            icon: mdi:wall-sconce-flat
+            toggle: true
+          - entity: light.kitchen_overhead_2
+            name: Overhead Light 2
+            icon: mdi:wall-sconce-flat
+            toggle: true
+          - entity: light.kitchen_overhead_3
+            name: Overhead Light 3
+            icon: mdi:wall-sconce-flat
+            toggle: true
+          - entity: light.kitchen_overhead_4
+            name: Overhead Light 4
+            icon: mdi:wall-sconce-flat
+            toggle: true
+          - entity: light.kitchen_overhead_5
+            name: Overhead Light 5
+            icon: mdi:wall-sconce-flat
+            toggle: true
+          - entity: light.kitchen_overhead_6
+            name: Overhead Light 6
+            icon: mdi:wall-sconce-flat
+            toggle: true
+          - entity: light.kitchen_overhead_7
+            name: Overhead Light 7
+            icon: mdi:wall-sconce-flat
+            toggle: true
+          - entity: light.kitchen_overhead_8
+            name: Overhead Light 8
+            icon: mdi:wall-sconce-flat
+            toggle: true
+            
+          - type: section
+            label: Laundry Room
+          - entity: light.laundry_room_1
+            name: Laundry Room Central
+            icon: mdi:wall-sconce-flat
+            toggle: true
+          - entity: light.laundry_room_2
+            name: Laundry Room Sink
+            icon: mdi:wall-sconce-flat
