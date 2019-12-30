@@ -108,12 +108,12 @@ switch:
   - platform: circadian_lighting
     min_brightness: 70
     lights_ct:
-      - light.living_room_short_lamp
-      - light.living_room_shortest_lamp
-      - light.living_room_tall_lamp
+      # - light.living_room_short_lamp
+      # - light.living_room_shortest_lamp
+      # - light.living_room_tall_lamp
       - light.bedroom_tyler
       - light.bedroom_amy
-      - light.bay_window
+      # - light.bay_window
       - light.hallways
       - light.kitchen_overhead_1
       - light.kitchen_overhead_2
@@ -125,6 +125,14 @@ switch:
       - light.kitchen_overhead_8
       - light.laundry_room_1
       - light.laundry_room_2
+      # - light.master_bedroom
+      - light.living_room
+      # - light.hue_ambiance_downlight_1
+      # - light.hue_white_lamp_1
+      # - light.hue_white_lamp_2
+      - light.office_hallway_1
+      - light.office_hallway_2
+      - light.loft
 
       
 system_health:

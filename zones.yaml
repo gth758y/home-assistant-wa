@@ -24,14 +24,150 @@
   radius: 175
   icon: mdi:briefcase
 
-- name: Eagle One - Camas Stop
-  latitude: 45.581328
-  longitude: -122.386525
-  radius: 75
-  icon: mdi:bus
-
 - name: LSAC
   latitude: 45.6890943
   longitude: -122.6956240
   radius: 200
   icon: mdi:pool
+
+- name: KPDX
+  latitude: 45.589073
+  longitude: -122.594389
+  radius: 442
+  icon: mdi:airport
+
+- name: KLAX
+  latitude: 33.943638
+  longitude: -118.404285
+  radius: 782
+  icon: mdi:airport
+
+- name: KSLC
+  latitude: 40.785933
+  longitude: -111.984844
+  radius: 678
+  icon: mdi:airport
+
+- name: KATL
+  latitude: 33.640388
+  longitude: -84.432303
+  radius: 1561
+  icon: mdi:airport
+
+- name: KMSP
+  latitude: 44.882179
+  longitude: -93.208769
+  radius: 783
+  icon: mdi:airport
+
+- name: KDTW
+  latitude: 42.208961
+  longitude: -83.357968
+  radius: 818
+  icon: mdi:airport
+
+- name: KSEA
+  latitude: 47.443585
+  longitude: -122.301951
+  radius: 695
+  icon: mdi:airport
+
+- name: KJFK
+  latitude: 40.6447
+  longitude: -73.784509
+  radius: 1145
+  icon: mdi:airport
+
+- name: EHAM
+  latitude: 52.308447
+  longitude: 4.760656
+  radius: 964
+  icon: mdi:airport
+
+- name: L&D Smith
+  latitude: !secret l_and_d_lat
+  longitude: !secret l_and_d_long
+  radius: 17
+  icon: mdi:home-outline
+
+- name: Moe & Joe
+  latitude: !secret m_and_j_lat
+  longitude: !secret m_and_j_long
+  radius: 115
+  icon: mdi:home-outline
+
+- name: Mark & Lindsey
+  latitude: !secret mark_linds_lat
+  longitude: !secret mark_linds_long
+  radius: 13
+  icon: mdi:home-outline
+
+- name: Steph & Lukas
+  latitude: !secret steph_lukas_lat
+  longitude: !secret steph_lukas_long
+  radius: 23
+  icon: mdi:home-outline
+
+- name: Cumming Conners
+  latitude: !secret kristy_tim_lat
+  longitude: !secret kristy_tim_long
+  radius: 92
+  icon: mdi:barn
+
+- name: Freddy
+  latitude: !secret freddy_lat
+  longitude: !secret freddy_long
+  radius: 128
+  icon: mdi:cart
+
+- name: Georgia Tech
+  latitude: 33.777167
+  longitude: -84.398698
+  radius: 920
+  icon: mdi:school
+
+- name: Safeway
+  latitude: !secret safeway_lat
+  longitude: !secret safeway_long
+  radius: 98
+  icon: mdi:cart
+  
+- name: KSAT
+  latitude: 29.527074
+  longitude: -98.472558
+  radius: 363
+  icon: mdi:airport
+
+- name: Jennifer
+  latitude: !secret jennifer_lat
+  longitude: !secret jennifer_long
+  radius: 42
+  icon: mdi:home-outline
+
+- name: DJ & Sarah
+  latitude: !secret dj_sarah_lat
+  longitude: !secret dj_sarah_long
+  radius: 42
+  icon: mdi:home-outline
+
+- name: Leslie & Janice
+  latitude: !secret leslie_janice_lat
+  longitude: !secret leslie_janice_long
+  radius: 38
+  icon: mdi:home-outline
+
+- name: Barry & Fran
+  latitude: !secret barry_fran_lat
+  longitude: !secret barry_fran_long
+  radius: 29
+  icon: mdi:home-outline
+  
+- name: Grandma
+  latitude: !secret grandma_lat
+  longitude: !secret grandma_long
+  radius: 42
+  icon: mdi:home-outline
+  
+
+
+

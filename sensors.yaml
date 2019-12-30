@@ -185,7 +185,8 @@
  - platform: template
    sensors:
      bed_mass_calibrated:
-       value_template: "{{ (states('sensor.bed_mass_raw_smoothed')|float / -1.68668) | round(0) }}"
+       value_template: "{{ (states('sensor.bed_mass_raw_smoothed')|float / -1.845238) | round(0) }}"
+       ## changed factor to -1.68668, but reverted back to -1.845238 on 26 Nov 2019
        unit_of_measurement: 'kg'
        
  - platform: template
