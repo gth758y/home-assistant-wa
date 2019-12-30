@@ -32,7 +32,26 @@ cards:
             name: Under Deck Walkway
             icon: bha:light-string
             toggle: true
-        
+            
+          - type: section
+            label: Loft
+          - entity: light.loft_1
+            name: Loft 1
+            icon: mdi:wall-sconce-flat
+            toggle: true
+          - entity: light.loft_2
+            name: Loft 2
+            icon: mdi:wall-sconce-flat
+            toggle: true
+          - entity: light.loft_3
+            name: Loft 3
+            icon: mdi:wall-sconce-flat
+            toggle: true
+          - entity: light.loft_4
+            name: Loft 4
+            icon: mdi:wall-sconce-flat
+            toggle: true
+            
           - type: section
             label: Living Room
           - entity: light.living_room_short_lamp

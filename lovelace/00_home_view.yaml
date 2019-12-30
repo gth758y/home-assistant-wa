@@ -57,6 +57,29 @@ cards:
                   "running": /local/tyler_running.jpg
                   "Insitu - Waucoma": /local/insitu_waucoma.jpg
                   "Simplexity": /local/simplexity.jpg
+                  "Moe & Joe": /local/moe_and_joe.jpg
+                  "L&D Smith": /local/l_and_d_ditzingdingle.jpg
+                  "Mark & Lindsey": /local/mark_lindsey.jpg
+                  "Steph & Lukas": /local/steph_lukas.jpg
+                  "Cumming Conners": /local/cumming_conners.jpg
+                  "Freddy": /local/Fred_Meyer.jpg
+                  "Georgia Tech": /local/tech.jpg
+                  "Safeway": /local/safeway.jpg
+                  "Jennifer": /local/jennifer.jpg
+                  "DJ & Sarah": /local/dj_sarah.jpg
+                  "Leslie & Janice": /local/leslie_janice.jpg
+                  "Grandma": /local/grandma.jpg
+                  "KSAT": /local/ksat.jpg
+                  "KPDX": /local/kpdx.jpg
+                  "KLAX": /local/klax.jpg
+                  "KSLC": /local/kslc.jpg
+                  "KATL": /local/katl.jpg
+                  "KMSP": /local/kmsp.jpg
+                  "KDTW": /local/kdtw.jpeg
+                  "KSEA": /local/ksea.jpg
+                  "KJFK": /local/kjfk.jpg
+                  "EHAM": /local/eham.jpg
+                  
                 show_name: true
                 tap_action:
                   action: more-info
@@ -74,6 +97,28 @@ cards:
                   "running": /local/amy_running_2.jpg
                   "Insitu - Waucoma": /local/insitu_waucoma.jpg
                   "Simplexity": /local/simplexity.jpg
+                  "Moe & Joe": /local/moe_and_joe.jpg
+                  "L&D Smith": /local/l_and_d_ditzingdingle.jpg
+                  "Mark & Lindsey": /local/mark_lindsey.jpg
+                  "Steph & Lukas": /local/steph_lukas.jpg
+                  "Cumming Conners": /local/cumming_conners.jpg
+                  "Freddy": /local/Fred_Meyer.jpg
+                  "Georgia Tech": /local/tech.jpg
+                  "Safeway": /local/safeway.jpg
+                  "Jennifer": /local/jennifer.jpg
+                  "DJ & Sarah": /local/dj_sarah.jpg
+                  "Leslie & Janice": /local/leslie_janice.jpg
+                  "Grandma": /local/grandma.jpg
+                  "KSAT": /local/ksat.jpg
+                  "KPDX": /local/kpdx.jpg
+                  "KLAX": /local/klax.jpg
+                  "KSLC": /local/kslc.jpg
+                  "KATL": /local/katl.jpg
+                  "KMSP": /local/kmsp.jpg
+                  "KDTW": /local/kdtw.jpeg
+                  "KSEA": /local/ksea.jpg
+                  "KJFK": /local/kjfk.jpg
+                  "EHAM": /local/eham.jpg
                 show_name: true
                 tap_action:
                   action: more-info
