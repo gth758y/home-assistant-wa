@@ -4,9 +4,12 @@ trigger:
     entity_id: binary_sensor.kitchen_motion_delay
     to: 'off'
 condition:
-  - condition: state
-    entity_id: switch.circadian_lighting_circadian_lighting
-    state: 'off'
+    - condition: state
+      entity_id: switch.circadian_lighting_circadian_lighting
+      state: 'off'
+    - condition: state
+      entity_id: binary_sensor.house_asleep
+      state: 'off'
 action:
   - service: hue.hue_activate_scene
     data:

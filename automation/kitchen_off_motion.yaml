@@ -4,9 +4,14 @@ trigger:
     entity_id: binary_sensor.kitchen_motion_delay
     to: 'off'
 condition:
-  - condition: state
-    entity_id: switch.circadian_lighting_circadian_lighting
-    state: 'on'
+  condition: or
+  conditions:
+    - condition: state
+      entity_id: switch.circadian_lighting_circadian_lighting
+      state: 'on'
+    - condition: state
+      entity_id: binary_sensor.house_asleep
+      state: 'on'
 action:
   - service: scene.turn_on
     data:
