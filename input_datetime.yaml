@@ -1,0 +1,9 @@
+tyler_alarm_time:
+    name: Tyler Next Alarm Time
+    has_date: true
+    has_time: true
+    
+amy_alarm_time:
+    name: Amy Next Alarm Time
+    has_date: true
+    has_time: true

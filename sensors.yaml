@@ -204,3 +204,25 @@
        value_template: "{{ states.climate.living_room.attributes.current_temperature }}"
        unit_of_measurement: '°F'
       
+ - platform: zwift
+   username: !secret my_zwift_username
+   password: !secret my_zwift_password
+   players:
+     - !secret amy_zwift_id
+     
+ - platform: template
+   sensors:
+     octoprint_time_remaining_friendly:
+       friendly_name: Octoprint Time Remaining
+       value_template: >-
+         {% set t = states('sensor.octoprint_time_remaining') | int %}
+         {{ '{:d}d {:02d}h {:02d}m {:02d}s'.format(t // 86400, (t // 3600) % 24, (t % 3600) // 60, (t % 3600) % 60) }}
+          
+ - platform: template
+   sensors:
+     octoprint_time_elapsed_friendly:
+       friendly_name: Octoprint Time Elapsed
+       value_template: >-
+         {% set t = states('sensor.octoprint_time_elapsed') | int %}
+         {{ '{:d}d {:02d}h {:02d}m {:02d}s'.format(t // 86400, (t // 3600) % 24, (t % 3600) // 60, (t % 3600) % 60) }}
+          

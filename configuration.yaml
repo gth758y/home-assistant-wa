@@ -74,6 +74,7 @@ recorder:
 
 input_select: !include input_select.yaml
 input_boolean: !include input_boolean.yaml
+input_datetime: !include input_datetime.yaml
 scene: !include scenes.yaml
 
 climate:
@@ -83,10 +84,10 @@ climate:
  region: us
  scan_interval: 600
 
-notify:
-  - platform: html5
-    gcm_api_key: !secret gcm-server-key
-    gcm_sender_id: !secret gcm-sender-id
+# notify:
+  # - platform: html5
+    # gcm_api_key: !secret gcm-server-key
+    # gcm_sender_id: !secret gcm-sender-id
     
 # tesla:
   # username: !secret tesla_username
@@ -94,7 +95,7 @@ notify:
 
 # vacuum:
   # - platform: roomba
-    # host: 10.99.1.12
+    # host: 10.99.1.218
     # username: !secret roomba_user
     # password: !secret roomba_pass
     
@@ -133,6 +134,7 @@ switch:
       - light.office_hallway_1
       - light.office_hallway_2
       - light.loft
+      - light.guest_room
 
       
 system_health:
@@ -142,5 +144,23 @@ system_health:
   #app_key: !secret pws_app_key
   
 octoprint:
-  host: 10.99.1.180
+  host: 10.99.1.228
   api_key: !secret octo_api_key
+
+# google_assistant:
+  # project_id: !secret google_project
+  # api_key: !secret google_api
+  # exposed_domains:
+    # - switch
+    # - light
+    # - switch
+    # - light true
+  # exposed_domains:
+    # - switch
+    # - light
+    
+media_player:
+  - platform: denonavr
+    host: 10.99.1.205
+  - platform: samsungtv
+    host: 10.99.10.12
