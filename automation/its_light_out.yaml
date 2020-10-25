@@ -9,9 +9,9 @@ action:
     data:
       entity_id: scene.exterior_lights_off
       
-  - service: scene.turn_on
-    data:
-      entity_id: scene.living_room_off
+  # - service: scene.turn_on
+    # data:
+      # entity_id: scene.living_room_off
       
   - service: scene.turn_on
     data:
