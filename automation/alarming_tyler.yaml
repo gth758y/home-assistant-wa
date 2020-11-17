@@ -1,0 +1,15 @@
+alias: Tyler's Alarm
+trigger:
+  platform: time
+  at: input_datetime.tyler_alarm_time
+  
+condition:
+  - condition: state
+    entity_id: input_select.tyler_status
+    state: 'sleeping'
+
+action:
+  service: input_select.select_option
+  data:
+    entity_id: input_select.tyler_status
+    option: 'alarming'

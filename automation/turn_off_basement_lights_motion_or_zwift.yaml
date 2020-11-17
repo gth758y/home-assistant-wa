@@ -1,0 +1,12 @@
+# turns ff the basement lights for porch motion or zwift (or random possums/racoons probably)
+
+alias: Turn off basement lights
+trigger:
+    platform: template
+    value_template: >-
+          {{ is_state('binary_sensor.back_porch_motion_delay', 'off') and is_state('binary_sensor.anybody_on_zwift_delay', 'off') }}
+
+action:
+  - service: scene.turn_on
+    data:
+      entity_id: scene.basement_path_and_entrance_off

@@ -1,0 +1,15 @@
+alias: Amy's Alarm
+trigger:
+  platform: time
+  at: input_datetime.amy_alarm_time
+  
+condition:
+  - condition: state
+    entity_id: input_select.amy_status
+    state: 'sleeping'
+
+action:
+  service: input_select.select_option
+  data:
+    entity_id: input_select.amy_status
+    option: 'alarming'

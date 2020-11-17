@@ -1,0 +1,18 @@
+alias: Halloween Random Lights Every Ten
+trigger:
+    platform: time_pattern
+    minutes: "/10"
+    
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: binary_sensor.house_asleep
+      state: 'off'
+    - condition: state
+      entity_id: binary_sensor.is_it_kind_of_dark
+      state: 'on'
+
+action:
+  - service: script.turn_on
+    entity_id: script.halloween_lights_random

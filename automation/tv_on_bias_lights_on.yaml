@@ -1,0 +1,12 @@
+alias: TV on - Bias Lights On
+trigger:
+    platform: state
+    entity_id:  media_player.samsung_living_room_tv
+    from: 'off'
+condition:
+  condition: state
+  entity_id: binary_sensor.anybody_home
+  state: 'on'
+action:
+  - service: scene.turn_on
+    entity_id: scene.tv_bias_lights_to_6500K

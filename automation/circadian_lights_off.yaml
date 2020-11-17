@@ -2,11 +2,16 @@
 
 alias: Turn off circadian lights
 trigger:
-    platform: numeric_state
-    entity_id: sensor.circadian_values
-    below: 0
+    platform: template
+    value_template: >-
+          {% set hour = states('sensor.time').split(':')[0]|int %}
+          {{ (states('sensor.circadian_values') | float < 0)
+             and (hour > 19) }}
 
 action:
   - service: switch.turn_off
     data:
       entity_id: switch.circadian_lighting_circadian_lighting
+  - service: script.turn_on
+    data:
+      entity_id: script:loft_sunset_sim
