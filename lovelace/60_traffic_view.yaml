@@ -20,112 +20,116 @@ cards:
         - type: iframe
           # I-5 Washington - Vancouver @ 134th
           url: https://tripcheck.com/RoadCams/cams/I-5_134th_pid762.jpg
-          aspect_ratio: 65%          
+          aspect_ratio: 75%          
         - type: iframe
           # I-205 Washington - Vancouver @ Mill Plain
           url: https://tripcheck.com/RoadCams/cams/I-205_Mill%20Plain_pid761.jpg
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # WA-14 Washington - Vancouver @ I-205 Looking East
           url: https://tripcheck.com/RoadCams/cams/SR14_i-205e_pid773.jpg
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # WA-14 Washington - Vancouver @ I-205 Looking West
           url: https://tripcheck.com/RoadCams/cams/SR14_i-205w_pid774.jpg
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # I-205 @ Government Island
           url: https://tripcheck.com/RoadCams/cams/i205govt_pid537.jpg
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # I-205 @ Airport Way
           url: https://tripcheck.com/RoadCams/cams/i205arprt_pid533.jpg
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # I-205 @ Killingsworth
           url: https://tripcheck.com/RoadCams/cams/i205Killingsworth_pid534.jpg
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # I-205 @ Prescott St
           url: https://tripcheck.com/RoadCams/cams/i205pres_pid542.jpg
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # I-84 @ 102nd
           url: https://tripcheck.com/RoadCams/cams/i84102nd_pid576.jpg
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # I-84 @ 105th
           url: https://tripcheck.com/RoadCams/cams/i84105th_pid577.jpg
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # I-84 @ 148th
           url: https://tripcheck.com/RoadCams/cams/i84@148th_pid1579.jpg
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # I-84 @ 181st
           url: https://tripcheck.com/RoadCams/cams/i84@181st_pid1580.jpg
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # I-84 @ Fairview
           url: https://tripcheck.com/RoadCams/cams/i84@207th_pid1581.jpg
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # I-84 @ 223rd
           url: https://tripcheck.com/RoadCams/cams/i84@223rd_pid1582.jpg
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # I-84 @ 257th
           url: https://tripcheck.com/RoadCams/cams/i84@257th_pid1583.JPG
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # I-84 @ Multnomah Falls Parking
           url: https://tripcheck.com/RoadCams/cams/I-84%20at%20Multnomah%20Falls%20Parking_pid2732.JPG
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # I-84 @ Cascade Locks Looking East
           url: https://tripcheck.com/RoadCams/cams/CascadeLocksEB_pid619.jpg
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # I-84 @ Cascade Locks Looking West
           url: https://tripcheck.com/RoadCams/cams/CascadeLocksWB_pid620.jpg
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # I-84 @ Hood River Exit 63
           url: https://tripcheck.com/RoadCams/cams/Hood%20River%20Exit%2063_pid1860.JPG
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # I-84 @ Hood River Exit 64A
           url: https://tripcheck.com/RoadCams/cams/Hood%20River%20Exit%2064a_pid1863.JPG
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # WA-14 Washington @ Hood River Bridge
           url: https://tripcheck.com/RoadCams/cams/SR14%20at%20Hood%20River%20Bridge_pid4357.jpg
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # WA-14 Washington @ Bridge of the Gods
           url: https://tripcheck.com/RoadCams/cams/SR14%20at%20Bridge%20of%20the%20Gods_pid4355.jpg
-          aspect_ratio: 65%
+          aspect_ratio: 75%
+        - type: iframe
+          # WA-14 Cape Horn
+          url: https://images.wsdot.wa.gov/sw/014vc02396.jpg?t=637147698679829621
+          aspect_ratio: 75%          
         - type: iframe
           # I-5 Washington - Vancouver @ WA-14
           url: https://tripcheck.com/RoadCams/cams/I-5_SR14_pid772.jpg
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # I-5 Washington - Vancouver @ Mill Plain
           url: https://tripcheck.com/RoadCams/cams/I-5_Millplain_pid771.jpg
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # I-5 Washington - Vancouver @ 29th
           url: https://tripcheck.com/RoadCams/cams/I-5_29th_pid767.jpg
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # I-5 Washington - Vancouver @ Main St
           url: https://tripcheck.com/RoadCams/cams/I-5_Main_pid770.jpg
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # I-5 Washington - Vancouver @ 78th
           url: https://tripcheck.com/RoadCams/cams/I-5_78th_pid768.jpg
-          aspect_ratio: 65%
+          aspect_ratio: 75%
         - type: iframe
           # I-5 Washington - Vancouver @ 99th
           url: https://tripcheck.com/RoadCams/cams/I-5_99st_pid769.jpg
-          aspect_ratio: 65%
+          aspect_ratio: 75%

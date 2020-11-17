@@ -1,5 +1,5 @@
 title: Weather
-icon: mdi:weather-partlycloudy
+icon: mdi:weather-partly-cloudy
 panel: true
 path: weather
 

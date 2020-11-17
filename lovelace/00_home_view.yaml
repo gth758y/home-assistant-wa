@@ -29,7 +29,7 @@ cards:
         cards:
           - type: horizontal-stack
             cards:
-              - type: custom:monster-card
+              - type: custom:auto-entities
                 show_empty: false
                 card:
                   type: entities
@@ -136,7 +136,7 @@ cards:
                 entity: light.master_bedroom
                 tap_action:
                   action: toggle
-                icon: mdi:hotel
+                icon: mdi:bed
                 name: bedroom
                 
               - type: entity-button
@@ -213,8 +213,8 @@ cards:
             cards:
               - type: map
                 entities:
-                  - device_tracker.tyler_tyler
-                  - device_tracker.tyler_amy
+                  - person.tyler
+                  - person.amy
                   # - zone.eagle_one_camas_stop
                   # - zone.insitu_eagle_point
                   # - zone.insitu_waucoma

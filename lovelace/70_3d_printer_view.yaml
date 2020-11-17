@@ -55,5 +55,6 @@ cards:
             entities:
               - sensor.octoprint_current_state
               - sensor.octoprint_job_percentage
-              - sensor.octoprint_time_elapsed
-              - sensor.octoprint_time_remaining
+              - sensor.octoprint_time_elapsed_friendly
+              - sensor.octoprint_time_remaining_friendly
+              - sensor.octoprint_estimated_completion_time

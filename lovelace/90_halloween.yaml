@@ -1,0 +1,82 @@
+title: Halloween
+icon: mdi:halloween
+panel: true
+path: halloween
+
+cards:
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: Lights
+        show_header_toggle: false
+        entities:
+          - type: section
+            label: Side Lights
+          - entity: light.halloween_4
+            name: Left
+            icon: bha:outdoor-lamp
+            toggle: true
+          - entity: light.halloween_5
+            name: Right
+            icon: bha:outdoor-lamp
+            toggle: true
+          - entity: light.halloween_6
+            icon: bha:outdoor-lamp
+            toggle: true
+            
+          - type: section
+            label: Down Lights
+          - entity: light.halloween_2
+            name: Left
+            icon: mdi:wall-sconce-flat
+            toggle: true
+          - entity: light.halloween_1
+            name: Center
+            icon: mdi:wall-sconce-flat
+            toggle: true
+          - entity: light.halloween_3
+            name: Right
+            icon: mdi:wall-sconce-flat
+            toggle: true
+
+            
+          - type: section
+            label: Amy's Office
+          - entity: light.hue_play_1
+            icon: mdi:wall-sconce-round-variant
+            toggle: true
+          - entity: light.hue_play_2
+            icon: mdi:wall-sconce-round-variant
+            toggle: true
+
+            
+      - type: entities
+        title: Scenes / Scripts
+        show_header_toggle: false
+        entities:
+          - type: section
+            label: Normal
+          - entity: scene.exterior_halloween_normal
+            name: Normal-Boring
+            icon: mdi:arrow-down
+            toggle: true
+          - entity: scene.exterior_halloween_static_1
+            name: Static 1
+            icon: mdi:arrow-down
+            toggle: true
+          - entity: scene.exterior_halloween_static_2
+            name: Static 2
+            icon: mdi:arrow-down
+            toggle: true
+          - entity: scene.exterior_halloween_static_3
+            name: Static 3
+            icon: mdi:arrow-down
+            toggle: true
+          - entity: script.halloween_lights_random
+            name: Random Script
+            icon: mdi:arrow-right
+            toggle: true
+          - entity: automation.halloween_random_lights_every_ten
+            name: Runs the script every ten
+            icon: mdi:arrow-left
+            toggle: true

@@ -38,12 +38,22 @@ cards:
             name: Mass
           
       - type: glance
-        title: Motion
+        title: Indoor Motion
         entities:
           - entity: binary_sensor.kitchen_motion_delay
             name: Kitchen
           - entity: binary_sensor.laundry_room_motion_delay
             name: Laundry Room
+            
+      - type: glance
+        title: Outdoor Motion
+        entities:
+          - entity: binary_sensor.front_door_motion_delay
+            name: Front Door
+          - entity: binary_sensor.back_porch_motion_delay
+            name: Back Porch
+          - entity: binary_sensor.back_porch_motion
+            name: back porch virgin
           
       - type: glance
         title: Garage

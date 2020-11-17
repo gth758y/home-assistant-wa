@@ -6,7 +6,7 @@ path: automations
 cards:
   - type: vertical-stack
     cards:
-      - type: custom:monster-card
+      - type: custom:auto-entities
         show_empty: true
         card:
           type: entities
@@ -17,7 +17,7 @@ cards:
             - entity_id: "script.*"
               state: "on"
               
-      - type: custom:monster-card
+      - type: custom:auto-entities
         show_empty: true
         card:
           type: entities
@@ -28,7 +28,7 @@ cards:
             - entity_id: "script.*"
               state: "off"
 
-      - type: custom:monster-card
+      - type: custom:auto-entities
         show_empty: false
         card:
           type: entities
@@ -39,7 +39,7 @@ cards:
             - entity_id: "automation.*"
               state: "on"
 
-      - type: custom:monster-card
+      - type: custom:auto-entities
         show_empty: false
         card:
           type: entities
@@ -50,7 +50,7 @@ cards:
             - entity_id: "automation.*"
               state: "off"
               
-      - type: custom:monster-card
+      - type: custom:auto-entities
         show_empty: false        
         card:
           type: entities
@@ -60,7 +60,7 @@ cards:
           include:
             - entity_id: "scene.*"
             
-      - type: custom:monster-card
+      - type: custom:auto-entities
         show_empty: false
         card:
           type: entities
