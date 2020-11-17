@@ -1,5 +1,9 @@
 
   sequence:
+  
+    - condition: state
+      entity_id: light.loft
+      state: 'on'
 
     - service: homeassistant.turn_on
       data:

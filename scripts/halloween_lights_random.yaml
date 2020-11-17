@@ -1,0 +1,74 @@
+
+  sequence:
+
+    - service: scene.turn_on
+      entity_id: scene.exterior_halloween_static_1
+        
+    - delay:
+        seconds: 30
+        
+    - service: scene.turn_on
+      entity_id: scene.exterior_halloween_static_2
+      
+    - delay:
+        seconds: 30
+        
+    - service: scene.turn_on
+      entity_id: scene.exterior_halloween_static_3
+        
+    - delay:
+        seconds: 30
+        
+    - service: scene.turn_on
+      entity_id: scene.exterior_halloween_static_1
+        
+    - delay:
+        seconds: 30
+        
+    - service: scene.turn_on
+      entity_id: scene.exterior_halloween_static_2
+      
+    - delay:
+        seconds: 30
+        
+    - service: scene.turn_on
+      entity_id: scene.exterior_halloween_static_3
+
+    - service: scene.turn_on
+      entity_id: scene.exterior_halloween_static_1
+        
+    - delay:
+        seconds: 30
+        
+    - service: scene.turn_on
+      entity_id: scene.exterior_halloween_static_2
+      
+    - delay:
+        seconds: 30
+        
+    - service: scene.turn_on
+      entity_id: scene.exterior_halloween_static_3
+        
+    - delay:
+        seconds: 30
+        
+    - service: scene.turn_on
+      entity_id: scene.exterior_halloween_static_1
+        
+    - delay:
+        seconds: 30
+        
+    - service: scene.turn_on
+      entity_id: scene.exterior_halloween_static_2
+      
+    - delay:
+        seconds: 30
+        
+    - service: scene.turn_on
+      entity_id: scene.exterior_halloween_static_3
+
+    - delay:
+        seconds: 30
+
+    - service: scene.turn_on
+      entity_id: scene.exterior_halloween_normal
