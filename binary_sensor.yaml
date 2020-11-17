@@ -45,9 +45,9 @@
           {% set hour = states('sensor.time').split(':')[0]|int %}
           {% set was_asleep = is_state('binary_sensor.house_asleep','on') %}
           {% set tyler_asleep = is_state('binary_sensor.tyler_home', 'on') and
-                                is_state('input_select.tyler_status', 'sleeping') %}
+                                (is_state('input_select.tyler_status', 'sleeping') or is_state('input_select.tyler_status', 'alarming')) %}
           {% set amy_asleep = is_state('binary_sensor.amy_home', 'on') and
-                              is_state('input_select.amy_status', 'sleeping') %}
+                              (is_state('input_select.amy_status', 'sleeping') or is_state('input_select.amy_status', 'alarming')) %}
           {{ (is_state('binary_sensor.anybody_home', 'off') and (hour > 22 or hour < 6)) or
              (tyler_asleep and amy_asleep) or
              (was_asleep and (tyler_asleep or amy_asleep)) or
@@ -158,3 +158,43 @@
     payload_on: "ON"
     payload_off: "OFF"
     device_class: motion
+    
+  - platform: mqtt
+    name: "Back Porch Motion"
+    state_topic: blue_iris/motion/back_porch/state
+    payload_on: "ON"
+    payload_off: "OFF"
+    device_class: motion
+    
+  - platform: template
+    sensors:
+      anybody_on_zwift:
+        value_template: >-
+            {{ is_state('sensor.zwift_online_945016', 'True') or is_state('sensor.zwift_online_1257082', 'True') }}
+            
+  - platform: template
+    sensors:
+      back_porch_motion_delay:
+        delay_off:
+          minutes: 2
+        value_template: >-
+            {{ is_state('binary_sensor.back_porch_motion', 'on') }}
+            
+  - platform: template
+    sensors:
+      front_door_motion_delay:
+        delay_off:
+          minutes: 2
+        value_template: >-
+            {{ is_state('binary_sensor.front_door_motion', 'on') }}
+            
+  - platform: template
+    sensors:
+      anybody_on_zwift_delay:
+        delay_off:
+          minutes: 10
+        value_template: >-
+            {{ is_state('binary_sensor.anybody_on_zwift', 'on') }}
+            
+  - platform: aurora
+    forecast_threshold: 20

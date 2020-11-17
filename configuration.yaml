@@ -9,8 +9,8 @@ homeassistant:
 
 frontend:
   themes: !include themes.yaml
-  extra_html_url:
-    - /local/hass-bha-icons.html
+  # extra_module_url:
+    # - /local/hass-bha-icons.js
 updater:
 conversation:
 discovery:
@@ -30,6 +30,7 @@ binary_sensor: !include binary_sensor.yaml
 
 lovelace:
   mode: yaml
+  resources: !include lovelace/resources/resources.yaml
   
 camera: !include camera.yaml
 
@@ -37,11 +38,13 @@ camera: !include camera.yaml
 config:
 
 http:
-  base_url: https://homeassistant.gth758y.com
+  #base_url: https://homeassistant.gth758y.com
   use_x_forwarded_for: true
-  trusted_proxies: 10.99.1.23
+  trusted_proxies:
+    - 10.99.1.23
+    - 172.18.0.3
 
-device_tracker: !include device_trackers.yaml
+#device_tracker: !include device_trackers.yaml
 
 mqtt:
     broker: 10.99.1.23
@@ -54,7 +57,8 @@ map:
 
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
   
 cover: !include cover.yaml
 
@@ -68,7 +72,7 @@ zwave:
     usb_path: /dev/ttyACM0
     
 recorder:
-  purge_interval: 2
+  # purge_interval: 2
   purge_keep_days: 30
   db_url: !secret mariaDB_url
 
@@ -81,7 +85,7 @@ climate:
  platform: honeywell
  username: !secret honeywell_user
  password: !secret honeywell_pass
- region: us
+ # region: us
  scan_interval: 600
 
 # notify:
@@ -159,8 +163,11 @@ octoprint:
     # - switch
     # - light
     
-media_player:
-  - platform: denonavr
-    host: 10.99.1.205
-  - platform: samsungtv
-    host: 10.99.10.12
+# media_player:
+  # - platform: denonavr
+    # host: 10.99.1.205
+  # - platform: samsungtv
+    # host: 10.99.10.12
+    
+wemo:
+  discovery: true

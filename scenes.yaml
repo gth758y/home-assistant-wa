@@ -110,7 +110,157 @@
         state: off
     switch.back_porch:
         state: off
-    switch.basement_pathway_exterior: 
+    switch.basement_pathway_exterior:
         state: off
-    switch.ge_unknown_type4f50_id3032_switch: 
+    switch.ge_unknown_type4f50_id3032_switch:
         state: off
+        
+- name: Exterior Halloween Normal
+  entities:
+    light.halloween_1:
+        state: on
+        kelvin: 3500
+        brightness_pct: 100
+        transition: 5
+    light.halloween_2:
+        state: on
+        kelvin: 3500
+        brightness_pct: 100
+        transition: 5
+    light.halloween_3:
+        state: on
+        kelvin: 3500
+        brightness_pct: 100
+        transition: 5
+    light.halloween_4:
+        state: on
+        kelvin: 3500
+        brightness_pct: 100
+        transition: 5
+    light.halloween_5:
+        state: on
+        kelvin: 3500
+        brightness_pct: 100
+        transition: 5
+    
+    
+- name: Exterior Halloween Static 1
+  entities:
+    light.halloween_1:
+        state: on
+        xy_color: [.159,.169]
+        brightness_pct: 100
+        transition: 5
+    light.halloween_2:
+        state: on
+        xy_color: [.528,.346]
+        brightness_pct: 100
+        transition: 5
+    light.halloween_3:
+        state: on
+        xy_color: [.581,.387]
+        brightness_pct: 100
+        transition: 5
+    light.halloween_4:
+        state: on
+        xy_color: [.581,.387]
+        brightness_pct: 100
+        transition: 5
+    light.halloween_5:
+        state: on
+        xy_color: [.219,.081]
+        brightness_pct: 100
+        transition: 5
+        
+        
+- name: Exterior Halloween Static 2
+  entities:
+    light.halloween_3:
+        state: on
+        xy_color: [.159,.169]
+        brightness_pct: 100
+        transition: 5
+    light.halloween_4:
+        state: on
+        xy_color: [.528,.346]
+        brightness_pct: 100
+        transition: 5
+    light.halloween_2:
+        state: on
+        xy_color: [.581,.387]
+        brightness_pct: 100
+        transition: 5
+    light.halloween_5:
+        state: on
+        xy_color: [.581,.387]
+        brightness_pct: 100
+        transition: 5
+    light.halloween_1:
+        state: on
+        xy_color: [.219,.081]
+        brightness_pct: 100
+        transition: 5
+        
+- name: Exterior Halloween Static 3
+  entities:
+    light.halloween_5:
+        state: on
+        xy_color: [.159,.169]
+        brightness_pct: 100
+        transition: 5
+    light.halloween_1:
+        state: on
+        xy_color: [.528,.346]
+        brightness_pct: 100
+        transition: 5
+    light.halloween_4:
+        state: on
+        xy_color: [.581,.387]
+        brightness_pct: 100
+        transition: 5
+    light.halloween_3:
+        state: on
+        xy_color: [.581,.387]
+        brightness_pct: 100
+        transition: 5
+    light.halloween_2:
+        state: on
+        xy_color: [.219,.081]
+        brightness_pct: 100
+        transition: 5
+    
+# - name: Exterior Halloween
+  # entities:
+    # light.halloween_1:
+    # light.halloween_2:
+    # light.halloween_3:
+    # light.halloween_4:
+    # light.halloween_5:
+    
+- name: TV Bias Lights to 6500K
+  entities:
+    light.television:
+        state: on
+        kelvin: 6500
+        brightness_pct: 100
+        transition: 2
+        
+- name: TV Bias Lights Off
+  entities:
+    light.television:
+        state: off
+  
+    
+- name: basement_path_and_entrance_on
+  entities:
+    switch.back_porch:
+      state: on
+    switch.basement_pathway_exterior:
+      state: on
+      
+- name: basement_path_and_entrance_off
+  entities:
+    switch.back_porch:
+      state: off
+    switch.basement_pathway_exterior:
+      state: off

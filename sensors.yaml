@@ -115,28 +115,28 @@
      
  - platform: waze_travel_time
    name: "Tyler to Work"
-   origin: device_tracker.tyler_tyler
+   origin: device_tracker.tyler_pixel4
    destination: zone.insitu_eagle_point
    region: 'US'
    realtime: true
    
  - platform: waze_travel_time
    name: "Tyler to Home"
-   origin: device_tracker.tyler_tyler
+   origin: device_tracker.tyler_pixel4
    destination: zone.home
    region: 'US'
    realtime: true
    
  - platform: waze_travel_time
    name: "Amy to Work"
-   origin: device_tracker.tyler_amy
+   origin: device_tracker.amy_pixel2
    destination: zone.simplexity
    region: 'US'
    realtime: true
    
  - platform: waze_travel_time
    name: "Amy to Home"
-   origin: device_tracker.tyler_amy
+   origin: device_tracker.amy_pixel2
    destination: zone.home
    region: 'US'
    realtime: true
@@ -147,12 +147,12 @@
        value_template: >-
            {% if is_state("binary_sensor.tyler_home","on") %}
            home
-           {% elif is_state("input_select.tyler_status","running") and is_state("device_tracker.tyler_tyler","LSAC") %}
+           {% elif is_state("input_select.tyler_status","running") and is_state("device_tracker.tyler_pixel4","LSAC") %}
            swimming
            {% elif not is_state("input_select.tyler_status", "standby") %}
            {{ states("input_select.tyler_status") }}
            {% else %}
-           {{ states("device_tracker.tyler_tyler") }}
+           {{ states("device_tracker.tyler_pixel4") }}
            {%- endif %}
            
  - platform: template
@@ -161,12 +161,12 @@
        value_template: >-
            {% if is_state("binary_sensor.amy_home","on") %}
            home
-           {% elif is_state("input_select.amy_status","running") and is_state("device_tracker.tyler_amy","LSAC") %}
+           {% elif is_state("input_select.amy_status","running") and is_state("device_tracker.amy_pixel2","LSAC") %}
            swimming
            {% elif not is_state("input_select.amy_status", "standby") %}
            {{ states("input_select.amy_status") }}
            {% else %}
-           {{ states("device_tracker.tyler_amy") }}
+           {{ states("device_tracker.amy_pixel2") }}
            {%- endif %}
            
  - platform: mqtt
@@ -225,4 +225,10 @@
        value_template: >-
          {% set t = states('sensor.octoprint_time_elapsed') | int %}
          {{ '{:d}d {:02d}h {:02d}m {:02d}s'.format(t // 86400, (t // 3600) % 24, (t % 3600) // 60, (t % 3600) % 60) }}
-          
+         
+ - platform: template
+   sensors:
+     octoprint_estimated_completion_time:
+       friendly_name: Octoprint ETC
+       value_template: >-
+         {{ (states('sensor.octoprint_time_remaining') | float + now().timestamp() | int) | timestamp_custom("%R", true) }}
