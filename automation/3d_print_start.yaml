@@ -8,6 +8,6 @@ trigger:
 action:
   - service: light.turn_on
     data:
-      entity_id: light.under_cabinet
+      entity_id: light.3d_printer
     # data_template:
       # xy_color: "{{ states.sensor.circadian_values.attributes.xy_color }}"

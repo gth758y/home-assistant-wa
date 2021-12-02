@@ -1,0 +1,11 @@
+alias: TV off - Denon Off
+trigger:
+    platform: state
+    entity_id:  media_player.un55js9000
+    from: 'on'
+    for:
+        seconds: 2
+
+action:
+  - service: media_player.turn_off
+    entity_id: media_player.denon_avr_x2000

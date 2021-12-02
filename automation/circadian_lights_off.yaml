@@ -12,6 +12,5 @@ action:
   - service: switch.turn_off
     data:
       entity_id: switch.circadian_lighting_circadian_lighting
-  - service: script.turn_on
-    data:
-      entity_id: script:loft_sunset_sim
+      
+  - service: script.loft_sunset_sim

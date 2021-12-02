@@ -1,8 +1,8 @@
-alias: TV on - Bias Lights On
+alias: TV off - Bias Lights Off
 trigger:
     platform: state
-    entity_id:  media_player.samsung_living_room_tv
-    to: 'off'
+    entity_id:  media_player.un55js9000
+    from: 'on'
     for:
         seconds: 10
 
