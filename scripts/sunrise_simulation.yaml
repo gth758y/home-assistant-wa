@@ -77,12 +77,12 @@
         brightness: 110
         transition: 120
         
-    - service: homeassistant.turn_on
-      data:
-        entity_id: light.hallways
-        rgb_color: [1,0,0]
-        brightness: 150
-        transition: 60
+    # - service: homeassistant.turn_on
+      # data:
+        # entity_id: light.hallways
+        # rgb_color: [1,0,0]
+        # brightness: 150
+        # transition: 60
       
     # dark red to medium warm orange
     - service: homeassistant.turn_on
