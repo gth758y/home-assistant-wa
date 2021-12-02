@@ -66,11 +66,11 @@ cards:
             name: Tall Lamp
             icon: bha:floor-lamp
             toggle: true
-          - entity: light.hue_play_2
+          - entity: light.behind_tv_left
             name: TV Bias Light Left
             icon: mdi:wall-sconce-round-variant
             toggle: true
-          - entity: light.hue_play_1
+          - entity: light.behind_tv_right
             name: TV Bias Light Right
             icon: mdi:wall-sconce-round-variant
             toggle: true
@@ -88,6 +88,22 @@ cards:
           - entity: light.bay_window
             name: Dining Room Bay Window
             icon: bha:floor-lamp
+            toggle: true
+          - entity: light.guest_hallway_1
+            name: Guest Hallway 1
+            icon: mdi:wall-sconce
+            toggle: true
+          - entity: light.guest_hallway_2
+            name: Guest Hallway 2
+            icon: mdi:wall-sconce
+            toggle: true
+          - entity: light.guest_hallway_3
+            name: Guest Hallway 3
+            icon: mdi:wall-sconce
+            toggle: true
+          - entity: light.guest_hallway_4
+            name: Guest Hallway 4
+            icon: mdi:wall-sconce
             toggle: true
             
             
@@ -166,4 +182,14 @@ cards:
             toggle: true
           - entity: light.laundry_room_2
             name: Laundry Room Sink
+            icon: mdi:wall-sconce-flat
+            
+          - type: section
+            label: Office
+          - entity: light.office_1
+            name: Office Left
+            icon: mdi:wall-sconce-flat
+            toggle: true
+          - entity: light.office_2
+            name: Office Right
             icon: mdi:wall-sconce-flat

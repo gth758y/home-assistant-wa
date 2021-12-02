@@ -22,6 +22,24 @@ cards:
             name: Amy
           - entity: binary_sensor.tyler_home
             name: Tyler
+      - type: glance
+        entities:
+          - entity: sensor.tyler_kitchen
+            name: Tyler Kitchen BT
+          - entity: sensor.amy_kitchen
+            name: Amy Kitchen BT
+      - type: glance
+        entities:
+          - entity: sensor.tyler_master_bedroom
+            name: Tyler Master BT
+          - entity: sensor.amy_master_bedroom
+            name: Amy Master BT
+      - type: glance
+        entities:
+          - entity: sensor.tyler_upstairs
+            name: Tyler Upstairs BT
+          - entity: sensor.amy_upstairs
+            name: Amy Upstairs BT
           
       - type: glance
         title: Bed

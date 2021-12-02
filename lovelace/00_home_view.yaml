@@ -79,6 +79,7 @@ cards:
                   "KSEA": /local/ksea.jpg
                   "KJFK": /local/kjfk.jpg
                   "EHAM": /local/eham.jpg
+                  "CFA": /local/cfa.jpg
                   
                 show_name: true
                 tap_action:
@@ -119,6 +120,7 @@ cards:
                   "KSEA": /local/ksea.jpg
                   "KJFK": /local/kjfk.jpg
                   "EHAM": /local/eham.jpg
+                  "CFA": /local/cfa.jpg
                 show_name: true
                 tap_action:
                   action: more-info
@@ -150,6 +152,37 @@ cards:
                 tap_action:
                   action: toggle
                 icon: mdi:bed-empty
+                
+
+          - type: horizontal-stack
+            cards:
+              - type: entity-button
+                entity: light.office
+                tap_action:
+                  action: toggle
+                icon: mdi:chair-rolling
+                name: "office"
+                  
+              - type: entity-button
+                entity: light.loft
+                tap_action:
+                  action: toggle
+                icon: mdi:home-floor-l
+                name: loft
+                
+              - type: entity-button
+                entity: light.hallways
+                tap_action:
+                  action: toggle
+                icon: mdi:wall-sconce
+                name: "hallways"
+                
+              - type: entity-button
+                entity: light.laundry_room
+                tap_action:
+                  action: toggle
+                icon: mdi:washing-machine
+                name: "laundry room"
 
           - type: horizontal-stack
             cards:

@@ -20,8 +20,8 @@ cards:
             entities:
               - binary_sensor.octoprint_printing_error
               - binary_sensor.octoprint_printing
-              - light.under_cabinet
-          - break
+              - light.3d_printer
+          # - break
           - type: horizontal-stack
             cards:
               - type: custom:mini-graph-card

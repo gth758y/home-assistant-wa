@@ -1,0 +1,194 @@
+title: Air Quality
+icon: mdi:chemical-weapon
+panel: true
+path: aqi
+
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: entity
+            entity: sensor.purpleair_description
+            name: Air Quality is
+            icon: blank
+            show_header_toggle: false
+          - type: 'custom:canvas-gauge-card'
+            card_height: 200
+            entity: sensor.purpleair_aqi
+            name: ''
+            gauge:
+              type: radial-gauge
+              title: AQI
+              width: 200
+              height: 200
+              minValue: 0
+              maxValue: 500
+              startAngle: 40
+              ticksAngle: 280
+              valueBox: true
+              majorTicks:
+                - '0'
+                - '50'
+                - '100'
+                - '150'
+                - '200'
+                - '250'
+                - '300'
+                - '350'
+                - '400'
+                - '450'
+                - '500'
+              minorTicks: 10
+              strokeTicks: true
+              highlights:
+                - from: 0
+                  to: 50
+                  color: 'rgba(104, 225, 67, .75)'
+                - from: 50
+                  to: 100
+                  color: 'rgba(255, 255, 85, .75)'
+                - from: 100
+                  to: 150
+                  color: 'rgba(239, 133, 51, .75)'
+                - from: 150
+                  to: 200
+                  color: 'rgba(234, 51, 36, .75)'
+                - from: 200
+                  to: 300
+                  color: 'rgba(140, 26, 75, .75)'
+                - from: 300
+                  to: 500
+                  color: 'rgba(115, 20, 37, .75)'
+              borders: 'no'
+              needleType: arrow
+              needleWidth: 4
+              needleCircleSize: 7
+              needleCircleOuter: true
+              needleCircleInner: false
+              animationDuration: 1500
+              animationRule: linear
+              valueBoxBorderRadius: 10
+              colorValueBoxRect: '#222'
+              colorValueBoxRectEnd: '#333'
+              valueDec: 0
+              valueInt: 0
+          - type: 'custom:mini-graph-card'
+            entities:
+              - sensor.purpleair_aqi_30min
+            unit: AQI
+            name: Past 24h AQI
+            icon: 'mdi:chemical-weapon'
+            show:
+              fill: true
+              legend: false
+              labels: false
+              name: true
+              points: false
+              name_adaptive_color: true
+              icon_adaptive_color: true
+              show_legend: false
+            font_size: 75
+            line_width: 3
+            points_per_hour: 4
+            hours_to_show: 24
+            color_thresholds:
+              - value: 0
+                color: '#00e500'
+              - value: 50
+                color: '#00e500'
+              - value: 50.5
+                color: '#fffe0a'
+              - value: 100
+                color: '#fffe0a'
+              - value: 100.5
+                color: '#fe7f03'
+              - value: 150
+                color: '#fe7f03'
+              - value: 150.5
+                color: '#ff0200'
+              - value: 200
+                color: '#ff0200'
+              - value: 200.5
+                color: '#98004c'
+              - value: 300.5
+                color: '#7f0024'
+      - type: vertical-stack
+        cards:
+          - type: entity
+            entity: sensor.allergy_index_today
+            name: Pollen Count is 
+            icon: blank
+            show_header_toggle: false
+            attribute: rating
+          - type: 'custom:canvas-gauge-card'
+            card_height: 200
+            entity: sensor.allergy_index_today
+            name: ''
+            gauge:
+              type: radial-gauge
+              title: Pollen
+              width: 200
+              height: 200
+              minValue: 0
+              maxValue: 12
+              startAngle: 40
+              ticksAngle: 280
+              valueBox: true
+              majorTicks:
+                - '0'
+                - '1'
+                - '2'
+                - '3'
+                - '4'
+                - '5'
+                - '6'
+                - '7'
+                - '8'
+                - '9'
+                - '10'
+                - '11'
+                - '12'
+              minorTicks: 5
+              strokeTicks: true
+              highlights:
+                - from: 0
+                  to: 2.4
+                  color: 'rgba(104, 225, 67, .75)'
+                - from: 2.4
+                  to: 4.8
+                  color: 'rgba(255, 255, 85, .75)'
+                - from: 4.8
+                  to: 7.2
+                  color: 'rgba(239, 133, 51, .75)'
+                - from: 7.2
+                  to: 9.6
+                  color: 'rgba(234, 51, 36, .75)'
+                - from: 9.6
+                  to: 12.0
+                  color: 'rgba(140, 26, 75, .75)'
+              borders: 'no'
+              needleType: arrow
+              needleWidth: 4
+              needleCircleSize: 7
+              needleCircleOuter: true
+              needleCircleInner: false
+              animationDuration: 1500
+              animationRule: linear
+              valueBoxBorderRadius: 10
+              colorValueBoxRect: '#222'
+              colorValueBoxRectEnd: '#333'
+              valueDec: 1
+              valueInt: 0
+          - type: custom:entity-attributes-card
+            heading_name: ' '
+            heading_state: ' '
+            filter:
+              include:
+                - key: sensor.allergy_index_today.allergen_name_1
+                  name: Allergen
+                - key: sensor.allergy_index_forecasted_average.trend
+                  name: Trend
+                - key: sensor.allergy_index_forecasted_average.outlook
+                  name: Outlook
+
