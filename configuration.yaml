@@ -37,8 +37,7 @@ camera: !include camera.yaml
 # Enables configuration UI
 config:
 
-http:
-  #base_url: https://homeassistant.gth758y.com
+http:  
   use_x_forwarded_for: true
   trusted_proxies:
     - 10.99.1.23
@@ -71,7 +70,7 @@ script: !include_dir_named scripts
 zone: !include zones.yaml
 zwave:
     usb_path: /dev/ttyACM0
-    network_key: "0x95, 0x06, 0x13, 0x38, 0x54, 0x49, 0x41, 0xD9, 0xE5, 0x47, 0xFA, 0x5E, 0x29, 0xEE, 0x26, 0xBA"
+    network_key: !secret zwave_key
     
 recorder:
   # purge_interval: 2
