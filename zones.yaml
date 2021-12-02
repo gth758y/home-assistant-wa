@@ -168,6 +168,12 @@
   radius: 42
   icon: mdi:home-outline
   
+- name: CFA
+  latitude: !secret cfa0_lat
+  longitude: !secret cfa0_long
+  radius: 30
+  icon: mdi:food
+  
 
 
 

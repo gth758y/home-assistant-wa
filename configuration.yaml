@@ -43,6 +43,7 @@ http:
   trusted_proxies:
     - 10.99.1.23
     - 172.18.0.3
+    - 172.18.0.2
 
 #device_tracker: !include device_trackers.yaml
 
@@ -70,6 +71,7 @@ script: !include_dir_named scripts
 zone: !include zones.yaml
 zwave:
     usb_path: /dev/ttyACM0
+    network_key: "0x95, 0x06, 0x13, 0x38, 0x54, 0x49, 0x41, 0xD9, 0xE5, 0x47, 0xFA, 0x5E, 0x29, 0xEE, 0x26, 0xBA"
     
 recorder:
   # purge_interval: 2
@@ -118,7 +120,7 @@ switch:
       # - light.living_room_tall_lamp
       - light.bedroom_tyler
       - light.bedroom_amy
-      # - light.bay_window
+      - light.bay_window
       - light.hallways
       - light.kitchen_overhead_1
       - light.kitchen_overhead_2
@@ -139,6 +141,12 @@ switch:
       - light.office_hallway_2
       - light.loft
       - light.guest_room
+      - light.office_1
+      - light.office_2
+      - light.guest_hallway_1
+      - light.guest_hallway_2
+      - light.guest_hallway_3
+      - light.guest_hallway_4
 
       
 system_health:
@@ -148,7 +156,7 @@ system_health:
   #app_key: !secret pws_app_key
   
 octoprint:
-  host: 10.99.1.228
+  host: 10.99.1.70
   api_key: !secret octo_api_key
 
 # google_assistant:

@@ -71,21 +71,6 @@
   entities:
     light.guest_room:
         state: off
-      
-- name: House Blue
-  entities:
-    light.kitchen:
-        state: on
-        xy_color: [0.1909,0.0874]
-        brightness: 44
-    light.living_room:
-        state: on
-        xy_color: [0.1909,0.0874]
-        brightness: 44
-    light.master_bedroom:
-        state: on
-        xy_color: [0.1909,0.0874]
-        brightness: 44
         
 - name: Under Bed Blue
   entities:
@@ -117,27 +102,27 @@
         
 - name: Exterior Halloween Normal
   entities:
-    light.halloween_1:
+    light.guest_hallway_1:
         state: on
         kelvin: 3500
         brightness_pct: 100
         transition: 5
-    light.halloween_2:
+    light.guest_hallway_2:
         state: on
         kelvin: 3500
         brightness_pct: 100
         transition: 5
-    light.halloween_3:
+    light.guest_hallway_3:
         state: on
         kelvin: 3500
         brightness_pct: 100
         transition: 5
-    light.halloween_4:
+    light.guest_hallway_4:
         state: on
         kelvin: 3500
         brightness_pct: 100
         transition: 5
-    light.halloween_5:
+    light.temp_light_1:
         state: on
         kelvin: 3500
         brightness_pct: 100
@@ -146,27 +131,27 @@
     
 - name: Exterior Halloween Static 1
   entities:
-    light.halloween_1:
+    light.guest_hallway_1:
         state: on
         xy_color: [.159,.169]
         brightness_pct: 100
         transition: 5
-    light.halloween_2:
+    light.guest_hallway_2:
         state: on
         xy_color: [.528,.346]
         brightness_pct: 100
         transition: 5
-    light.halloween_3:
+    light.guest_hallway_3:
         state: on
         xy_color: [.581,.387]
         brightness_pct: 100
         transition: 5
-    light.halloween_4:
+    light.guest_hallway_4:
         state: on
         xy_color: [.581,.387]
         brightness_pct: 100
         transition: 5
-    light.halloween_5:
+    light.temp_light_1:
         state: on
         xy_color: [.219,.081]
         brightness_pct: 100
@@ -175,27 +160,27 @@
         
 - name: Exterior Halloween Static 2
   entities:
-    light.halloween_3:
+    light.guest_hallway_3:
         state: on
         xy_color: [.159,.169]
         brightness_pct: 100
         transition: 5
-    light.halloween_4:
+    light.guest_hallway_4:
         state: on
         xy_color: [.528,.346]
         brightness_pct: 100
         transition: 5
-    light.halloween_2:
+    light.guest_hallway_2:
         state: on
         xy_color: [.581,.387]
         brightness_pct: 100
         transition: 5
-    light.halloween_5:
+    light.temp_light_1:
         state: on
         xy_color: [.581,.387]
         brightness_pct: 100
         transition: 5
-    light.halloween_1:
+    light.guest_hallway_1:
         state: on
         xy_color: [.219,.081]
         brightness_pct: 100
@@ -203,27 +188,27 @@
         
 - name: Exterior Halloween Static 3
   entities:
-    light.halloween_5:
+    light.temp_light_1:
         state: on
         xy_color: [.159,.169]
         brightness_pct: 100
         transition: 5
-    light.halloween_1:
+    light.guest_hallway_1:
         state: on
         xy_color: [.528,.346]
         brightness_pct: 100
         transition: 5
-    light.halloween_4:
+    light.guest_hallway_4:
         state: on
         xy_color: [.581,.387]
         brightness_pct: 100
         transition: 5
-    light.halloween_3:
+    light.guest_hallway_3:
         state: on
         xy_color: [.581,.387]
         brightness_pct: 100
         transition: 5
-    light.halloween_2:
+    light.guest_hallway_2:
         state: on
         xy_color: [.219,.081]
         brightness_pct: 100
@@ -231,11 +216,11 @@
     
 # - name: Exterior Halloween
   # entities:
-    # light.halloween_1:
-    # light.halloween_2:
-    # light.halloween_3:
-    # light.halloween_4:
-    # light.halloween_5:
+    # light.guest_hallway_1:
+    # light.guest_hallway_2:
+    # light.guest_hallway_3:
+    # light.guest_hallway_4:
+    # light.temp_light_1:
     
 - name: TV Bias Lights to 6500K
   entities:
@@ -264,3 +249,339 @@
       state: off
     switch.basement_pathway_exterior:
       state: off
+
+
+- name: Whole House Blue
+  entities:
+    light.bay_window:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.bedroom_amy:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.bedroom_tyler:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.guest_bedroom_closet:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.guest_bedroom_window:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.guest_hallway_1:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.guest_hallway_2:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.guest_hallway_3:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.guest_hallway_4:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.hue_play_1:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.hue_play_2:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.kitchen_overhead_1:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.kitchen_overhead_3:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.kitchen_overhead_4:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.living_room_short_lamp:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.living_room_shortest_lamp:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.living_room_tall_lamp:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.loft_1:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.loft_2:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.loft_3:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.loft_4:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.office_1:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.office_2:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.office_hallway_1:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.office_hallway_2:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.unterbett:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+    light.unterbett_2:
+        state: on
+        xy_color: [.158,.050]
+        brightness_pct: 100
+        
+- name: Whole House Pink
+  entities:
+    light.bay_window:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.bedroom_amy:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.bedroom_tyler:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.guest_bedroom_closet:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.guest_bedroom_window:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.guest_hallway_1:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.guest_hallway_2:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.guest_hallway_3:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.guest_hallway_4:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.hue_play_1:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.hue_play_2:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.kitchen_overhead_1:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.kitchen_overhead_3:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.kitchen_overhead_4:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.living_room_short_lamp:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.living_room_shortest_lamp:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.living_room_tall_lamp:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.loft_1:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.loft_2:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.loft_3:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.loft_4:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.office_1:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.office_2:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.office_hallway_1:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.office_hallway_2:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.unterbett:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+    light.unterbett_2:
+        state: on
+        xy_color: [.381,.159]
+        brightness_pct: 100
+        
+- name: Whole House Red
+  entities:
+    light.bay_window:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.bedroom_amy:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.bedroom_tyler:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.guest_bedroom_closet:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.guest_bedroom_window:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.guest_hallway_1:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.guest_hallway_2:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.guest_hallway_3:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.guest_hallway_4:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.hue_play_1:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.hue_play_2:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.kitchen_overhead_1:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.kitchen_overhead_3:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.kitchen_overhead_4:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.living_room_short_lamp:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.living_room_shortest_lamp:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.living_room_tall_lamp:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.loft_1:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.loft_2:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.loft_3:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.loft_4:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.office_1:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.office_2:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.office_hallway_1:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.office_hallway_2:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.unterbett:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+    light.unterbett_2:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 50
+
+

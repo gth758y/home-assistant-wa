@@ -21,8 +21,9 @@ views:
   - !include lovelace/20_sensors_view.yaml
   - !include lovelace/30_automations_view.yaml
   - !include lovelace/40_weather_view.yaml
+  - !include lovelace/45_air-quality.yaml
   - !include lovelace/50_ip_cams_view.yaml
   - !include lovelace/60_traffic_view.yaml
   - !include lovelace/70_3d_printer_view.yaml
   - !include lovelace/80_swim-bike-run.yaml
-  - !include lovelace/90_halloween.yaml
+  # - !include lovelace/FF_halloween.yaml

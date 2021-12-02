@@ -88,6 +88,18 @@
    unit_of_measurement: '%'
    name: 'Amy Kitchen'
    
+ - platform: mqtt
+   state_topic: 'location/upstairs/tyler'
+   value_template: '{{ value_json.confidence }}'
+   unit_of_measurement: '%'
+   name: 'Tyler Upstairs'
+   
+ - platform: mqtt
+   state_topic: 'location/upstairs/amy'
+   value_template: '{{ value_json.confidence }}'
+   unit_of_measurement: '%'
+   name: 'Amy Upstairs'
+   
  - platform: min_max
    name: "Tyler Home Occupancy Confidence"
    type: mean
@@ -95,6 +107,7 @@
    entity_ids:
      - sensor.tyler_master_bedroom
      - sensor.tyler_kitchen
+     - sensor.tyler_upstairs
 
  - platform: min_max
    name: "Amy Home Occupancy Confidence"
@@ -103,6 +116,7 @@
    entity_ids:
      - sensor.amy_master_bedroom
      - sensor.amy_kitchen
+     - sensor.amy_upstairs
      
  - platform: time_date
    display_options:
@@ -129,14 +143,14 @@
    
  - platform: waze_travel_time
    name: "Amy to Work"
-   origin: device_tracker.amy_pixel2
+   origin: device_tracker.amy_pixel5
    destination: zone.simplexity
    region: 'US'
    realtime: true
    
  - platform: waze_travel_time
    name: "Amy to Home"
-   origin: device_tracker.amy_pixel2
+   origin: device_tracker.amy_pixel5
    destination: zone.home
    region: 'US'
    realtime: true
@@ -161,12 +175,12 @@
        value_template: >-
            {% if is_state("binary_sensor.amy_home","on") %}
            home
-           {% elif is_state("input_select.amy_status","running") and is_state("device_tracker.amy_pixel2","LSAC") %}
+           {% elif is_state("input_select.amy_status","running") and is_state("device_tracker.amy_pixel5","LSAC") %}
            swimming
            {% elif not is_state("input_select.amy_status", "standby") %}
            {{ states("input_select.amy_status") }}
            {% else %}
-           {{ states("device_tracker.amy_pixel2") }}
+           {{ states("device_tracker.amy_pixel5") }}
            {%- endif %}
            
  - platform: mqtt
@@ -232,3 +246,189 @@
        friendly_name: Octoprint ETC
        value_template: >-
          {{ (states('sensor.octoprint_time_remaining') | float + now().timestamp() | int) | timestamp_custom("%R", true) }}
+         
+ - platform: rest
+   name: 'PurpleAir'
+   resource: http://10.99.4.80/json?live=true
+   value_template: '{{ value_json.SensorId }}'
+   json_attributes:
+     - Mem
+     - memfrag
+     - uptime
+     - rssi
+     - Adc
+     - current_temp_f
+     - current_humidity
+     - current_dewpoint_f
+     - pressure
+     - p_0_3_um
+     - p_0_3_um_b
+     - p_0_5_um
+     - p_0_5_um_b
+     - p_1_0_um
+     - p_1_0_um_b
+     - pm1_0_atm
+     - pm1_0_atm_b
+     - p_2_5_um
+     - p_2_5_um_b
+     - pm2_5_atm
+     - pm2_5_atm_b
+     - p_5_0_um
+     - p_5_0_um_b
+     - p_10_0_um
+     - p_10_0_um_b
+     - pm10_0_atm
+     - pm10_0_atm_b
+     - pm2.5_aqi
+     - pm2.5_aqi_b
+ - platform: template
+   sensors:
+     purpleair_memory:
+       friendly_name: "PurpleAir Memory"
+       value_template: '{{ states.sensor.purpleair.attributes["Mem"] }}'
+     purpleair_adc:
+       friendly_name: "PurpleAir ADC"
+       value_template: '{{ states.sensor.purpleair.attributes["Adc"] }}'
+     purpleair_uptime:
+       friendly_name: "PurpleAir Uptime"
+       value_template: '{{ states.sensor.purpleair.attributes["uptime"] }}'
+       unit_of_measurement: "seconds"
+     purpleair_memory_fragmentation:
+       friendly_name: "PurpleAir Memory Fragmentation"
+       value_template: '{{ states.sensor.purpleair.attributes["memfrag"] }}'
+     purpleair_wifi_rssi:
+       friendly_name: "PurpleAir Wifi RSSI"
+       value_template: '{{ states.sensor.purpleair.attributes["rssi"] }}'
+     purpleair_temp:
+       friendly_name: "PurpleAir Temperature"
+       value_template: '{{ states.sensor.purpleair.attributes["current_temp_f"] - 8}}'
+       unit_of_measurement: "°F"
+     purpleair_humidity:
+       friendly_name: "PurpleAir Humidity"
+       value_template: '{{ states.sensor.purpleair.attributes["current_humidity"] * 1.04}}'
+       unit_of_measurement: "%"
+     purpleair_dewpoint:
+       friendly_name: "PurpleAir Dewpoint"
+       value_template: '{{ states.sensor.purpleair.attributes["current_dewpoint_f"] }}'
+       unit_of_measurement: "°F"
+     purpleair_pressure:
+       friendly_name: "PurpleAir Pressure"
+       value_template: '{{ states.sensor.purpleair.attributes["pressure"] }}'
+       unit_of_measurement: "mbar"
+     purpleair_aqi_a:
+       friendly_name: "PurpleAir AirQuality A"
+       value_template: '{{ states.sensor.purpleair.attributes["pm2.5_aqi"] }}'
+       unit_of_measurement: "AQI"
+     purpleair_aqi_b:
+       friendly_name: "PurpleAir AirQuality B"
+       value_template: '{{ states.sensor.purpleair.attributes["pm2.5_aqi_b"] }}'
+       unit_of_measurement: "AQI"
+     purpleair_p_0_3_um_a:
+       friendly_name: "PurpleAir .3um Partical Count A"
+       value_template: '{{ states.sensor.purpleair.attributes["p_0_3_um"] }}'
+       unit_of_measurement: "um/dl"
+     purpleair_p_0_3_um_b:
+       friendly_name: "PurpleAir .3um Partical Count B"
+       value_template: '{{ states.sensor.purpleair.attributes["p_0_3_um_b"] }}'
+       unit_of_measurement: "um/dl"
+     purpleair_p_0_5_um_a:
+       friendly_name: "PurpleAir .5um Partical Count A"
+       value_template: '{{ states.sensor.purpleair.attributes["p_0_5_um"] }}'
+       unit_of_measurement: "um/dl"
+     purpleair_p_0_5_um_b:
+       friendly_name: "PurpleAir .5um Partical Count B"
+       value_template: '{{ states.sensor.purpleair.attributes["p_0_5_um_b"] }}'
+       unit_of_measurement: "um/dl"
+     purpleair_p_1_0_um_a:
+       friendly_name: "PurpleAir 1.0um Partical Count A"
+       value_template: '{{ states.sensor.purpleair.attributes["p_1_0_um"] }}'
+       unit_of_measurement: "um/dl"
+     purpleair_p_1_0_um_b:
+       friendly_name: "PurpleAir 1.0um Partical Count B"
+       value_template: '{{ states.sensor.purpleair.attributes["p_1_0_um_b"] }}'
+       unit_of_measurement: "um/dl"
+     purpleair_p_2_5_um_a:
+       friendly_name: "PurpleAir 2.5um Partical Count A"
+       value_template: '{{ states.sensor.purpleair.attributes["p_2_5_um"] }}'
+       unit_of_measurement: "um/dl"
+     purpleair_p_2_5_um_b:
+       friendly_name: "PurpleAir 2.5um Partical Count B"
+       value_template: '{{ states.sensor.purpleair.attributes["p_2_5_um_b"] }}'
+       unit_of_measurement: "um/dl"
+     purpleair_p_5_0_um_a:
+       friendly_name: "PurpleAir 5.0um Partical Count A"
+       value_template: '{{ states.sensor.purpleair.attributes["p_5_0_um"] }}'
+       unit_of_measurement: "um/dl"
+     purpleair_p_5_0_um_b:
+       friendly_name: "PurpleAir 5.0um Partical Count B"
+       value_template: '{{ states.sensor.purpleair.attributes["p_5_0_um_b"] }}'
+       unit_of_measurement: "um/dl"
+     purpleair_p_10_0_um_a:
+       friendly_name: "PurpleAir 10.0um Partical Count A"
+       value_template: '{{ states.sensor.purpleair.attributes["p_10_0_um"] }}'
+       unit_of_measurement: "um/dl"
+     purpleair_p_10_0_um_b:
+       friendly_name: "PurpleAir 10.0um Partical Count B"
+       value_template: '{{ states.sensor.purpleair.attributes["p_10_0_um_b"] }}'
+       unit_of_measurement: "um/dl"
+     purpleair_pm10_atm_a:
+       friendly_name: "PurpleAir 10.0um Mass A"
+       value_template: '{{ states.sensor.purpleair.attributes["pm10_0_atm"] }}'
+       unit_of_measurement: "ug/m3"
+     purpleair_pm10_atm_b:
+       friendly_name: "PurpleAir 10.0um Mass B"
+       value_template: '{{ states.sensor.purpleair.attributes["pm10_0_atm_b"] }}'
+       unit_of_measurement: "ug/m3"
+     purpleair_pm1_atm_a:
+       friendly_name: "PurpleAir 1.0um Mass A"
+       value_template: '{{ states.sensor.purpleair.attributes["pm1_0_atm"] }}'
+       unit_of_measurement: "ug/m3"
+     purpleair_pm1_atm_b:
+       friendly_name: "PurpleAir 1.0um Mass B"
+       value_template: '{{ states.sensor.purpleair.attributes["pm1_0_atm_b"] }}'
+       unit_of_measurement: "ug/m3"
+     purpleair_pm2_5_atm_a:
+       friendly_name: "PurpleAir 2.5um Mass A"
+       value_template: '{{ states.sensor.purpleair.attributes["pm2_5_atm"] }}'
+       unit_of_measurement: "ug/m3"
+     purpleair_pm2_5_atm_b:
+       friendly_name: "PurpleAir 2.5um Mass B"
+       value_template: '{{ states.sensor.purpleair.attributes["pm2_5_atm_b"] }}'
+       unit_of_measurement: "ug/m3"
+ - platform: min_max
+   name: "PurpleAir AQI"
+   type: mean
+   round_digits: 0
+   entity_ids:
+     - sensor.purpleair_aqi_a
+     - sensor.purpleair_aqi_b
+ - platform: template
+   sensors:
+     purpleair_description:
+       friendly_name: 'PurpleAir AQI Description'
+       value_template: >
+         {% if (states('sensor.purpleair')|float) >= 401.0 %}
+           Hazardous
+         {% elif (states('sensor.purpleair')|float) >= 301.0 %}
+           Hazardous
+         {% elif (states('sensor.purpleair')|float) >= 201.0 %}
+           Very Unhealthy
+         {% elif (states('sensor.purpleair')|float) >= 151.0 %}
+           Unhealthy
+         {% elif (states('sensor.purpleair')|float) >= 101.0 %}
+           Unhealthy for Sensitive Groups
+         {% elif (states('sensor.purpleair')|float) >= 51.0 %}
+           Moderate
+         {% elif (states('sensor.purpleair')|float) >= 0.0 %}
+           Good
+         {% else %}
+           undefined
+         {% endif %}
+       entity_id: sensor.purpleair_aqi
+ - platform: filter
+   name: purpleair_aqi_30min
+   entity_id: sensor.purpleair_aqi
+   filters:
+     - filter: time_simple_moving_average
+       window_size: 00:10:00
+       precision: 0

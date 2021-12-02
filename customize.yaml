@@ -1,19 +1,18 @@
 sensor.octoprint_actual_tool0_temp:
-  unit_of_measurement: 'C'
+  unit_of_measurement: C
   friendly_name: Nozzle Temperature
   icon: mdi:thermometer
-  
 sensor.octoprint_actual_bed_temp:
-  unit_of_measurement: 'C'
+  unit_of_measurement: C
   friendly_name: Bed Temperature
   icon: mdi:thermometer
-  
 sensor.octoprint_target_tool0_temp:
-  unit_of_measurement: 'C'
+  unit_of_measurement: C
   friendly_name: Nozzle Target Temperature
   icon: mdi:thermometer
-  
 sensor.octoprint_target_bed_temp:
-  unit_of_measurement: 'C'
+  unit_of_measurement: C
   friendly_name: Bed Target Temperature
   icon: mdi:thermometer
+media_player.samsung_living_room_tv:
+  friendly_name: samsung_living_room_tv_old_dont_use_figure_out_how_to_delete
