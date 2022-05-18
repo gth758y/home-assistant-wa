@@ -25,6 +25,7 @@ logbook:
       - sensor.time_utc
 history:
 sun:
+mobile_app:
 sensor: !include sensors.yaml
 binary_sensor: !include binary_sensor.yaml
 

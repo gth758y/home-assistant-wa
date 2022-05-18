@@ -407,19 +407,19 @@
      purpleair_description:
        friendly_name: 'PurpleAir AQI Description'
        value_template: >
-         {% if (states('sensor.purpleair')|float) >= 401.0 %}
+         {% if (states('sensor.purpleair_aqi')|float) >= 401.0 %}
            Hazardous
-         {% elif (states('sensor.purpleair')|float) >= 301.0 %}
+         {% elif (states('sensor.purpleair_aqi')|float) >= 301.0 %}
            Hazardous
-         {% elif (states('sensor.purpleair')|float) >= 201.0 %}
+         {% elif (states('sensor.purpleair_aqi')|float) >= 201.0 %}
            Very Unhealthy
-         {% elif (states('sensor.purpleair')|float) >= 151.0 %}
+         {% elif (states('sensor.purpleair_aqi')|float) >= 151.0 %}
            Unhealthy
-         {% elif (states('sensor.purpleair')|float) >= 101.0 %}
+         {% elif (states('sensor.purpleair_aqi')|float) >= 101.0 %}
            Unhealthy for Sensitive Groups
-         {% elif (states('sensor.purpleair')|float) >= 51.0 %}
+         {% elif (states('sensor.purpleair_aqi')|float) >= 51.0 %}
            Moderate
-         {% elif (states('sensor.purpleair')|float) >= 0.0 %}
+         {% elif (states('sensor.purpleair_aqi')|float) >= 0.0 %}
            Good
          {% else %}
            undefined
