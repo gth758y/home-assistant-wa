@@ -34,3 +34,10 @@ cards:
         show_info: true
         title: Driveway
         type: picture-entity
+        
+      - camera_image: camera.shop_door
+        camera_view: live
+        entity: camera.shop_door
+        show_info: true
+        title: Shop Door
+        type: picture-entity
