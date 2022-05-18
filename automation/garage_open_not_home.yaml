@@ -8,12 +8,13 @@ condition:
   entity_id: binary_sensor.anybody_home
   state: 'off'
 action:
-  - delay: '00:03:00'
+  - delay: '00:01:00'
   - condition: state
     entity_id: binary_sensor.anybody_home
     state: 'off'
-    for:
-      seconds: 180
-  - service: notify.notify
-    data_template:
+    # for:
+      # seconds: 180
+  - service: notify.mobile_app_tyler_pixel_4
+    data:
+      title: "Garage Opened"
       message: "Garage opened and you're not home!"
