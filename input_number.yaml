@@ -1,0 +1,7 @@
+master_bed_trigger_level:
+    name: Master Bed Trigger Level
+    min: 0
+    max: 3500
+    step: 50
+    unit_of_measurement: mV
+    icon: mdi:arrow-collapse-down

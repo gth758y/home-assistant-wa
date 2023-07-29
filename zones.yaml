@@ -23,6 +23,18 @@
   longitude: !secret simplexity_long
   radius: 175
   icon: mdi:briefcase
+  
+- name: Simplexity
+  latitude: !secret simplexity_sd_lat
+  longitude: !secret simplexity_sd_long
+  radius: 75
+  icon: mdi:briefcase
+  
+- name: Simplexity
+  latitude: !secret simplexity_sea_lat
+  longitude: !secret simplexity_sea_long
+  radius: 50
+  icon: mdi:briefcase
 
 - name: LSAC
   latitude: 45.6890943
@@ -108,7 +120,7 @@
   radius: 23
   icon: mdi:home-outline
 
-- name: Cumming Conners
+- name: Kristy
   latitude: !secret kristy_tim_lat
   longitude: !secret kristy_tim_long
   radius: 92
@@ -174,6 +186,29 @@
   radius: 30
   icon: mdi:food
   
+- name: Pearson - VUO
+  latitude: 45.621990
+  longitude: -122.653094
+  radius: 275
+  icon: mdi:airport
+  
+- name: Scappoose
+  latitude: 45.773567
+  longitude: -122.861726
+  radius: 525
+  icon: mdi:airport
+  
+- name: Nike
+  latitude: 45.510729
+  longitude: -122.832316
+  radius: 850
+  icon: mdi:briefcase
+  
+- name: Costco
+  latitude: 45.685498
+  longitude: -122.603699
+  radius: 150
+  icon: mdi:cart
 
 
 

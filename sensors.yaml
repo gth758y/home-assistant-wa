@@ -1,42 +1,6 @@
 ### Weather/Forecast Info
 
- - platform: darksky
-   api_key: !secret forecast_io_api_key
-   monitored_conditions:
-    - summary
-    - icon
-    - nearest_storm_distance
-    - nearest_storm_bearing
-    - precip_type
-    - precip_intensity
-    - precip_probability
-    - temperature
-    - apparent_temperature
-    - dew_point
-    - wind_speed
-    - wind_bearing
-    - cloud_cover
-    - humidity
-    - pressure
-    - visibility
-    - ozone
-    - minutely_summary
-    - hourly_summary
-    - daily_summary
-    - temperature_high
-    - temperature_low
-    - apparent_temperature_high
-    - apparent_temperature_low
-    - precip_intensity_max
 
-### Speedtest
-
- # - platform: speedtest
-   # monitored_conditions:
-    # - ping
-    # - download
-    # - upload
-    
 ## OctoPrint
  - platform: octoprint
    name: OctoPrint
@@ -127,33 +91,33 @@
      - 'time_utc'
      - 'beat'
      
- - platform: waze_travel_time
-   name: "Tyler to Work"
-   origin: device_tracker.tyler_pixel4
-   destination: zone.insitu_eagle_point
-   region: 'US'
-   realtime: true
+ # - platform: waze_travel_time
+   # name: "Tyler to Work"
+   # origin: device_tracker.tyler_pixel4
+   # destination: zone.insitu_eagle_point
+   # region: 'US'
+   # realtime: true
    
- - platform: waze_travel_time
-   name: "Tyler to Home"
-   origin: device_tracker.tyler_pixel4
-   destination: zone.home
-   region: 'US'
-   realtime: true
+ # - platform: waze_travel_time
+   # name: "Tyler to Home"
+   # origin: device_tracker.tyler_pixel4
+   # destination: zone.home
+   # region: 'US'
+   # realtime: true
    
- - platform: waze_travel_time
-   name: "Amy to Work"
-   origin: device_tracker.amy_pixel5
-   destination: zone.simplexity
-   region: 'US'
-   realtime: true
+ # - platform: waze_travel_time
+   # name: "Amy to Work"
+   # origin: device_tracker.amy_pixel5
+   # destination: zone.simplexity
+   # region: 'US'
+   # realtime: true
    
- - platform: waze_travel_time
-   name: "Amy to Home"
-   origin: device_tracker.amy_pixel5
-   destination: zone.home
-   region: 'US'
-   realtime: true
+ # - platform: waze_travel_time
+   # name: "Amy to Home"
+   # origin: device_tracker.amy_pixel5
+   # destination: zone.home
+   # region: 'US'
+   # realtime: true
 
  - platform: template
    sensors:
@@ -432,3 +396,357 @@
      - filter: time_simple_moving_average
        window_size: 00:10:00
        precision: 0
+
+ - platform: template
+   sensors:
+     led_statusbar_tyler:
+       value_template: >
+         {% if is_state("sensor.tyler_status","home") %}
+           g
+         {% elif is_state("sensor.tyler_status","Insitu - Waucoma") or is_state("sensor.tyler_status","Insitu - Eagle Point") %}
+           b
+         {% elif is_state("sensor.tyler_status","swimming") or is_state("sensor.tyler_status","running") %}
+           y
+         {% elif is_state("sensor.tyler_status","Freddy") or is_state("sensor.tyler_status","Safeway") or is_state("sensor.tyler_status","Costco") %}
+           o
+         {% elif is_state("sensor.tyler_status","Steph & Lukas") %}
+           p
+         {% else %}
+           w
+         {%- endif %}
+
+ - platform: template
+   sensors:
+     led_statusbar_amy:
+       value_template: >
+         {% if is_state("sensor.amy_status","home") %}
+           g
+         {% elif is_state("sensor.amy_status","Simplexity") or is_state("sensor.amy_status","Nike") %}
+           b
+         {% elif is_state("sensor.amy_status","swimming") or is_state("sensor.amy_status","running") %}
+           y
+         {% elif is_state("sensor.amy_status","Freddy") or is_state("sensor.amy_status","Safeway" or is_state("sensor.amy_status","Costco")) %}
+           o
+         {% elif is_state("sensor.amy_status","Steph & Lukas") %}
+           p
+         {% else %}
+           w
+         {%- endif %}
+
+ - platform: template
+   sensors:
+     led_statusbar_garage:
+       value_template: >
+         {% if is_state("binary_sensor.garage_open","on") %}
+           r
+         {% else %}
+           x
+         {%- endif %}
+
+ - platform: template
+   sensors:
+     led_statusbar_location_disagree:
+       value_template: >
+         {% if is_state("binary_sensor.location_disagree","on") %}
+           r
+         {% else %}
+           x
+         {%- endif %}
+
+ - platform: template
+   sensors:
+     led_statusbar_bt_monitor_disagree:
+       value_template: >
+         {% if is_state("binary_sensor.bt_monitor_disagree","on") %}
+           r
+         {% else %}
+           x
+         {%- endif %}
+         
+ - platform: template
+   sensors:
+     led_statusbar_vehicle_motion:
+       value_template: >
+         {% if (is_state("binary_sensor.front_door_vehicle","on") or is_state("binary_sensor.driveway_vehicle","on")) %}
+           y
+         {% else %}
+           x
+         {%- endif %}
+         
+ - platform: template
+   sensors:
+     led_statusbar_human_motion:
+       value_template: >
+         {% if (is_state("binary_sensor.driveway_person","on") or is_state("binary_sensor.front_door_person","on") or is_state("binary_sensor.back_porch_person","on") or is_state("binary_sensor.shop_door_person","on") or is_state("binary_sensor.back_walkway_person","on")) %}
+           y
+         {% else %}
+           x
+         {%- endif %}
+         
+ - platform: template
+   sensors:
+     led_statusbar_aqi:
+       value_template: >
+         {% if (states('sensor.purpleair_aqi_30min')|float) >= 301.0 %}
+           n
+         {% elif (states('sensor.purpleair_aqi_30min')|float) >= 201.0 %}
+           p
+         {% elif (states('sensor.purpleair_aqi_30min')|float) >= 151.0 %}
+           r
+         {% elif (states('sensor.purpleair_aqi_30min')|float) >= 101.0 %}
+           o
+         {% elif (states('sensor.purpleair_aqi_30min')|float) >= 51.0 %}
+           y
+         {% elif (states('sensor.purpleair_aqi_30min')|float) >= 0.0 %}
+           g
+         {% else %}
+           x
+         {% endif %}
+         
+ - platform: template
+   sensors:
+     led_statusbar_pollen:
+       value_template: >
+         {% if (states('sensor.allergy_index_today')|float) >= 9.6 %}
+           p
+         {% elif (states('sensor.allergy_index_today')|float) >= 7.2 %}
+           r
+         {% elif (states('sensor.allergy_index_today')|float) >= 4.8 %}
+           o
+         {% elif (states('sensor.allergy_index_today')|float) >= 2.4 %}
+           y
+         {% elif (states('sensor.allergy_index_today')|float) >= 0.0 %}
+           g
+         {% else %}
+           x
+         {% endif %}
+         
+ - platform: template
+   sensors:
+     led_statusbar_open_windows:
+       value_template: >
+         {% if (is_state("binary_sensor.could_windows_be_open","on") and is_state("binary_sensor.lumi_lumi_sensor_magnet_aq2_6a4c1b09_on_off","off")) %}
+           g
+         {% elif (is_state("binary_sensor.could_windows_be_open","off") and is_state("binary_sensor.lumi_lumi_sensor_magnet_aq2_6a4c1b09_on_off","on")) %}
+           r
+         {% else %}
+           x
+         {%- endif %}
+         
+ - platform: template
+   sensors:
+     office_statusbar:
+       value_template: >
+         {% if (is_state("binary_sensor.house_asleep","on") or is_state("binary_sensor.anybody_home","off")) %}
+           xxxxxxxxx
+         {% else %}
+           {{
+             states("sensor.led_statusbar_tyler") +
+             states("sensor.led_statusbar_amy") +
+             states("sensor.led_statusbar_garage") +
+             states("sensor.led_statusbar_location_disagree") +
+             states("sensor.led_statusbar_bt_monitor_disagree") +
+             states("sensor.led_statusbar_vehicle_motion") +
+             states("sensor.led_statusbar_human_motion") +
+             states("sensor.led_statusbar_aqi") +
+             states("sensor.led_statusbar_pollen")
+           }}            
+         {%- endif %}
+         
+ - platform: template
+   sensors:
+     living_room_statusbar:
+       value_template: >
+         {% if (is_state("binary_sensor.house_asleep","on") or is_state("binary_sensor.anybody_home","off")) %}
+           xxxx
+         {% else %}
+           {{
+             states("sensor.led_statusbar_garage") +
+             states("sensor.led_statusbar_vehicle_motion") +
+             states("sensor.led_statusbar_human_motion") +
+             states("sensor.led_statusbar_open_windows")
+           }}            
+         {%- endif %}
+         
+ - platform: mqtt
+   state_topic: "master_bedroom/bed_occupancy/status"
+   name: "Tyler Bed Occupancy Raw"   
+   unit_of_measurement: "mV"
+   value_template: '{{ value_json.tyler_side }}'
+   
+ - platform: mqtt
+   state_topic: "master_bedroom/bed_occupancy/status"
+   name: "Amy Bed Occupancy Raw"   
+   unit_of_measurement: "mV"
+   value_template: '{{ value_json.amy_side }}'
+   
+ - platform: filter
+   name: "Tyler Bed Occupancy Smoothed"
+   entity_id: sensor.tyler_bed_occupancy_raw
+   filters:
+     - filter: time_simple_moving_average
+       window_size: "00:00:05"
+       precision: 0
+
+ - platform: filter
+   name: "Amy Bed Occupancy Smoothed"
+   entity_id: sensor.amy_bed_occupancy_raw
+   filters:
+     - filter: time_simple_moving_average
+       window_size: "00:00:05"
+       precision: 0
+       
+# MQTT Weather Sensors
+       
+ - platform: mqtt
+   state_topic: "weather/sensor/84f3eb9c94da/barometricPressureRelative/state"
+   name: "PWS Altimeter"
+   unit_of_measurement: "inHg"
+   
+ - platform: mqtt
+   state_topic: "weather/sensor/84f3eb9c94da/humidityIndoor/state"
+   name: "PWS Indoor Humidity"
+   unit_of_measurement: "%"
+   
+ - platform: mqtt
+   state_topic: "weather/sensor/84f3eb9c94da/humidityOutdoor/state"
+   name: "PWS Outdoor Humidity"
+   unit_of_measurement: "%"
+   
+ - platform: mqtt
+   state_topic: "weather/sensor/84f3eb9c94da/rainDaily/state"
+   name: "PWS Daily Rain"
+   unit_of_measurement: "in"
+   icon: mdi:weather-pouring
+   
+ - platform: mqtt
+   state_topic: "weather/sensor/84f3eb9c94da/rainEvent/state"
+   name: "PWS Event Rain"
+   unit_of_measurement: "in"
+   icon: mdi:weather-pouring
+   
+ - platform: mqtt
+   state_topic: "weather/sensor/84f3eb9c94da/rainHourly/state"
+   name: "PWS Hourly Rain"
+   unit_of_measurement: "in"
+   icon: mdi:weather-pouring
+   
+ - platform: mqtt
+   state_topic: "weather/sensor/84f3eb9c94da/rainMonthly/state"
+   name: "PWS Monthly Rain"
+   unit_of_measurement: "in"
+   icon: mdi:weather-pouring
+   
+ - platform: mqtt
+   state_topic: "weather/sensor/84f3eb9c94da/rainTotal/state"
+   name: "PWS Total Rain"
+   unit_of_measurement: "in"
+   icon: mdi:weather-pouring
+   
+ - platform: mqtt
+   state_topic: "weather/sensor/84f3eb9c94da/rainWeekly/state"
+   name: "PWS Weekly Rain"
+   unit_of_measurement: "in"
+   icon: mdi:weather-pouring
+   
+ - platform: mqtt
+   state_topic: "weather/sensor/84f3eb9c94da/solarRadiation/state"
+   name: "PWS Solar Radiation"
+   unit_of_measurement: "W/m^2"
+   icon: mdi:solar-power
+   
+ - platform: mqtt
+   state_topic: "weather/sensor/84f3eb9c94da/temperatureIndoor/state"
+   name: "PWS Indoor Temperature"
+   unit_of_measurement: "F"
+   
+ - platform: mqtt
+   state_topic: "weather/sensor/84f3eb9c94da/temperatureOutdoor/state"
+   name: "PWS Outdoor Temperature"
+   unit_of_measurement: "F"
+   
+ - platform: mqtt
+   state_topic: "weather/sensor/84f3eb9c94da/windDirection/state"
+   name: "PWS Wind Direction"
+   unit_of_measurement: "deg"
+   
+ - platform: mqtt
+   state_topic: "weather/sensor/84f3eb9c94da/windGust/state"
+   name: "PWS Wind Gust"
+   unit_of_measurement: "mph"
+   icon: mdi:weather-windy
+   
+ - platform: mqtt
+   state_topic: "weather/sensor/84f3eb9c94da/windMaxDailyGust/state"
+   name: "PWS Maximum Daily Gust"
+   unit_of_measurement: "mph"
+   icon: mdi:weather-windy
+   
+ - platform: mqtt
+   state_topic: "weather/sensor/84f3eb9c94da/windSpeed/state"
+   name: "PWS Wind Speed"
+   unit_of_measurement: "mph"
+   icon: mdi:weather-windy
+   
+ - platform: mqtt
+   state_topic: "weather/sensor/84f3eb9c94da/uv/state"
+   name: "PWS UV Index"
+   icon: mdi:weather-sunny
+   
+ - platform: template
+   sensors:
+     pws_outdoor_dew_point_calc:
+       unit_of_measurement: "°F"
+       value_template: >
+        {% set tf = states('sensor.pws_outdoor_temperature') | float %}
+        {% set h = states('sensor.pws_outdoor_humidity') | float %}
+        {% set b = 18.678 %}
+        {% set c = 257.14 %}
+        {% set tc = 5*(tf-32)/9 %}
+        {% set g = log(h/100)+((b*tc)/(c+tc)) %}
+        {% set dc = c*g/(b-g) %}
+        {{ (9/5*dc+32)|round(1) }}
+        
+ - platform: template
+ # https://www.wpc.ncep.noaa.gov/html/heatindex_equation.shtml
+   sensors:
+     pws_outdoor_heat_index_calc:
+       unit_of_measurement: "°F"
+       value_template: >
+        {% set tf = states('sensor.pws_outdoor_temperature') | float %}
+        {% set h = states('sensor.pws_outdoor_humidity') | float %}
+        {% set c1 = -42.379 %}
+        {% set c2 = 2.04901523 %}
+        {% set c3 = 10.14333127 %}
+        {% set c4 = -0.22475541 %}
+        {% set c5 = -0.00683783 %}
+        {% set c6 = -0.05481717 %}
+        {% set c7 = 0.00122874 %}
+        {% set c8 = 0.00085282 %}
+        {% set c9 = -0.00000199 %}
+        {% set HI = (c1+c2*tf+c3*h+c4*tf*h+c5*tf**2+c6*h**2+c7*tf**2*h+c8*tf*h**2+c9*tf**2*h**2) %}
+        {% set adj1 = ((13-h)/4)*sqrt((17-(tf-95)|abs)/17) %}
+        {% set adj2 = ((h-85)/10)*((87-tf)/5) %}
+        {% set HIsimple = 0.5*(tf+61+((tf-68)*1.2)+(h*0.094)) %}
+        {% if HIsimple < 80 %} {{(HIsimple)|round(1) }}
+        {% elif tf > 80 and tf < 112 and h < 13 %} {{(HI-adj1)|round(1) }}
+        {% elif tf > 80 and tf < 87 and h > 85 %} {{(HI+adj2)|round(1) }}
+        {% else %} {{(HI)|round(1)}}
+        {%- endif %}
+        
+ - platform: template
+ # https://www.weather.gov/safety/cold-wind-chill-chart
+   sensors:
+     pws_outdoor_wind_chill_calc:
+       unit_of_measurement: "°F"
+       value_template: >
+        {% set tf = states('sensor.pws_outdoor_temperature') | float %}
+        {% set w = states('sensor.pws_wind_speed') | float %}
+        {% set c1 = 35.74 %}
+        {% set c2 = 0.6215 %}
+        {% set c3 = 35.75 %}
+        {% set c4 = 0.4275 %}
+        {% set WC = (c1+c2*tf-35.75*(w**0.16)+c4*(w**0.16)) %}
+        {% if tf <= 50 and w > 3 %} {{ (WC) |round(1) }}
+        {% else %} {{ (tf)|round(1) }}
+        {%- endif %}

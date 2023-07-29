@@ -7,18 +7,10 @@
     
   - platform: threshold
     name: "Is It Kind Of Dark"
-    lower: 550
+    lower: 520
     hysteresis: 50
     entity_id: sensor.living_room_light_level
     
-  - platform: iss
-  
-  # - platform: threshold
-    # name: "Is It Cloudy"
-    # upper: 80
-    # hysteresis: 5
-    # entity_id: sensor.dark_sky_cloud_coverage
-
   - platform: template
     sensors:
       tyler_home:
@@ -93,16 +85,25 @@
   - platform: template
     sensors:
       bt_monitor_disagree:
+        delay_on:
+          minutes: 10
         value_template: >-
-          {{ (((states.sensor.tyler_kitchen.state == 0 or states.sensor.tyler_master_bedroom.state == 0)
-          and
-          (not(states.sensor.tyler_kitchen.state == 0) or not(states.sensor.tyler_master_bedroom.state == 0)))
-          and (states.sensor.tyler_kitchen.state + states.sensor.tyler_master_bedroom.state) > 60)
-          or
-          (((states.sensor.amy_kitchen.state == 0 or states.sensor.amy_master_bedroom.state == 0)
-          and
-          (not(states.sensor.amy_kitchen.state == 0) or not(states.sensor.amy_master_bedroom.state == 0)))
-          and (states.sensor.amy_kitchen.state + states.sensor.amy_master_bedroom.state) > 60) }}
+          {{ (states('sensor.tyler_home_occupancy_confidence')|float > 0 and states('sensor.tyler_home_occupancy_confidence')|float < 100)
+            or (states('sensor.amy_home_occupancy_confidence')|float > 0 and states('sensor.amy_home_occupancy_confidence')|float < 100)
+          }}
+          
+  - platform: template
+    sensors:
+      location_disagree:
+        delay_on:
+          minutes: 10
+        value_template: >-
+          {{ (is_state("device_tracker.tyler_pixel4","home") and is_state("binary_sensor.tyler_home","off"))
+            or (not is_state("device_tracker.tyler_pixel4","home") and is_state("binary_sensor.tyler_home","on"))
+            or (is_state("device_tracker.amy_pixel5","home") and is_state("binary_sensor.amy_home","off"))
+            or (not is_state("device_tracker.amy_pixel5","home") and is_state("binary_sensor.amy_home","on"))
+          }}
+          
           
   - platform: template
     sensors:
@@ -128,29 +129,29 @@
         # value_template: >-
           # {{ is_state('sensor.laundry_room_motion', 'motion detected') }}
           
-  - platform: template
-    sensors:
-      tyler_in_bed:
-        value_template: >-
-            {{ states('sensor.bed_mass_calibrated')|float >= 70 }}
+  # - platform: template
+    # sensors:
+      # tyler_in_bed:
+        # value_template: >-
+            # {{ states('sensor.bed_mass_calibrated')|float >= 70 }}
             
-  - platform: template
-    sensors:
-      amy_in_bed:
-        value_template: >-
-            {{ (states('sensor.bed_mass_calibrated')|float > 50 and states('sensor.bed_mass_calibrated')|float < 70) or states('sensor.bed_mass_calibrated')|float > 130 }}
+  # - platform: template
+    # sensors:
+      # amy_in_bed:
+        # value_template: >-
+            # {{ (states('sensor.bed_mass_calibrated')|float > 50 and states('sensor.bed_mass_calibrated')|float < 70) or states('sensor.bed_mass_calibrated')|float > 130 }}
             
-  - platform: template
-    sensors:
-      both_in_bed:
-        value_template: >-
-            {{ states('sensor.bed_mass_calibrated')|float > 130 }}
+  # - platform: template
+    # sensors:
+      # both_in_bed:
+        # value_template: >-
+            # {{ states('sensor.bed_mass_calibrated')|float > 130 }}
             
-  - platform: template
-    sensors:
-      anybody_in_bed:
-        value_template: >-
-            {{ is_state('binary_sensor.tyler_in_bed', 'on') or is_state('binary_sensor.amy_in_bed', 'on') }}
+  # - platform: template
+    # sensors:
+      # anybody_in_bed:
+        # value_template: >-
+            # {{ is_state('binary_sensor.tyler_in_bed', 'on') or is_state('binary_sensor.amy_in_bed', 'on') }}
             
   - platform: mqtt
     name: "Front Door Motion"
@@ -174,11 +175,19 @@
             
   - platform: template
     sensors:
-      back_porch_motion_delay:
+      back_porch_motion_person_delay:
         delay_off:
           minutes: 2
         value_template: >-
-            {{ is_state('binary_sensor.back_porch_motion', 'on') }}
+            {{ is_state('binary_sensor.back_porch_person', 'on') }}
+            
+  - platform: template
+    sensors:
+      shop_door_motion_person_delay:
+        delay_off:
+          minutes: 2
+        value_template: >-
+            {{ is_state('binary_sensor.shop_door_person', 'on') }}
             
   - platform: template
     sensors:
@@ -196,5 +205,133 @@
         value_template: >-
             {{ is_state('binary_sensor.anybody_on_zwift', 'on') }}
             
-  - platform: aurora
-    forecast_threshold: 20
+  # - platform: aurora
+    # forecast_threshold: 20
+    
+  - platform: mqtt
+    name: "Driveway Person"
+    state_topic: blue_iris/AI/driveway/person
+    payload_on: "ON"
+    payload_off: "OFF"
+    device_class: motion
+    
+  - platform: mqtt
+    name: "Front Door Person"
+    state_topic: blue_iris/AI/front_door/person
+    payload_on: "ON"
+    payload_off: "OFF"
+    device_class: motion
+    
+  - platform: mqtt
+    name: "Back Porch Person"
+    state_topic: blue_iris/AI/back_porch/person
+    payload_on: "ON"
+    payload_off: "OFF"
+    device_class: motion
+    
+  - platform: mqtt
+    name: "Back Walkway Person"
+    state_topic: blue_iris/AI/back_walkway/person
+    payload_on: "ON"
+    payload_off: "OFF"
+    device_class: motion
+    
+  - platform: mqtt
+    name: "Shop Door Person"
+    state_topic: blue_iris/AI/shop_door/person
+    payload_on: "ON"
+    payload_off: "OFF"
+    device_class: motion
+    
+  - platform: mqtt
+    name: "Driveway Vehicle"
+    state_topic: blue_iris/AI/driveway/vehicle
+    payload_on: "ON"
+    payload_off: "OFF"
+    device_class: moving
+    
+  - platform: mqtt
+    name: "Front Door Vehicle"
+    state_topic: blue_iris/AI/front_door/vehicle
+    payload_on: "ON"
+    payload_off: "OFF"
+    device_class: moving
+    
+  - platform: mqtt
+    name: "LEDBar Office Update"
+    state_topic: "ledbar/office/updateflag"
+    payload_on: "updateMe"
+    payload_off: "weGood"
+    qos: 0
+    
+  - platform: mqtt
+    name: "LEDBar Living Room Update"
+    state_topic: "ledbar/living_room/updateflag"
+    payload_on: "updateMe"
+    payload_off: "weGood"
+    qos: 0
+
+  - platform: template
+    sensors:
+      tyler_in_bed:
+        delay_on:
+          seconds: 5
+        delay_off:
+          seconds: 2
+        value_template: >-
+            {{ states('sensor.tyler_bed_occupancy_raw')|float < states('input_number.master_bed_trigger_level')|float }}
+      
+  - platform: template
+    sensors:
+      amy_in_bed:
+        delay_on:
+          seconds: 5
+        delay_off:
+          seconds: 2
+        value_template: >-
+            {{ states('sensor.amy_bed_occupancy_raw')|float < states('input_number.master_bed_trigger_level')|float }}
+      
+  - platform: template
+    sensors:
+      anybody_in_bed:
+        value_template: >-
+            {{ is_state('binary_sensor.tyler_in_bed', 'on') or is_state('binary_sensor.amy_in_bed', 'on') }}
+            
+  - platform: template
+    sensors:
+      both_in_bed:
+        value_template: >-
+            {{ is_state('binary_sensor.tyler_in_bed', 'on') and is_state('binary_sensor.amy_in_bed', 'on') }}
+            
+  - platform: template
+    sensors:
+      tyler_out_of_bed_while_asleep:
+        value_template: >-
+            {{ is_state('binary_sensor.tyler_in_bed','off') and
+               is_state('binary_sensor.house_asleep','on') and
+               is_state('input_select.tyler_status','sleeping') }}
+            
+  - platform: template
+    sensors:
+      amy_out_of_bed_while_asleep:
+        value_template: >-
+            {{ is_state('binary_sensor.amy_in_bed','off') and
+               is_state('binary_sensor.house_asleep','on') and
+               is_state('input_select.amy_status','sleeping') }}
+               
+  - platform: template
+    sensors:
+      could_windows_be_open:
+        delay_off:
+          minutes: 3
+        delay_on:
+          minutes: 3
+        value_template: >-
+            {% set aqi = states('sensor.purpleair_aqi')|float %}
+            {% set pollen = states('sensor.allergy_index_today')|float %}
+            {% set t_out = states('sensor.pws_outdoor_temperature')|float %}
+            {% set t_in = states('sensor.pws_indoor_temperature')|float %}
+            {{ aqi < 70 and pollen < 7.0 and t_out > 50 and t_out < 75 and
+               ((is_state('climate.living_room','cool') and t_out <= t_in) or
+                (is_state('climate.living_room','heat') and t_out >= t_in))
+            }}

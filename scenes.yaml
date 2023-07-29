@@ -44,7 +44,7 @@
         state: off
     switch.dining_room_exterior:
         state: off
-    switch.back_porch:
+    switch.basement_entry:
         state: off
     switch.basement_pathway_exterior:
         state: off
@@ -93,11 +93,15 @@
         state: off
     switch.grill_area_exterior:
         state: off
-    switch.back_porch:
+    switch.basement_entry:
         state: off
     switch.basement_pathway_exterior:
         state: off
     switch.ge_unknown_type4f50_id3032_switch:
+        state: off
+    light.wled_master:
+        state: off
+    light.wled:
         state: off
         
 - name: Exterior Halloween Normal
@@ -238,14 +242,14 @@
     
 - name: basement_path_and_entrance_on
   entities:
-    switch.back_porch:
+    switch.basement_entry:
       state: on
     switch.basement_pathway_exterior:
       state: on
       
 - name: basement_path_and_entrance_off
   entities:
-    switch.back_porch:
+    switch.basement_entry:
       state: off
     switch.basement_pathway_exterior:
       state: off
@@ -583,5 +587,52 @@
         state: on
         xy_color: [.689,.309]
         brightness_pct: 50
+        
+- name: Hallway Red Nightlight
+  entities:
+    light.guest_hallway_1:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 20
+    light.guest_hallway_2:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 20
+    light.guest_hallway_3:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 20
+    light.guest_hallway_4:
+        state: on
+        xy_color: [.689,.309]
+        brightness_pct: 20
 
-
+- name: Tyler Underbed Nightlight
+  entities:
+    light.wled_underbed: #_segment_1:
+        state: on
+        color_name: red
+        brightness: 64
+        transition: 2
+        effect: Solid
+        
+- name: Amy Underbed Nightlight
+  entities:
+    light.wled_underbed_segment_1:
+        state: on
+        color_name: red
+        brightness: 64
+        transition: 2
+        effect: Solid
+        
+- name: Tyler Underbed Nightlight Off
+  entities:
+    light.wled_underbed: #_segment_1:
+        state: off
+        effect: Solid
+        
+- name: Amy Underbed Nightlight Off
+  entities:
+    light.wled_underbed_segment_1:
+        state: off
+        effect: Solid

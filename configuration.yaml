@@ -44,6 +44,7 @@ http:
     - 10.99.1.23
     - 172.18.0.3
     - 172.18.0.2
+    - 172.18.0.4
 
 #device_tracker: !include device_trackers.yaml
 
@@ -81,14 +82,15 @@ recorder:
 input_select: !include input_select.yaml
 input_boolean: !include input_boolean.yaml
 input_datetime: !include input_datetime.yaml
+input_number: !include input_number.yaml
 scene: !include scenes.yaml
 
-climate:
- platform: honeywell
- username: !secret honeywell_user
- password: !secret honeywell_pass
- # region: us
- scan_interval: 600
+# climate:
+ # platform: honeywell
+ # username: !secret honeywell_user
+ # password: !secret honeywell_pass
+ # # region: us
+ # scan_interval: 600
 
 # notify:
   # - platform: html5
@@ -177,5 +179,5 @@ octoprint:
   # - platform: samsungtv
     # host: 10.99.10.12
     
-wemo:
-  discovery: true
+# wemo:
+  # discovery: true
