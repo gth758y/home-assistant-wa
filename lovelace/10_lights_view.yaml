@@ -24,13 +24,17 @@ cards:
             name: Upper Deck
             icon: mdi:coach-lamp
             toggle: true
-          - entity: switch.back_porch
+          - entity: switch.basement_entry
             name: Basement Entrance
             icon: mdi:coach-lamp
             toggle: true
-          - entity: switch.basement_pathway_exterior
-            name: Under Deck Walkway
-            icon: bha:light-string
+          # - entity: switch.basement_pathway_exterior
+            # name: Under Deck Walkway
+            # icon: bha:light-string
+            # toggle: true
+          - entity: switch.redneck_bug_zapper
+            name: Redneck Bug Zapper
+            icon: mdi:bug
             toggle: true
             
           - type: section
@@ -117,11 +121,11 @@ cards:
             name: Tyler's Side
             icon: mdi:lamp
             toggle: true
-          - entity: light.unterbett
+          - entity: light.wled_underbed_segment_1
             name: Amy's Side Under Bed
             icon: bha:led-strip
             toggle: true
-          - entity: light.unterbett_2
+          - entity: light.wled_underbed
             name: Tyler's Side Under Bed
             icon: bha:led-strip
             

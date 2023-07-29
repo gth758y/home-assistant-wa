@@ -180,6 +180,36 @@ cards:
               colorValueBoxRectEnd: '#333'
               valueDec: 1
               valueInt: 0
+          - type: 'custom:mini-graph-card'
+            entities:
+              - sensor.allergy_index_today
+            unit: AQI
+            name: Past 30d Pollen
+            icon: mdi:flower-pollen
+            show:
+              fill: true
+              legend: false
+              labels: true
+              name: true
+              points: true
+              name_adaptive_color: true
+              icon_adaptive_color: true
+              show_legend: false
+            font_size: 75
+            line_width: 3
+            points_per_hour: 0.0416
+            hours_to_show: 720
+            color_thresholds:
+              - value: 0
+                color: '#67e043'
+              - value: 2.4
+                color: '#ffff55'
+              - value: 4.8
+                color: '#ef8533'
+              - value: 7.2
+                color: '#ea3524'
+              - value: 9.6
+                color: '#8c1a4b'
           - type: custom:entity-attributes-card
             heading_name: ' '
             heading_state: ' '
@@ -191,4 +221,3 @@ cards:
                   name: Trend
                 - key: sensor.allergy_index_forecasted_average.outlook
                   name: Outlook
-

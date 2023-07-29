@@ -1,0 +1,43 @@
+title: Bed
+icon: mdi:bed
+panel: true
+path: bed
+
+cards:
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: sensors
+        show_header_toggle: false
+        entities:
+          - type: section
+            label: Raw
+          - entity: sensor.tyler_bed_occupancy_raw
+            name: Tyler
+            icon: mdi:human-male
+          - entity: sensor.amy_bed_occupancy_raw
+            name: Amy
+            icon: mdi:human-pregnant
+          - entity: sensor.tyler_bed_occupancy_smoothed
+            name: Tyler Smooth
+            icon: mdi:man
+          - entity: sensor.amy_bed_occupancy_smoothed
+            name: Amy Smooth
+            icon: mdi:woman
+          - entity: input_number.master_bed_trigger_level
+            name: Threshold
+            
+          - type: section
+            label: Binaries
+          - entity: binary_sensor.tyler_in_bed
+            name: Tyler
+            icon: mdi:human-male
+          - entity: binary_sensor.amy_in_bed
+            name: Amy
+            icon: mdi:human-pregnant
+          - entity: binary_sensor.both_in_bed
+            name: Both
+            icon: mdi:human-male-female
+          - entity: binary_sensor.anybody_in_bed
+            name: Either
+            icon: mdi:bug

@@ -42,12 +42,10 @@ cards:
             
           - type: section
             label: Amy's Office
-          - entity: light.hue_play_1
+          - entity: light.hue_lightstrip_plus_1
             icon: mdi:wall-sconce-round-variant
             toggle: true
-          - entity: light.hue_play_2
-            icon: mdi:wall-sconce-round-variant
-            toggle: true
+
 
             
       - type: entities

@@ -1,0 +1,24 @@
+title: Status Bar
+icon: mdi:led-strip-variant
+panel: true
+path: status_bar
+
+cards:
+  - type: custom:layout-card
+    layout: vertical
+    cards:
+      - type: entities
+        title: Status
+        show_header_toggle: false
+        entities:
+          - entity: sensor.led_statusbar_tyler
+          - entity: sensor.led_statusbar_amy
+          - entity: sensor.led_statusbar_garage
+          - entity: sensor.led_statusbar_location_disagree
+          - entity: sensor.led_statusbar_bt_monitor_disagree
+          - entity: sensor.led_statusbar_vehicle_motion
+          - entity: sensor.led_statusbar_human_motion
+          - entity: sensor.led_statusbar_aqi
+          - entity: sensor.led_statusbar_pollen
+          - entity: sensor.office_statusbar
+          - entity: binary_sensor.ledbar_office_update

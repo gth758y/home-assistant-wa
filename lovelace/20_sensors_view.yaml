@@ -64,14 +64,27 @@ cards:
             name: Laundry Room
             
       - type: glance
-        title: Outdoor Motion
+        title: Outdoor Person Detection
         entities:
-          - entity: binary_sensor.front_door_motion_delay
+          - entity: binary_sensor.driveway_person
+            name: Driveway
+          - entity: binary_sensor.front_door_person
             name: Front Door
-          - entity: binary_sensor.back_porch_motion_delay
+          - entity: binary_sensor.back_porch_person
             name: Back Porch
-          - entity: binary_sensor.back_porch_motion
-            name: back porch virgin
+          - entity: binary_sensor.shop_door_person
+            name: Shop Door
+          - entity: binary_sensor.back_walkway_person
+            name: Back Walkway
+            
+      - type: glance
+        title: Outdoor Vehicle Detection
+        entities:
+          - entity: binary_sensor.driveway_vehicle
+            name: Driveway
+          - entity: binary_sensor.front_door_vehicle
+            name: Front Door
+
           
       - type: glance
         title: Garage
@@ -92,3 +105,11 @@ cards:
             name: House Asleep
           - entity: binary_sensor.is_it_dark
           - entity: binary_sensor.is_it_kind_of_dark
+          
+      - type: glance
+        title: Puertas y Ventanas
+        entities:
+          - entity: binary_sensor.reed_front_door
+            name: Front Door
+          - entity: binary_sensor.reed_breakfast_window_right
+            name: Breakfast Nook Window

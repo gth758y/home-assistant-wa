@@ -1,0 +1,18 @@
+title: Batteries
+icon: mdi:battery-heart
+panel: true
+path: battery
+
+cards:
+  - type: custom:layout-card
+    layout: vertical
+    cards:
+      - type: entities
+        title: Status
+        show_header_toggle: false
+        entities:
+          - entity: sensor.amy_pixel_5_battery_level
+          - entity: sensor.tyler_pixel_7_battery_level
+          - entity: sensor.guest_bedroom_battery_level
+          - entity: sensor.reed_breakfast_window_right_batt
+          - entity: sensor.reed_breakfast_window_right_batt

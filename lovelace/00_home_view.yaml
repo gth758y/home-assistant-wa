@@ -80,6 +80,8 @@ cards:
                   "KJFK": /local/kjfk.jpg
                   "EHAM": /local/eham.jpg
                   "CFA": /local/cfa.jpg
+                  "Nike": /local/nike-squre.jpg
+                  "Costco": /local/costco.png
                   
                 show_name: true
                 tap_action:
@@ -121,6 +123,8 @@ cards:
                   "KJFK": /local/kjfk.jpg
                   "EHAM": /local/eham.jpg
                   "CFA": /local/cfa.jpg
+                  "Nike": /local/nike-square.jpg
+                  "Costco": /local/costco.png
                 show_name: true
                 tap_action:
                   action: more-info
@@ -230,10 +234,10 @@ cards:
                   # points: true
                   icon: false
                 entities:
-                  - entity: sensor.dark_sky_temperature
+                  - entity: sensor.pws_outdoor_temperature
                     name: OAT
                     color: green
-                  - entity: sensor.inside_air_temperature
+                  - entity: sensor.pws_indoor_temperature
                     name: IAT
                     color: blue
           
@@ -245,6 +249,8 @@ cards:
           - type: horizontal-stack
             cards:
               - type: map
+                dark_mode: false
+                #hours_to_show: 48
                 entities:
                   - person.tyler
                   - person.amy
@@ -253,6 +259,4 @@ cards:
                   # - zone.insitu_waucoma
                   # - zone.simplexity
                   # - zone.lsac
-
-   # - zone.lsac
 

@@ -9,57 +9,49 @@ cards:
       - type: glance
         title: Temperature
         entities:
-          - entity: sensor.dark_sky_temperature
-            name: Temperature
-          - entity: sensor.dark_sky_apparent_temperature
-            name: Apparent Temperature
+          - entity: sensor.pws_outdoor_temperature
+            name: Outdoor Temperature
+          - entity: sensor.pws_outdoor_dew_point_calc
+            name: Dew Point
+          - entity: sensor.pws_outdoor_heat_index_calc
+            name: Heat Index
+          - entity: sensor.pws_outdoor_wind_chill_calc
+            name: Wind Chill
 
       - type: glance
         title: Wind
         entities:
-          - entity: sensor.dark_sky_wind_speed
+          - entity: sensor.pws_wind_speed
             name: Wind Speed
-          - entity: sensor.dark_sky_wind_bearing
+          - entity: sensor.pws_wind_direction
             name: Wind Direction
             
       - type: glance
         title: Humidity
         entities:
-          - entity: sensor.dark_sky_dew_point
-            name: Dew Point
-          - entity: sensor.dark_sky_humidity
+          # - entity: sensor.dark_sky_dew_point
+            # name: Dew Point
+          - entity: sensor.pws_outdoor_humidity
             name: Humidity
             
       - type: glance
         title: Pressure
         entities:
-          - entity: sensor.dark_sky_pressure_inhg
+          - entity: sensor.pws_altimeter
             name: Pressure
-            
-      - type: glance
-        title: Visibility
-        entities:
-          - entity: sensor.dark_sky_visibility
-            name: Visibility
             
       - type: glance
         title: Sky Conditions
         entities:
-          - entity: sensor.dark_sky_summary
-            name: Summary
-          - entity: sensor.dark_sky_cloud_coverage
-            name: Cloud Coverage
-          - entity: sensor.dark_sky_precip
-            name: Precipitation
-          - entity: sensor.dark_sky_precip_intensity
-            name: Precip Rate
-            
-      - type: glance
-        title: Forecast
-        entities:
-          - entity: sensor.dark_sky_precip_probability
-            name: Rain Chance
-          - entity: sensor.dark_sky_nearest_storm_bearing
-            name: Storm Bearing
-          - entity: sensor.dark_sky_nearest_storm_distance
-            name: Storm Distance
+          - entity: sensor.pws_event_rain
+            name: Event Rain
+          - entity: sensor.pws_hourly_rain
+            name: Hourly Rain
+          - entity: sensor.pws_daily_rain
+            name: Daily Rain
+          - entity: sensor.pws_weekly_rain
+            name: Weekly Rain
+          - entity: sensor.pws_monthly_rain
+            name: Monthly Rain
+          - entity: sensor.pws_total_rain
+            name: Total Rain
