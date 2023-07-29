@@ -18,3 +18,8 @@ action:
   - service: mqtt.publish
     data:
       topic: "location/scan/restart"
+      
+  - service: mqtt.publish
+    data_template:
+      payload: "{{ states.sensor.office_statusbar.state }}"
+      topic: ledbar/office/status

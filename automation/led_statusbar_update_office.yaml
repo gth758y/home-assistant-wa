@@ -1,0 +1,17 @@
+alias: "Office LED Status Bar Update"
+trigger:
+  - platform: state
+    entity_id: sensor.office_statusbar
+  - platform: state
+    entity_id: binary_sensor.ledbar_office_update
+    to: "on"
+
+action:
+  - service: mqtt.publish
+    data_template:
+      payload: "{{ states.sensor.office_statusbar.state }}"
+      topic: ledbar/office/status
+  - service: mqtt.publish
+    data_template:
+      payload: "weGood"
+      topic: ledbar/office/updateflag

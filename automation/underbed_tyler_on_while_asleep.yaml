@@ -1,0 +1,15 @@
+alias: Underbed - Tyler On While Sleeping
+trigger:
+    platform: state
+    entity_id: binary_sensor.tyler_out_of_bed_while_asleep
+    to: 'on'
+    
+condition:
+    condition: state
+    entity_id: binary_sensor.tyler_home
+    state: 'on'
+    
+action:
+  - service: scene.turn_on
+    data:
+      entity_id: scene.tyler_underbed_nightlight

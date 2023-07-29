@@ -1,0 +1,10 @@
+alias: Underbed - Amy Off While Sleeping
+trigger:
+    platform: state
+    entity_id: binary_sensor.amy_out_of_bed_while_asleep
+    to: 'off'
+    
+action:
+  - service: scene.turn_on
+    data:
+      entity_id: scene.amy_underbed_nightlight_off

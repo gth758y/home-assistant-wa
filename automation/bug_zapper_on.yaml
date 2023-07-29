@@ -1,0 +1,12 @@
+# turns on the basement lights for porch motion or zwift (or random possums/racoons probably)
+
+alias: Turn on bug zapper
+trigger:
+  - platform: sun
+    event: sunset
+    offset: "-02:00:00"
+    
+action:
+  - service: switch.turn_on
+    data:
+      entity_id: switch.redneck_bug_zapper

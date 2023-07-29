@@ -1,0 +1,17 @@
+alias: "Living Room LED Status Bar Update"
+trigger:
+  - platform: state
+    entity_id: sensor.living_room_statusbar
+  - platform: state
+    entity_id: binary_sensor.ledbar_living_room_update
+    to: "on"
+
+action:
+  - service: mqtt.publish
+    data_template:
+      payload: "{{ states.sensor.living_room_statusbar.state }}"
+      topic: ledbar/living_room/status
+  - service: mqtt.publish
+    data_template:
+      payload: "weGood"
+      topic: ledbar/living_room/updateflag
