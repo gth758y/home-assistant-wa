@@ -129,6 +129,8 @@
            swimming
            {% elif not is_state("input_select.tyler_status", "standby") %}
            {{ states("input_select.tyler_status") }}
+           {% elif (is_state("device_tracker.tyler_pixel4","Beauty Box") or is_state("device_tracker.tyler_pixel4","Great Clips") or is_state("device_tracker.tyler_pixel4","Elements Massage")) %}
+           lux af
            {% else %}
            {{ states("device_tracker.tyler_pixel4") }}
            {%- endif %}
@@ -143,9 +145,30 @@
            swimming
            {% elif not is_state("input_select.amy_status", "standby") %}
            {{ states("input_select.amy_status") }}
+           {% elif (is_state("device_tracker.amy_pixel5","Beauty Box") or is_state("device_tracker.amy_pixel5","Great Clips") or is_state("device_tracker.amy_pixel5","Elements Massage")) %}
+           lux af
            {% else %}
            {{ states("device_tracker.amy_pixel5") }}
            {%- endif %}
+           
+ - platform: template
+   sensors:
+     next_sunrise_or_sunset:
+       value_template: >-
+          {% set now = as_timestamp(now()) %}
+          {% set sunrise = as_timestamp(state_attr('sun.sun', 'next_rising')) %}
+          {% set sunset = as_timestamp(state_attr('sun.sun', 'next_setting')) %}
+          {% if now < sunrise and now < sunset %}
+            {% if sunrise < sunset %}
+              Next Sunrise at {{ sunrise | timestamp_custom('%H:%M', True) }}
+            {% else %}
+              Next Sunset at {{ sunset | timestamp_custom('%H:%M', True) }}
+            {% endif %}
+          {% elif now > sunrise and now < sunset %}
+            Next Sunset at {{ sunset | timestamp_custom('%H:%M', True) }}
+          {% else %}
+            Next Sunrise at {{ sunrise | timestamp_custom('%H:%M', True) }}
+          {% endif %}
            
  - platform: mqtt
    state_topic: "/room/master_bedrm/bed/load"
@@ -163,7 +186,7 @@
  - platform: template
    sensors:
      bed_mass_calibrated:
-       value_template: "{{ (states('sensor.bed_mass_raw_smoothed')|float / -1.845238) | round(0) }}"
+       value_template: "{{ (states('sensor.bed_mass_raw_smoothed')|float(0) / -1.845238) | round(0) }}"
        ## changed factor to -1.68668, but reverted back to -1.845238 on 26 Nov 2019
        unit_of_measurement: 'kg'
        
@@ -171,7 +194,7 @@
    sensors:
      dark_sky_pressure_inhg:
        friendly_name: Dark Sky Pressure inHg
-       value_template: "{{ (states('sensor.dark_sky_pressure')|float / 33.864) | round(2) }}"
+       value_template: "{{ (states('sensor.dark_sky_pressure')|float(0) / 33.864) | round(2) }}"
        unit_of_measurement: 'inHg'
        icon_template: >-
          mdi:gauge
@@ -182,34 +205,34 @@
        value_template: "{{ states.climate.living_room.attributes.current_temperature }}"
        unit_of_measurement: '°F'
       
- - platform: zwift
-   username: !secret my_zwift_username
-   password: !secret my_zwift_password
-   players:
-     - !secret amy_zwift_id
+ # - platform: zwift
+   # username: !secret my_zwift_username
+   # password: !secret my_zwift_password
+   # players:
+     # - !secret amy_zwift_id
      
- - platform: template
-   sensors:
-     octoprint_time_remaining_friendly:
-       friendly_name: Octoprint Time Remaining
-       value_template: >-
-         {% set t = states('sensor.octoprint_time_remaining') | int %}
-         {{ '{:d}d {:02d}h {:02d}m {:02d}s'.format(t // 86400, (t // 3600) % 24, (t % 3600) // 60, (t % 3600) % 60) }}
+ # - platform: template
+   # sensors:
+     # octoprint_time_remaining_friendly:
+       # friendly_name: Octoprint Time Remaining
+       # value_template: >-
+         # {% set t = states('sensor.octoprint_time_remaining') | int %}
+         # {{ '{:d}d {:02d}h {:02d}m {:02d}s'.format(t // 86400, (t // 3600) % 24, (t % 3600) // 60, (t % 3600) % 60) }}
           
- - platform: template
-   sensors:
-     octoprint_time_elapsed_friendly:
-       friendly_name: Octoprint Time Elapsed
-       value_template: >-
-         {% set t = states('sensor.octoprint_time_elapsed') | int %}
-         {{ '{:d}d {:02d}h {:02d}m {:02d}s'.format(t // 86400, (t // 3600) % 24, (t % 3600) // 60, (t % 3600) % 60) }}
+ # - platform: template
+   # sensors:
+     # octoprint_time_elapsed_friendly:
+       # friendly_name: Octoprint Time Elapsed
+       # value_template: >-
+         # {% set t = states('sensor.octoprint_time_elapsed') | int %}
+         # {{ '{:d}d {:02d}h {:02d}m {:02d}s'.format(t // 86400, (t // 3600) % 24, (t % 3600) // 60, (t % 3600) % 60) }}
          
- - platform: template
-   sensors:
-     octoprint_estimated_completion_time:
-       friendly_name: Octoprint ETC
-       value_template: >-
-         {{ (states('sensor.octoprint_time_remaining') | float + now().timestamp() | int) | timestamp_custom("%R", true) }}
+ # - platform: template
+   # sensors:
+     # octoprint_estimated_completion_time:
+       # friendly_name: Octoprint ETC
+       # value_template: >-
+         # {{ (states('sensor.octoprint_time_remaining') | float + now().timestamp() | int) | timestamp_custom("%R", true) }}
          
  - platform: rest
    name: 'PurpleAir'
@@ -371,24 +394,24 @@
      purpleair_description:
        friendly_name: 'PurpleAir AQI Description'
        value_template: >
-         {% if (states('sensor.purpleair_aqi')|float) >= 401.0 %}
+         {% if (states('sensor.purpleair_aqi')|float(0) ) >= 401.0 %}
            Hazardous
-         {% elif (states('sensor.purpleair_aqi')|float) >= 301.0 %}
+         {% elif (states('sensor.purpleair_aqi')|float(0) ) >= 301.0 %}
            Hazardous
-         {% elif (states('sensor.purpleair_aqi')|float) >= 201.0 %}
+         {% elif (states('sensor.purpleair_aqi')|float(0) ) >= 201.0 %}
            Very Unhealthy
-         {% elif (states('sensor.purpleair_aqi')|float) >= 151.0 %}
+         {% elif (states('sensor.purpleair_aqi')|float(0) ) >= 151.0 %}
            Unhealthy
-         {% elif (states('sensor.purpleair_aqi')|float) >= 101.0 %}
+         {% elif (states('sensor.purpleair_aqi')|float(0) ) >= 101.0 %}
            Unhealthy for Sensitive Groups
-         {% elif (states('sensor.purpleair_aqi')|float) >= 51.0 %}
+         {% elif (states('sensor.purpleair_aqi')|float(0) ) >= 51.0 %}
            Moderate
-         {% elif (states('sensor.purpleair_aqi')|float) >= 0.0 %}
+         {% elif (states('sensor.purpleair_aqi')|float(0) ) >= 0.0 %}
            Good
          {% else %}
            undefined
          {% endif %}
-       entity_id: sensor.purpleair_aqi
+       # entity_id: sensor.purpleair_aqi
  - platform: filter
    name: purpleair_aqi_30min
    entity_id: sensor.purpleair_aqi
@@ -410,6 +433,8 @@
          {% elif is_state("sensor.tyler_status","Freddy") or is_state("sensor.tyler_status","Safeway") or is_state("sensor.tyler_status","Costco") %}
            o
          {% elif is_state("sensor.tyler_status","Steph & Lukas") %}
+           n
+         {% elif is_state("sensor.tyler_status","lux af") %}
            p
          {% else %}
            w
@@ -425,9 +450,11 @@
            b
          {% elif is_state("sensor.amy_status","swimming") or is_state("sensor.amy_status","running") %}
            y
-         {% elif is_state("sensor.amy_status","Freddy") or is_state("sensor.amy_status","Safeway" or is_state("sensor.amy_status","Costco")) %}
+         {% elif is_state("sensor.amy_status","Freddy") or is_state("sensor.amy_status","Safeway") or is_state("sensor.amy_status","Costco") %}
            o
          {% elif is_state("sensor.amy_status","Steph & Lukas") %}
+           n
+         {% elif is_state("sensor.amy_status","lux af") %}
            p
          {% else %}
            w
@@ -435,10 +462,14 @@
 
  - platform: template
    sensors:
-     led_statusbar_garage:
+     led_statusbar_entries:
        value_template: >
-         {% if is_state("binary_sensor.garage_open","on") %}
+         {% if is_state("binary_sensor.garage_open","on") and is_state("binary_sensor.exterior_door_open","on") %}
+           p
+         {% elif is_state("binary_sensor.garage_open","on") %}
            r
+         {% elif is_state("binary_sensor.exterior_door_open","on") %}
+           b
          {% else %}
            x
          {%- endif %}
@@ -487,17 +518,17 @@
    sensors:
      led_statusbar_aqi:
        value_template: >
-         {% if (states('sensor.purpleair_aqi_30min')|float) >= 301.0 %}
+         {% if (states('sensor.purpleair_aqi_30min')|float(0) ) >= 301.0 %}
            n
-         {% elif (states('sensor.purpleair_aqi_30min')|float) >= 201.0 %}
+         {% elif (states('sensor.purpleair_aqi_30min')|float(0) ) >= 201.0 %}
            p
-         {% elif (states('sensor.purpleair_aqi_30min')|float) >= 151.0 %}
+         {% elif (states('sensor.purpleair_aqi_30min')|float(0) ) >= 151.0 %}
            r
-         {% elif (states('sensor.purpleair_aqi_30min')|float) >= 101.0 %}
+         {% elif (states('sensor.purpleair_aqi_30min')|float(0) ) >= 101.0 %}
            o
-         {% elif (states('sensor.purpleair_aqi_30min')|float) >= 51.0 %}
+         {% elif (states('sensor.purpleair_aqi_30min')|float(0) ) >= 51.0 %}
            y
-         {% elif (states('sensor.purpleair_aqi_30min')|float) >= 0.0 %}
+         {% elif (states('sensor.purpleair_aqi_30min')|float(0) ) >= 0.0 %}
            g
          {% else %}
            x
@@ -507,15 +538,15 @@
    sensors:
      led_statusbar_pollen:
        value_template: >
-         {% if (states('sensor.allergy_index_today')|float) >= 9.6 %}
+         {% if (states('sensor.allergy_index_today')|float(0) ) >= 9.6 %}
            p
-         {% elif (states('sensor.allergy_index_today')|float) >= 7.2 %}
+         {% elif (states('sensor.allergy_index_today')|float(0) ) >= 7.2 %}
            r
-         {% elif (states('sensor.allergy_index_today')|float) >= 4.8 %}
+         {% elif (states('sensor.allergy_index_today')|float(0) ) >= 4.8 %}
            o
-         {% elif (states('sensor.allergy_index_today')|float) >= 2.4 %}
+         {% elif (states('sensor.allergy_index_today')|float(0) ) >= 2.4 %}
            y
-         {% elif (states('sensor.allergy_index_today')|float) >= 0.0 %}
+         {% elif (states('sensor.allergy_index_today')|float(0) ) >= 0.0 %}
            g
          {% else %}
            x
@@ -525,9 +556,9 @@
    sensors:
      led_statusbar_open_windows:
        value_template: >
-         {% if (is_state("binary_sensor.could_windows_be_open","on") and is_state("binary_sensor.lumi_lumi_sensor_magnet_aq2_6a4c1b09_on_off","off")) %}
+         {% if (is_state("binary_sensor.could_windows_be_open","on") and is_state("binary_sensor.reed_breakfast_window_right","off")) %}
            g
-         {% elif (is_state("binary_sensor.could_windows_be_open","off") and is_state("binary_sensor.lumi_lumi_sensor_magnet_aq2_6a4c1b09_on_off","on")) %}
+         {% elif (is_state("binary_sensor.could_windows_be_open","off") and is_state("binary_sensor.reed_breakfast_window_right","on")) %}
            r
          {% else %}
            x
@@ -543,7 +574,7 @@
            {{
              states("sensor.led_statusbar_tyler") +
              states("sensor.led_statusbar_amy") +
-             states("sensor.led_statusbar_garage") +
+             states("sensor.led_statusbar_entries") +
              states("sensor.led_statusbar_location_disagree") +
              states("sensor.led_statusbar_bt_monitor_disagree") +
              states("sensor.led_statusbar_vehicle_motion") +
@@ -561,7 +592,7 @@
            xxxx
          {% else %}
            {{
-             states("sensor.led_statusbar_garage") +
+             states("sensor.led_statusbar_entries") +
              states("sensor.led_statusbar_vehicle_motion") +
              states("sensor.led_statusbar_human_motion") +
              states("sensor.led_statusbar_open_windows")
@@ -750,3 +781,23 @@
         {% if tf <= 50 and w > 3 %} {{ (WC) |round(1) }}
         {% else %} {{ (tf)|round(1) }}
         {%- endif %}
+        
+ # - platform: babybuddy
+   # address: https://10.99.1.23
+   # port: 8000
+   # path: ""
+   # api_key: !secret babybuddy_api_key
+   
+ - platform: template
+   sensors:
+     time_of_day:
+       value_template: >
+         {% if is_state("switch.circadian_lighting_circadian_lighting","off") and is_state("binary_sensor.house_asleep_delay","on") %}
+           Night
+         {% elif is_state("switch.circadian_lighting_circadian_lighting","off") and is_state("binary_sensor.house_asleep_delay","off") %}
+           Evening
+         {% else %}
+           Day
+         {%- endif %}
+ 
+   
