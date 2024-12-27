@@ -12,3 +12,13 @@ bedtime_garage_check_bypass:
     name: Bypass Shutdown Script Garage Check
     initial: off
     icon: mdi:garage-alert
+    
+morgan_lights:
+    name: Morgan Lights
+    initial: off
+    icon: mdi:baby-bottle-outline
+    
+# zigbee2mqtt_force_remove:
+    # name: Zigbee2MQTT Force Remove
+    # initial: false
+    # icon: mdi:alert-remove

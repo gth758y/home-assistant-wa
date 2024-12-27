@@ -156,6 +156,7 @@
              or is_state('binary_sensor.reed_garage_entry', 'on')
              or is_state('binary_sensor.reed_grill_door', 'on')
              or is_state('binary_sensor.reed_basement_entry', 'on')
+             or is_state('binary_sensor.reed_dining_entry', 'on')
           }}
       
           
@@ -175,10 +176,10 @@
         delay_on:
           minutes: 10
         value_template: >-
-          {{ (is_state("device_tracker.tyler_pixel4","home") and is_state("binary_sensor.tyler_home","off"))
-            or (not is_state("device_tracker.tyler_pixel4","home") and is_state("binary_sensor.tyler_home","on"))
-            or (is_state("device_tracker.amy_pixel5","home") and is_state("binary_sensor.amy_home","off"))
-            or (not is_state("device_tracker.amy_pixel5","home") and is_state("binary_sensor.amy_home","on"))
+          {{ (is_state("person.tyler","home") and is_state("binary_sensor.tyler_home","off"))
+            or (not is_state("person.tyler","home") and is_state("binary_sensor.tyler_home","on"))
+            or (is_state("person.amy","home") and is_state("binary_sensor.amy_home","off"))
+            or (not is_state("person.amy","home") and is_state("binary_sensor.amy_home","on"))
           }}
           
           
@@ -414,7 +415,7 @@
             {% set mode = states('climate.main_floor') %}
             {{ aqi < 70 and pollen < 7.0 and (
                (is_state('climate.main_floor','heat_cool') and (t_out <= t_in and t_in > low_target)) or
-               (is_state('climate.main_floor','cool') and (t_out <= t_in and t_in < target)) or
+               (is_state('climate.main_floor','cool') and t_out <= t_in) or
                (is_state('climate.main_floor','heat') and (t_in > target)) or
                (is_state('climate.main_floor','off'))
                )
@@ -439,7 +440,7 @@
     sensors:
       trigger_circ_lights:
         value_template: >-
-          {{ states('sensor.circadian_values') | float > 0
+          {{ states('sensor.circadian_values') | float(0) > 0
              and is_state('binary_sensor.house_asleep', 'off')
              and is_state('binary_sensor.anybody_in_bed', 'off') }}
 #            and is_state('binary_sensor.okay_to_turn_circ_lights_on', 'on') }}

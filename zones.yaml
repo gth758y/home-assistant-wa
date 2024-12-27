@@ -210,5 +210,92 @@
   radius: 150
   icon: mdi:cart
 
+- name: Sola
+  latitude: 45.61698374921868
+  longitude: -122.52989125493959
+  radius: 40
+  icon: mdi:content-cut
 
+- name: Elements Massage
+  latitude: 45.71771206032451
+  longitude: -122.65700213156467
+  radius: 20
+  icon: mdi:spa
 
+- name: Kelso
+  latitude: 46.11901899897018
+  longitude: -122.89682495656533
+  radius: 525
+  icon: mdi:airport
+  
+- name: Great Clips
+  latitude: 45.72312468595898
+  longitude: -122.65166029539483
+  radius: 20
+  icon: mdi:content-cut
+  
+- name: David & Eliza
+  latitude: !secret macleod_lat
+  longitude: !secret macleod_long
+  radius: 23
+  icon: mdi:home-outline
+  
+- name: Insitu Pacific
+  latitude: !secret ipl_lat
+  longitude: !secret ipl_long
+  radius: 60
+  icon: mdi:briefcase-outline
+
+- name: Brisbane Mariott
+  latitude: -27.463520621933913
+  longitude: 153.03175817933058
+  radius: 23
+  icon: mdi:bed-outline
+
+- name: Insitu Pacific Test Range
+  latitude: !secret ipl_test_lat
+  longitude: !secret ipl_test_long
+  radius: 23
+  icon: mdi:plane-car
+  
+- name: Trader Joe's
+  latitude: 45.72239057540722
+  longitude: -122.66114110687167
+  radius: 35
+  icon: mdi:cart
+  
+- name: Steph & Lukas
+  latitude: !secret steph_lukas_sj_lat
+  longitude: !secret steph_lukas_sj_long
+  radius: 35    
+  icon: mdi:home-outline
+  
+- name: OBGYN or Dentist
+  latitude: 45.72219216899223
+  longitude: -122.66206344420934
+  radius: 24
+  icon: mdi:hospital
+
+- name: Legacy Salmon Creek
+  latitude: 45.720826
+  longitude: -122.648183
+  radius: 140
+  icon: mdi:hospital
+
+- name: TVC Salmon Creek
+  latitude: 45.720893
+  longitude: -122.644395
+  radius: 130
+  icon: mdi:hospital
+  
+- name: TVC Camas
+  latitude: 45.588589
+  longitude: -122.469438
+  radius: 65
+  icon: mdi:hospital
+  
+- name: TVC Ridgefield
+  latitude: 45.815201
+  longitude: -122.691552
+  radius: 53
+  icon: mdi:hospital

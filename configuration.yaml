@@ -1,3 +1,8 @@
+circadian_lighting:
+    # latitude: 22
+    # longitude: -140
+    min_colortemp: 2700
+
 homeassistant:
   name: Home
   latitude: !secret home_latitude
@@ -11,7 +16,7 @@ frontend:
   themes: !include themes.yaml
   # extra_module_url:
     # - /local/hass-bha-icons.js
-updater:
+# updater:
 conversation:
 discovery:
 logbook:
@@ -28,12 +33,13 @@ sun:
 mobile_app:
 sensor: !include sensors.yaml
 binary_sensor: !include binary_sensor.yaml
+# mqtt: !include mqtt.yaml
 
 lovelace:
   mode: yaml
   resources: !include lovelace/resources/resources.yaml
   
-camera: !include camera.yaml
+# camera: !include camera.yaml
 
 # Enables configuration UI
 config:
@@ -42,17 +48,68 @@ http:
   use_x_forwarded_for: true
   trusted_proxies:
     - 10.99.1.23
-    - 172.18.0.3
-    - 172.18.0.2
-    - 172.18.0.4
+    - 172.16.0.0/12
 
 #device_tracker: !include device_trackers.yaml
 
 mqtt:
-    broker: 10.99.1.23
-    port: 1883
-    username: !secret mmqtt_user
-    password: !secret mmqtt_pass
+  broker: 10.99.1.23
+  port: 1883
+  username: !secret mmqtt_user
+  password: !secret mmqtt_pass
+    
+  # sensor:
+    # # Sensor for monitoring the bridge state
+    # - name: Bridge state
+      # unique_id: zigbee2mqtt_bridge_state_sensor
+      # state_topic: "zigbee2mqtt/bridge/state"
+      # value_template: "{{ value_json.state }}"
+      # icon: mdi:router-wireless
+      # entity_category: diagnostic
+      # device:
+        # identifiers: zigbee2mqtt
+        # name: "Zigbee2MQTT"
+        # model: "Zigbee2MQTT"
+        # manufacturer: "Zigbee2MQTT"  
+    # # Sensor for Showing the Zigbee2MQTT Version
+    # - name: Version
+      # unique_id: zigbee2mqtt_version_sensor
+      # state_topic: "zigbee2mqtt/bridge/info"
+      # value_template: "{{ value_json.version }}"
+      # icon: mdi:zigbee
+      # entity_category: diagnostic
+      # device:
+        # identifiers: zigbee2mqtt
+        # name: "Zigbee2MQTT"
+        # model: "Zigbee2MQTT"
+        # manufacturer: "Zigbee2MQTT"  
+    # # Sensor for Showing the Coordinator Version
+    # - name: Coordinator Version
+      # unique_id: zigbee2mqtt_coordinator_version_sensor
+      # state_topic: "zigbee2mqtt/bridge/info"
+      # value_template: "{{ value_json.coordinator.meta.revision }}"
+      # icon: mdi:chip
+      # entity_category: diagnostic
+      # device:
+        # identifiers: zigbee2mqtt
+        # name: "Zigbee2MQTT"
+        # model: "Zigbee2MQTT"
+        # manufacturer: "Zigbee2MQTT"  
+    # - name: Networkmap
+      # unique_id: zigbee2mqtt_networkmap_sensor
+      # # if you change base_topic of Zigbee2mqtt, change state_topic accordingly
+      # state_topic: zigbee2mqtt/bridge/response/networkmap
+      # value_template: >-
+        # {{ now().strftime('%Y-%m-%d %H:%M:%S') }}
+      # # again, if you change base_topic of Zigbee2mqtt, change json_attributes_topic accordingly
+      # json_attributes_topic: zigbee2mqtt/bridge/response/networkmap
+      # json_attributes_template: "{{ value_json.data.value | tojson }}"
+      # entity_category: diagnostic
+      # device:
+        # identifiers: zigbee2mqtt
+        # name: "Zigbee2MQTT"
+        # model: "Zigbee2MQTT"
+        # manufacturer: "Zigbee2MQTT"
 
 # Enables a map showing the location of tracked devices
 map:
@@ -70,114 +127,95 @@ light: !include lights.yaml
 automation: !include_dir_list automation
 script: !include_dir_named scripts
 zone: !include zones.yaml
-zwave:
-    usb_path: /dev/ttyACM0
-    network_key: !secret zwave_key
+# zwave:
+    # usb_path: /dev/ttyACM0
+    # network_key: !secret zwave_key
     
 recorder:
   # purge_interval: 2
   purge_keep_days: 30
   db_url: !secret mariaDB_url
+  commit_interval: 30
 
 input_select: !include input_select.yaml
 input_boolean: !include input_boolean.yaml
 input_datetime: !include input_datetime.yaml
 input_number: !include input_number.yaml
+input_text: !include input_text.yaml
 scene: !include scenes.yaml
 
-# climate:
- # platform: honeywell
- # username: !secret honeywell_user
- # password: !secret honeywell_pass
- # # region: us
- # scan_interval: 600
+# timer:
+  # zigbee_permit_join:
+    # name: Time remaining
+    # duration: 254
 
-# notify:
-  # - platform: html5
-    # gcm_api_key: !secret gcm-server-key
-    # gcm_sender_id: !secret gcm-sender-id
-    
-# tesla:
-  # username: !secret tesla_username
-  # password: !secret tesla_pass
 
-# vacuum:
-  # - platform: roomba
-    # host: 10.99.1.218
-    # username: !secret roomba_user
-    # password: !secret roomba_pass
-    
-circadian_lighting:
-    latitude: 22
-    longitude: -140
-    min_colortemp: 2700
-    
 
 switch:
   - platform: circadian_lighting
     min_brightness: 70
     lights_ct:
-      # - light.living_room_short_lamp
-      # - light.living_room_shortest_lamp
-      # - light.living_room_tall_lamp
-      - light.bedroom_tyler
-      - light.bedroom_amy
       - light.bay_window
-      - light.hallways
-      - light.kitchen_overhead_1
-      - light.kitchen_overhead_2
-      - light.kitchen_overhead_3
-      - light.kitchen_overhead_4
-      - light.kitchen_overhead_5
-      - light.kitchen_overhead_6
-      - light.kitchen_overhead_7
-      - light.kitchen_overhead_8
-      - light.laundry_room_1
-      - light.laundry_room_2
-      # - light.master_bedroom
+      # - light.hallways
+      - light.kitchen
+      # - light.laundry_room
       - light.living_room
-      # - light.hue_ambiance_downlight_1
-      # - light.hue_white_lamp_1
-      # - light.hue_white_lamp_2
-      - light.office_hallway_1
-      - light.office_hallway_2
       - light.loft
       - light.guest_room
-      - light.office_1
-      - light.office_2
-      - light.guest_hallway_1
-      - light.guest_hallway_2
-      - light.guest_hallway_3
-      - light.guest_hallway_4
+      - light.office      
+
+  - platform: circadian_lighting
+    min_brightness: 70
+    name: guest_hallways
+    lights_ct:
+      - light.hallways
+      
+  - platform: circadian_lighting
+    min_brightness: 70
+    name: master_bedroom
+    lights_ct:
+      - light.bedroom_tyler
+      - light.bedroom_amy
+
+      
+  - platform: circadian_lighting
+    min_brightness: 70
+    name: laundry_room
+    lights_ct:
+      - light.laundry_room
+      
+  - platform: circadian_lighting
+    min_brightness: 70
+    name: open_areas
+    lights_ct:
+      - light.foyer
+      - light.breakfast_area
+      - light.office_hallway_1
+      - light.office_hallway_2
+      
+# switch:
+  # - name: "Main join"
+    # unique_id: zigbee2mqtt_main_join_switch
+    # state_topic: "zigbee2mqtt/bridge/info"
+    # value_template: '{{ value_json.permit_join | lower }}'
+    # command_topic: "zigbee2mqtt/bridge/request/permit_join"
+    # payload_on: "true"
+    # payload_off: "false"
+    # device:
+      # identifiers: zigbee2mqtt
+      # name: "Zigbee2MQTT"
+      # model: "Zigbee2MQTT"
+      # manufacturer: "Zigbee2MQTT"
 
       
 system_health:
 
-#ambient_station:
-  #api_key: !secret pws_api_key
-  #app_key: !secret pws_app_key
-  
-octoprint:
-  host: 10.99.1.70
-  api_key: !secret octo_api_key
+# octoprint:
+  # host: 10.99.1.70
+  # api_key: !secret octo_api_key
 
-# google_assistant:
-  # project_id: !secret google_project
-  # api_key: !secret google_api
-  # exposed_domains:
-    # - switch
-    # - light
-    # - switch
-    # - light true
-  # exposed_domains:
-    # - switch
-    # - light
-    
-# media_player:
-  # - platform: denonavr
-    # host: 10.99.1.205
-  # - platform: samsungtv
-    # host: 10.99.10.12
-    
-# wemo:
-  # discovery: true
+# babybuddy:
+  # address: https://10.99.1.23
+  # port: 8000
+  # path: ""
+  # api_key: !secret babybuddy_api_key

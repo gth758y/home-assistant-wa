@@ -2,12 +2,12 @@
 
 
 ## OctoPrint
- - platform: octoprint
-   name: OctoPrint
-   monitored_conditions:
-    - Current State
-    - Temperatures
-    - Job Percentage
+ # - platform: octoprint
+   # name: OctoPrint
+   # monitored_conditions:
+    # - Current State
+    # - Temperatures
+    # - Job Percentage
 
  - platform: mqtt
    state_topic: "bruh/sensornode1"
@@ -64,6 +64,38 @@
    unit_of_measurement: '%'
    name: 'Amy Upstairs'
    
+ - platform: template
+   sensors:
+     tyler_unifi_presence_confidence:
+       unit_of_measurement: "%"
+       value_template: >-
+          {% if is_state("device_tracker.tyler_pixel9_pro", "home") %}
+            100
+          {% elif is_state("device_tracker.tyler_pixel9_pro", "unavailable") %}
+            50
+          {% elif is_state("device_tracker.tyler_pixel9_pro", "away") %}
+            0
+          {% else %}
+            0
+          {% endif %}
+
+           
+ - platform: template
+   sensors:
+     amy_unifi_presence_confidence:
+       unit_of_measurement: "%"
+       value_template: >-
+          {% if is_state("device_tracker.amy_gp9", "home") %}
+            100
+          {% elif is_state("device_tracker.amy_gp9", "unavailable") %}
+            50
+          {% elif is_state("device_tracker.amy_gp9", "away") %}
+            0
+          {% else %}
+            0
+          {% endif %}
+
+   
  - platform: min_max
    name: "Tyler Home Occupancy Confidence"
    type: mean
@@ -72,6 +104,7 @@
      - sensor.tyler_master_bedroom
      - sensor.tyler_kitchen
      - sensor.tyler_upstairs
+     - sensor.tyler_unifi_presence_confidence
 
  - platform: min_max
    name: "Amy Home Occupancy Confidence"
@@ -81,6 +114,7 @@
      - sensor.amy_master_bedroom
      - sensor.amy_kitchen
      - sensor.amy_upstairs
+     - sensor.amy_unifi_presence_confidence
      
  - platform: time_date
    display_options:
@@ -125,14 +159,14 @@
        value_template: >-
            {% if is_state("binary_sensor.tyler_home","on") %}
            home
-           {% elif is_state("input_select.tyler_status","running") and is_state("device_tracker.tyler_pixel4","LSAC") %}
+           {% elif is_state("input_select.tyler_status","running") and is_state("person.tyler","LSAC") %}
            swimming
            {% elif not is_state("input_select.tyler_status", "standby") %}
            {{ states("input_select.tyler_status") }}
-           {% elif (is_state("device_tracker.tyler_pixel4","Beauty Box") or is_state("device_tracker.tyler_pixel4","Great Clips") or is_state("device_tracker.tyler_pixel4","Elements Massage")) %}
+           {% elif (is_state("person.tyler","Sola") or is_state("person.tyler","Great Clips") or is_state("person.tyler","Elements Massage")) %}
            lux af
            {% else %}
-           {{ states("device_tracker.tyler_pixel4") }}
+           {{ states("person.tyler") }}
            {%- endif %}
            
  - platform: template
@@ -141,14 +175,14 @@
        value_template: >-
            {% if is_state("binary_sensor.amy_home","on") %}
            home
-           {% elif is_state("input_select.amy_status","running") and is_state("device_tracker.amy_pixel5","LSAC") %}
+           {% elif is_state("input_select.amy_status","running") and is_state("person.amy","LSAC") %}
            swimming
            {% elif not is_state("input_select.amy_status", "standby") %}
            {{ states("input_select.amy_status") }}
-           {% elif (is_state("device_tracker.amy_pixel5","Beauty Box") or is_state("device_tracker.amy_pixel5","Great Clips") or is_state("device_tracker.amy_pixel5","Elements Massage")) %}
+           {% elif (is_state("person.amy","Sola") or is_state("person.amy","Great Clips") or is_state("person.amy","Elements Massage")) %}
            lux af
            {% else %}
-           {{ states("device_tracker.amy_pixel5") }}
+           {{ states("person.amy") }}
            {%- endif %}
            
  - platform: template
@@ -202,7 +236,8 @@
  - platform: template
    sensors:
      inside_air_temperature:
-       value_template: "{{ states.climate.living_room.attributes.current_temperature }}"
+       value_template: "{{ state_attr('climate.living_room', 'current_temperature') }}"
+       #"{{ states.climate.living_room.attributes.current_temperature }}"
        unit_of_measurement: '°F'
       
  # - platform: zwift
@@ -272,115 +307,144 @@
    sensors:
      purpleair_memory:
        friendly_name: "PurpleAir Memory"
-       value_template: '{{ states.sensor.purpleair.attributes["Mem"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'Mem') }}"
+       #'{{ states.sensor.purpleair.attributes["Mem"] }}'
      purpleair_adc:
        friendly_name: "PurpleAir ADC"
-       value_template: '{{ states.sensor.purpleair.attributes["Adc"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'Adc') }}"
+       #'{{ states.sensor.purpleair.attributes["Adc"] }}'
      purpleair_uptime:
        friendly_name: "PurpleAir Uptime"
-       value_template: '{{ states.sensor.purpleair.attributes["uptime"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'uptime') }}"
+       #'{{ states.sensor.purpleair.attributes["uptime"] }}'
        unit_of_measurement: "seconds"
      purpleair_memory_fragmentation:
        friendly_name: "PurpleAir Memory Fragmentation"
-       value_template: '{{ states.sensor.purpleair.attributes["memfrag"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'memfrag') }}"
+       #'{{ states.sensor.purpleair.attributes["memfrag"] }}'
      purpleair_wifi_rssi:
        friendly_name: "PurpleAir Wifi RSSI"
-       value_template: '{{ states.sensor.purpleair.attributes["rssi"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'rssi') }}"
+       #'{{ states.sensor.purpleair.attributes["rssi"] }}'
      purpleair_temp:
        friendly_name: "PurpleAir Temperature"
-       value_template: '{{ states.sensor.purpleair.attributes["current_temp_f"] - 8}}'
+       value_template: "{{ state_attr('sensor.purpleair', 'current_temp_f') - 8}}"
+       #'{{ states.sensor.purpleair.attributes["current_temp_f"] - 8}}'
        unit_of_measurement: "°F"
      purpleair_humidity:
        friendly_name: "PurpleAir Humidity"
-       value_template: '{{ states.sensor.purpleair.attributes["current_humidity"] * 1.04}}'
+       value_template: "{{ state_attr('sensor.purpleair', 'current_humidity') * 1.04}}"
+       #'{{ states.sensor.purpleair.attributes["current_humidity"] * 1.04}}'
        unit_of_measurement: "%"
      purpleair_dewpoint:
        friendly_name: "PurpleAir Dewpoint"
-       value_template: '{{ states.sensor.purpleair.attributes["current_dewpoint_f"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'current_dewpoint_f') }}"
+       #'{{ states.sensor.purpleair.attributes["current_dewpoint_f"] }}'
        unit_of_measurement: "°F"
      purpleair_pressure:
        friendly_name: "PurpleAir Pressure"
-       value_template: '{{ states.sensor.purpleair.attributes["pressure"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'pressure') }}"
+       #'{{ states.sensor.purpleair.attributes["pressure"] }}'
        unit_of_measurement: "mbar"
      purpleair_aqi_a:
        friendly_name: "PurpleAir AirQuality A"
-       value_template: '{{ states.sensor.purpleair.attributes["pm2.5_aqi"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'pm2.5_aqi') }}"
+       #'{{ states.sensor.purpleair.attributes["pm2.5_aqi"] }}'
        unit_of_measurement: "AQI"
      purpleair_aqi_b:
        friendly_name: "PurpleAir AirQuality B"
-       value_template: '{{ states.sensor.purpleair.attributes["pm2.5_aqi_b"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'pm2.5_aqi_b') }}"
+       #'{{ states.sensor.purpleair.attributes["pm2.5_aqi_b"] }}'
        unit_of_measurement: "AQI"
      purpleair_p_0_3_um_a:
        friendly_name: "PurpleAir .3um Partical Count A"
-       value_template: '{{ states.sensor.purpleair.attributes["p_0_3_um"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'p_0_3_um') }}"
+       #'{{ states.sensor.purpleair.attributes["p_0_3_um"] }}'
        unit_of_measurement: "um/dl"
      purpleair_p_0_3_um_b:
        friendly_name: "PurpleAir .3um Partical Count B"
-       value_template: '{{ states.sensor.purpleair.attributes["p_0_3_um_b"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'p_0_3_um_b') }}"
+       #'{{ states.sensor.purpleair.attributes["p_0_3_um_b"] }}'
        unit_of_measurement: "um/dl"
      purpleair_p_0_5_um_a:
        friendly_name: "PurpleAir .5um Partical Count A"
-       value_template: '{{ states.sensor.purpleair.attributes["p_0_5_um"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'p_0_5_um') }}"
+       #'{{ states.sensor.purpleair.attributes["p_0_5_um"] }}'
        unit_of_measurement: "um/dl"
      purpleair_p_0_5_um_b:
        friendly_name: "PurpleAir .5um Partical Count B"
-       value_template: '{{ states.sensor.purpleair.attributes["p_0_5_um_b"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'p_0_5_um_b') }}"
+       #'{{ states.sensor.purpleair.attributes["p_0_5_um_b"] }}'
        unit_of_measurement: "um/dl"
      purpleair_p_1_0_um_a:
        friendly_name: "PurpleAir 1.0um Partical Count A"
-       value_template: '{{ states.sensor.purpleair.attributes["p_1_0_um"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'p_1_0_um') }}"
+       #'{{ states.sensor.purpleair.attributes["p_1_0_um"] }}'
        unit_of_measurement: "um/dl"
      purpleair_p_1_0_um_b:
        friendly_name: "PurpleAir 1.0um Partical Count B"
-       value_template: '{{ states.sensor.purpleair.attributes["p_1_0_um_b"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'p_1_0_um_b') }}"
+       #'{{ states.sensor.purpleair.attributes["p_1_0_um_b"] }}'
        unit_of_measurement: "um/dl"
      purpleair_p_2_5_um_a:
        friendly_name: "PurpleAir 2.5um Partical Count A"
-       value_template: '{{ states.sensor.purpleair.attributes["p_2_5_um"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'p_2_5_um') }}"
+       #'{{ states.sensor.purpleair.attributes["p_2_5_um"] }}'
        unit_of_measurement: "um/dl"
      purpleair_p_2_5_um_b:
        friendly_name: "PurpleAir 2.5um Partical Count B"
-       value_template: '{{ states.sensor.purpleair.attributes["p_2_5_um_b"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'p_2_5_um_b') }}"
+       #'{{ states.sensor.purpleair.attributes["p_2_5_um_b"] }}'
        unit_of_measurement: "um/dl"
      purpleair_p_5_0_um_a:
        friendly_name: "PurpleAir 5.0um Partical Count A"
-       value_template: '{{ states.sensor.purpleair.attributes["p_5_0_um"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'p_5_0_um') }}"
+       #'{{ states.sensor.purpleair.attributes["p_5_0_um"] }}'
        unit_of_measurement: "um/dl"
      purpleair_p_5_0_um_b:
        friendly_name: "PurpleAir 5.0um Partical Count B"
-       value_template: '{{ states.sensor.purpleair.attributes["p_5_0_um_b"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'p_5_0_um_b') }}"
+       #'{{ states.sensor.purpleair.attributes["p_5_0_um_b"] }}'
        unit_of_measurement: "um/dl"
      purpleair_p_10_0_um_a:
        friendly_name: "PurpleAir 10.0um Partical Count A"
-       value_template: '{{ states.sensor.purpleair.attributes["p_10_0_um"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'p_10_0_um') }}"
+       #'{{ states.sensor.purpleair.attributes["p_10_0_um"] }}'
        unit_of_measurement: "um/dl"
      purpleair_p_10_0_um_b:
        friendly_name: "PurpleAir 10.0um Partical Count B"
-       value_template: '{{ states.sensor.purpleair.attributes["p_10_0_um_b"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'p_10_0_um_b') }}"
+       #'{{ states.sensor.purpleair.attributes["p_10_0_um_b"] }}'
        unit_of_measurement: "um/dl"
      purpleair_pm10_atm_a:
        friendly_name: "PurpleAir 10.0um Mass A"
-       value_template: '{{ states.sensor.purpleair.attributes["pm10_0_atm"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'pm10_0_atm') }}"
+       #'{{ states.sensor.purpleair.attributes["pm10_0_atm"] }}'
        unit_of_measurement: "ug/m3"
      purpleair_pm10_atm_b:
        friendly_name: "PurpleAir 10.0um Mass B"
-       value_template: '{{ states.sensor.purpleair.attributes["pm10_0_atm_b"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'pm10_0_atm_b') }}"
+       #'{{ states.sensor.purpleair.attributes["pm10_0_atm_b"] }}'
        unit_of_measurement: "ug/m3"
      purpleair_pm1_atm_a:
        friendly_name: "PurpleAir 1.0um Mass A"
-       value_template: '{{ states.sensor.purpleair.attributes["pm1_0_atm"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'pm1_0_atm') }}"
+       #'{{ states.sensor.purpleair.attributes["pm1_0_atm"] }}'
        unit_of_measurement: "ug/m3"
      purpleair_pm1_atm_b:
        friendly_name: "PurpleAir 1.0um Mass B"
-       value_template: '{{ states.sensor.purpleair.attributes["pm1_0_atm_b"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'pm1_0_atm_b') }}"
+       #'{{ states.sensor.purpleair.attributes["pm1_0_atm_b"] }}'
        unit_of_measurement: "ug/m3"
      purpleair_pm2_5_atm_a:
        friendly_name: "PurpleAir 2.5um Mass A"
-       value_template: '{{ states.sensor.purpleair.attributes["pm2_5_atm"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'pm2_5_atm') }}"
+       #'{{ states.sensor.purpleair.attributes["pm2_5_atm"] }}'
        unit_of_measurement: "ug/m3"
      purpleair_pm2_5_atm_b:
        friendly_name: "PurpleAir 2.5um Mass B"
-       value_template: '{{ states.sensor.purpleair.attributes["pm2_5_atm_b"] }}'
+       value_template: "{{ state_attr('sensor.purpleair', 'pm2_5_atm_b') }}"
+       #'{{ states.sensor.purpleair.attributes["pm2_5_atm_b"] }}'
        unit_of_measurement: "ug/m3"
  - platform: min_max
    name: "PurpleAir AQI"
@@ -436,6 +500,8 @@
            n
          {% elif is_state("sensor.tyler_status","lux af") %}
            p
+         {% elif is_state("sensor.tyler_status","OBGYN or Dentist") %}
+           r
          {% else %}
            w
          {%- endif %}
@@ -456,6 +522,8 @@
            n
          {% elif is_state("sensor.amy_status","lux af") %}
            p
+         {% elif is_state("sensor.amy_status","OBGYN or Dentist") %}
+           r
          {% else %}
            w
          {%- endif %}
@@ -729,12 +797,16 @@
      pws_outdoor_dew_point_calc:
        unit_of_measurement: "°F"
        value_template: >
-        {% set tf = states('sensor.pws_outdoor_temperature') | float %}
-        {% set h = states('sensor.pws_outdoor_humidity') | float %}
+        {% set tf = states('sensor.pws_outdoor_temperature') | float(0) %}
+        {% set h = states('sensor.pws_outdoor_humidity') | float(0) %}
         {% set b = 18.678 %}
         {% set c = 257.14 %}
         {% set tc = 5*(tf-32)/9 %}
-        {% set g = log(h/100)+((b*tc)/(c+tc)) %}
+        {% if h > 0 %}
+            {% set g = log(h/100)+((b*tc)/(c+tc)) %}
+        {% else %}
+            {% set g = 0 %}
+        {% endif %}
         {% set dc = c*g/(b-g) %}
         {{ (9/5*dc+32)|round(1) }}
         
@@ -744,8 +816,8 @@
      pws_outdoor_heat_index_calc:
        unit_of_measurement: "°F"
        value_template: >
-        {% set tf = states('sensor.pws_outdoor_temperature') | float %}
-        {% set h = states('sensor.pws_outdoor_humidity') | float %}
+        {% set tf = states('sensor.pws_outdoor_temperature') | float(0) %}
+        {% set h = states('sensor.pws_outdoor_humidity') | float(0) %}
         {% set c1 = -42.379 %}
         {% set c2 = 2.04901523 %}
         {% set c3 = 10.14333127 %}
@@ -756,7 +828,11 @@
         {% set c8 = 0.00085282 %}
         {% set c9 = -0.00000199 %}
         {% set HI = (c1+c2*tf+c3*h+c4*tf*h+c5*tf**2+c6*h**2+c7*tf**2*h+c8*tf*h**2+c9*tf**2*h**2) %}
-        {% set adj1 = ((13-h)/4)*sqrt((17-(tf-95)|abs)/17) %}
+        {% if ((17-(tf-95)|abs)/17) > 0 %}
+            {% set adj1 = ((13-h)/4)*sqrt((17-(tf-95)|abs)/17) %}
+        {% else %}
+            {% set adj1 = 0 %}
+        {% endif %}
         {% set adj2 = ((h-85)/10)*((87-tf)/5) %}
         {% set HIsimple = 0.5*(tf+61+((tf-68)*1.2)+(h*0.094)) %}
         {% if HIsimple < 80 %} {{(HIsimple)|round(1) }}
@@ -771,8 +847,8 @@
      pws_outdoor_wind_chill_calc:
        unit_of_measurement: "°F"
        value_template: >
-        {% set tf = states('sensor.pws_outdoor_temperature') | float %}
-        {% set w = states('sensor.pws_wind_speed') | float %}
+        {% set tf = states('sensor.pws_outdoor_temperature') | float(0) %}
+        {% set w = states('sensor.pws_wind_speed') | float(0) %}
         {% set c1 = 35.74 %}
         {% set c2 = 0.6215 %}
         {% set c3 = 35.75 %}
@@ -800,4 +876,17 @@
            Day
          {%- endif %}
  
-   
+ - platform: template
+   sensors:
+     morgans_room_dew_point:
+       unit_of_measurement: "°F"
+       #state_class: "measurement"
+       device_class: "temperature"
+       value_template: >
+          {% set T = (states('sensor.hum_temp_morgans_room_temperature') | float - 32) * 5 / 9 %}
+          {% set RH = states('sensor.hum_temp_morgans_room_humidity') | float %}
+          {% set a = 17.27 %}
+          {% set b = 237.7 %}
+          {% set gamma = (a * T) / (b + T) + log(RH / 100) %}
+          {% set dewpoint_c = (b * gamma) / (a - gamma) %}
+          {{ (dewpoint_c * 9 / 5) + 32 | round(2) }}

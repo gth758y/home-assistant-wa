@@ -25,8 +25,10 @@ views:
   - !include lovelace/50_ip_cams_view.yaml
   - !include lovelace/60_traffic_view.yaml
   - !include lovelace/70_3d_printer_view.yaml
-  - !include lovelace/80_swim-bike-run.yaml
+  # - !include lovelace/80_swim-bike-run.yaml
   # - !include lovelace/90_status_bar.yaml
-  # - !include lovelace/FF_halloween.yaml
+  - !include lovelace/FF_halloween.yaml
   - !include lovelace/AA_battery.yaml
   - !include lovelace/FA_bed_temp.yaml
+  - !include lovelace/A2_sourdough.yaml
+  - !include lovelace/A3_sprinkler.yaml
