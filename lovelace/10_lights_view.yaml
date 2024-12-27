@@ -12,30 +12,30 @@ cards:
         entities:
           - type: section
             label: Exterior
-          - entity: switch.front_door_exterior
+          - entity: switch.front_door_exterior_switch
             name: Front Door
             icon: mdi:coach-lamp
             toggle: true
-          - entity: switch.grill_area_exterior
+          - entity: switch.grill_area_exterior_switch
             name: Grill Area
             icon: bha:outdoor-lamp
             toggle: true
-          - entity: switch.dining_room_exterior
+          - entity: switch.dining_room_exterior_switch
             name: Upper Deck
             icon: mdi:coach-lamp
             toggle: true
-          - entity: switch.basement_entry
+          - entity: switch.basement_entry_switch
             name: Basement Entrance
             icon: mdi:coach-lamp
             toggle: true
-          # - entity: switch.basement_pathway_exterior
-            # name: Under Deck Walkway
-            # icon: bha:light-string
-            # toggle: true
-          - entity: switch.redneck_bug_zapper
-            name: Redneck Bug Zapper
-            icon: mdi:bug
+          - entity: switch.basement_pathway_exterior
+            name: Under Deck Walkway
+            icon: bha:light-string
             toggle: true
+          # - entity: switch.redneck_bug_zapper
+            # name: Redneck Bug Zapper
+            # icon: mdi:bug
+            # toggle: true
             
           - type: section
             label: Loft
@@ -78,9 +78,15 @@ cards:
             name: TV Bias Light Right
             icon: mdi:wall-sconce-round-variant
             toggle: true
+          - entity: switch.rocket_lava_lamp
+            name: Rocket Lava Lamp
+            icon: mdi:lava-lamp
+            toggle: true
             
           - type: section
             label: Hallways
+          - entity: switch.circadian_lighting_guest_hallways
+            name: Guest Hallway Circ Lights
           - entity: light.office_hallway_1
             name: Office Hallway 1
             icon: mdi:wall-sconce
@@ -110,9 +116,36 @@ cards:
             icon: mdi:wall-sconce
             toggle: true
             
+          - type: section
+            label: Open Areas
+          - entity: switch.circadian_lighting_open_areas
+            name: Open Areas Circ Lights
+          - entity: light.foyer_1
+            name: Foyer 1
+            icon: mdi:wall-sconce-flat
+            toggle: true
+          - entity: light.foyer_2
+            name: Foyer 2
+            icon: mdi:wall-sconce-flat
+            toggle: true
+          - entity: light.foyer_3
+            name: Foyer 3
+            icon: mdi:wall-sconce-flat
+            toggle: true
+          - entity: light.breakfast_area_1
+            name: Breakfast Area 1
+            icon: mdi:wall-sconce-flat
+            toggle: true
+          - entity: light.breakfast_area_2
+            name: Breakfast Area 2
+            icon: mdi:wall-sconce-flat
+            toggle: true
+            
             
           - type: section
             label: Master Bedroom
+          - entity: switch.circadian_lighting_master_bedroom
+            name: Master Bedroom Circ Lights
           - entity: light.bedroom_amy
             name: Amy's Side
             icon: mdi:lamp
@@ -180,6 +213,9 @@ cards:
             
           - type: section
             label: Laundry Room
+          - entity: switch.circadian_lighting_laundry_room
+            name: Laundry Room Circ Lights
+
           - entity: light.laundry_room_1
             name: Laundry Room Central
             icon: mdi:wall-sconce-flat

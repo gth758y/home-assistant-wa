@@ -27,6 +27,14 @@ cards:
             name: Wind Direction
             
       - type: glance
+        title: Solar
+        entities:
+          - entity: sensor.pws_solar_radiation
+            name: Solar Radiation
+          - entity: sensor.pws_uv_index
+            name: UV Index
+            
+      - type: glance
         title: Humidity
         entities:
           # - entity: sensor.dark_sky_dew_point

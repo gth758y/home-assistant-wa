@@ -82,6 +82,7 @@ cards:
                   "CFA": /local/cfa.jpg
                   "Nike": /local/nike-squre.jpg
                   "Costco": /local/costco.png
+                  "lux af": /local/lux.jpg
                   
                 show_name: true
                 tap_action:
@@ -125,6 +126,7 @@ cards:
                   "CFA": /local/cfa.jpg
                   "Nike": /local/nike-square.jpg
                   "Costco": /local/costco.png
+                  "lux af": /local/lux.jpg
                 show_name: true
                 tap_action:
                   action: more-info
@@ -218,14 +220,34 @@ cards:
                 tap_action:
                   action: toggle
                   
+          # - type: horizontal-stack
+            # cards:
+              # - type: picture-entity
+                # entity: script.nighttime_shutdown_morgan
+                # state_image:
+                  # "on": /local/morgan_light_on.jpg
+                  # "off": /local/morgan_light_off.jpg
+                # show_name: true
+                # tap_action:
+                  # action: toggle
+                  
           - type: horizontal-stack
             cards:
               - type: custom:mini-graph-card
                 points_per_hour: 2
                 show:
                   icon: false
+                  name_adaptive_color: true
+                  icon_adaptive_color: true
                 entities:
                   - sensor.living_room_light_level
+                color_thresholds:
+                  - value: 0
+                    color: "#5C0028"
+                  - value: 400
+                    color: "#D43C00"
+                  - value: 520
+                    color: "#E8B600"
 
               - type: custom:mini-graph-card
                 hours_to_show: 24
@@ -249,8 +271,6 @@ cards:
           - type: horizontal-stack
             cards:
               - type: map
-                dark_mode: false
-                #hours_to_show: 48
                 entities:
                   - person.tyler
                   - person.amy
@@ -259,4 +279,6 @@ cards:
                   # - zone.insitu_waucoma
                   # - zone.simplexity
                   # - zone.lsac
+
+   # - zone.lsac
 

@@ -8,11 +8,39 @@ cards:
     layout: vertical
     cards:
       - type: entities
-        title: Status
+        title: Phones
         show_header_toggle: false
         entities:
-          - entity: sensor.amy_pixel_5_battery_level
-          - entity: sensor.tyler_pixel_7_battery_level
-          - entity: sensor.guest_bedroom_battery_level
-          - entity: sensor.reed_breakfast_window_right_batt
-          - entity: sensor.reed_breakfast_window_right_batt
+          - entity: sensor.pixel_9_battery_level
+            name: Amy Phone Battery
+          - entity: sensor.tyler_pixel_9_pro_battery_level
+            name: Tyler Phone Battery
+
+      - type: entities
+        title: Humidity & Temp Sensors
+        show_header_toggle: false
+        entities:
+
+          - entity: sensor.hum_temp_master_bath_battery
+          - entity: sensor.hum_temp_morgans_room_battery
+
+      - type: entities
+        title: Reed Switches
+        show_header_toggle: false
+        entities:
+          - entity: sensor.reed_basement_entry_battery
+          - entity: sensor.reed_breakfast_window_right_battery
+          - entity: sensor.reed_front_door_battery
+          - entity: sensor.reed_garage_entry_battery
+          - entity: sensor.reed_grill_door_battery
+          - entity: sensor.reed_dining_entry_battery
+      - type: entities
+        title: Light Switches
+        show_header_toggle: false
+        entities:
+          - entity: sensor.guest_room_switch_battery
+          
+      - type: history-graph
+        entities:
+          - sensor.pixel_9_battery_level            
+          - sensor.tyler_pixel_9_pro_battery_level

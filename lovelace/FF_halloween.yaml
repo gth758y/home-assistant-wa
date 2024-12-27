@@ -12,17 +12,15 @@ cards:
         entities:
           - type: section
             label: Side Lights
-          - entity: light.guest_hallway_1
+          - entity: light.guest_hallway_4
             name: Left
             icon: bha:outdoor-lamp
             toggle: true
-          - entity: light.temp_light_1
+          - entity: light.guest_hallway_5
             name: Right
             icon: bha:outdoor-lamp
             toggle: true
-          - entity: light.halloween_6
-            icon: bha:outdoor-lamp
-            toggle: true
+
             
           - type: section
             label: Down Lights
@@ -34,15 +32,18 @@ cards:
             name: Center
             icon: mdi:wall-sconce-flat
             toggle: true
-          - entity: light.guest_hallway_4
+          - entity: light.guest_hallway_1
             name: Right
             icon: mdi:wall-sconce-flat
             toggle: true
 
             
           - type: section
-            label: Amy's Office
-          - entity: light.hue_lightstrip_plus_1
+            label: Front Rooms
+          - entity: light.hue_lightstrip_stored
+            icon: mdi:wall-sconce-round-variant
+            toggle: true
+          - entity: light.hue_lightstrip_2_stored
             icon: mdi:wall-sconce-round-variant
             toggle: true
 
@@ -58,17 +59,38 @@ cards:
             name: Normal-Boring
             icon: mdi:arrow-down
             toggle: true
-          - entity: scene.exterior_halloween_static_1
+          - entity: scene.exterior_halloween_static_01
             name: Static 1
             icon: mdi:arrow-down
             toggle: true
-          - entity: scene.exterior_halloween_static_2
+          - entity: scene.exterior_halloween_static_02
             name: Static 2
             icon: mdi:arrow-down
             toggle: true
-          - entity: scene.exterior_halloween_static_3
+          - entity: scene.exterior_halloween_static_03
             name: Static 3
             icon: mdi:arrow-down
+          - entity: scene.exterior_halloween_static_04
+            name: Static 4
+            icon: mdi:arrow-down
+          - entity: scene.exterior_halloween_static_05
+            name: Static 5
+            icon: mdi:arrow-down
+          - entity: scene.exterior_halloween_static_06
+            name: Static 6
+            icon: mdi:arrow-down
+          - entity: scene.exterior_halloween_static_07
+            name: Static 7
+            icon: mdi:arrow-down
+          - entity: scene.exterior_halloween_static_08
+            name: Static 8
+            icon: mdi:arrow-down
+          - entity: scene.exterior_halloween_static_09
+            name: Static 9
+            icon: mdi:arrow-down
+          - entity: scene.exterior_halloween_static_10
+            name: Static 10
+            icon: mdi:arrow-down            
             toggle: true
           - entity: script.halloween_lights_random
             name: Random Script

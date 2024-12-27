@@ -24,6 +24,12 @@ cards:
             name: Tyler
       - type: glance
         entities:
+          - entity: sensor.tyler_home_occupancy_confidence
+            name: Tyler Overall
+          - entity: sensor.amy_home_occupancy_confidence
+            name: Amy Overall
+      - type: glance
+        entities:
           - entity: sensor.tyler_kitchen
             name: Tyler Kitchen BT
           - entity: sensor.amy_kitchen
@@ -40,6 +46,12 @@ cards:
             name: Tyler Upstairs BT
           - entity: sensor.amy_upstairs
             name: Amy Upstairs BT
+      - type: glance
+        entities:
+          - entity: sensor.tyler_unifi_presence_confidence
+            name: Tyler Wifi
+          - entity: sensor.amy_unifi_presence_confidence
+            name: Amy Wifi
           
       - type: glance
         title: Bed
@@ -111,5 +123,57 @@ cards:
         entities:
           - entity: binary_sensor.reed_front_door
             name: Front Door
+          - entity: binary_sensor.reed_garage_entry
+            name: Door to Garage
+          - entity: binary_sensor.reed_grill_door
+            name: Door to Grill
+          - entity: binary_sensor.reed_basement_entry
+            name: Basement Entry
+          - entity: binary_sensor.reed_dining_entry
+            name: Dining Entry
           - entity: binary_sensor.reed_breakfast_window_right
             name: Breakfast Nook Window
+
+      - type: glance
+        title: Indoor Environmental
+        entities:
+          - entity: sensor.pws_indoor_temperature
+            name: Living Room Temperature
+          - entity: sensor.pws_indoor_humidity
+            name: Living Room Humidity
+          - entity: sensor.hum_temp_master_bath_temperature
+            name: Master Bathroom Temperature
+          - entity: sensor.hum_temp_master_bath_humidity
+            name: Master Bathroom Humidity
+          - entity: sensor.hum_temp_morgans_room_temperature
+            name: Morgan's Room Temperature
+          - entity: sensor.hum_temp_morgans_room_humidity
+            name: Morgan's Room Humidity
+          - entity: sensor.morgans_room_dew_point
+            name: Morgan's Room Dew Point
+          # - entity: climate.living_room
+            # type: attribute
+            # attribute: current_temperature
+            # name: Hallway Temperature
+          # - entity: climate.living_room
+            # type: attribute
+            # attribute: current_humidity
+            # name: Hallway Humidity
+            
+      - type: custom:simple-thermostat
+        entity: climate.main_floor
+        step_size: 1
+        control:
+          hvac:
+            heat: false
+            'off':
+              name: Cool
+              icon: mdi:fan
+            'on':
+              name: Heat
+              icon: mdi:fire
+        layout:
+          mode:
+            headings: false
+            icons: true
+            names: true

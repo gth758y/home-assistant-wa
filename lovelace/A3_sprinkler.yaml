@@ -1,0 +1,10 @@
+title: OpenSprinkler
+icon: mdi:sprinkler-variant
+panel: true
+path: opensprinkler
+
+cards:
+  type: custom:opensprinkler-card
+  device: f5c3bfb102d964b14ecaa2129a6978af
+  input_number:
+    entity: input_number.slider
