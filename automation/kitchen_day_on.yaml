@@ -1,0 +1,14 @@
+alias: Kitchen on - Daytime
+trigger:
+    platform: state
+    entity_id: binary_sensor.kitchen_motion_delay
+    to: 'on'
+condition:
+    - condition: state
+      entity_id: sensor.time_of_day
+      state: 'Day'
+      
+action:
+  - service: scene.turn_on
+    data:
+      entity_id: scene.kitchen_on

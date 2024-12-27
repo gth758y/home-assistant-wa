@@ -1,0 +1,16 @@
+alias: Look for Aurora
+trigger:
+  platform: state
+  entity_id: binary_sensor.aurora_visibility_aurora_visibility_alert
+  from: 'off'
+  to: 'on'
+action:
+  - service: notify.mobile_app_pixel_7
+    data:
+      message: The Aurora may be visible at home. You should investigate.
+      title: Notes about Aurora
+      
+  - service: notify.mobile_app_a_pixel_9
+    data:
+      message: The Aurora may be visible at home. You should investigate.
+      title: Notes about Aurora

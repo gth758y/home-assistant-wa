@@ -1,0 +1,25 @@
+id: '1695851205102'
+alias: Controller - Philips 324131092621 Hue Dimmer switch
+description: ''
+use_blueprint:
+  path: EPMatt/philips_324131092621.yaml
+  input:
+    helper_last_controller_event: input_text.guest_room_switch_buffer
+    controller_entity: sensor.guest_room_switch_action
+    integration: Zigbee2MQTT
+    action_button_on_short:
+    - scene: scene.guest_bedroom_on
+    action_button_off_short:
+    - scene: scene.guest_bedroom_off
+    action_button_up_short:
+    - service: light.turn_on
+      data:
+        brightness_step: 10
+      target:
+        entity_id: light.guest_room
+    action_button_down_short:
+    - service: light.turn_on
+      target:
+        entity_id: light.guest_room
+      data:
+        brightness_step: -10

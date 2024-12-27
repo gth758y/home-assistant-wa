@@ -1,0 +1,14 @@
+alias: Kitchen off - Night
+trigger:
+    platform: state
+    entity_id: binary_sensor.kitchen_motion_delay
+    to: 'off'
+condition:
+    - condition: state
+      entity_id: sensor.time_of_day
+      state: 'Night'
+      
+action:
+  - service: scene.turn_on
+    data:
+      entity_id: scene.kitchen_off

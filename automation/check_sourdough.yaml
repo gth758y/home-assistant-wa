@@ -1,0 +1,22 @@
+alias: Check the Sourdough
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.hum_temp_sourdough_temperature
+    above: 77  
+    for:
+      minutes: 1
+  - platform: numeric_state
+    entity_id: sensor.hum_temp_sourdough_temperature
+    below: 73
+    for:
+      minutes: 1
+
+action:
+  - service: notify.mobile_app_tyler_pixel_7
+    data:
+      message: >
+        Sourdough temp is {{ states('sensor.hum_temp_sourdough_temperature') }} 
+  - service: notify.mobile_app_amy_pixel_5
+    data:
+      message: >
+        Sourdough temp is {{ states('sensor.hum_temp_sourdough_temperature') }} 

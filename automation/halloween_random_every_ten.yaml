@@ -1,7 +1,7 @@
 alias: Halloween Random Lights Every Ten
 trigger:
     platform: time_pattern
-    minutes: "/10"
+    minutes: "/6"
     
 condition:
   condition: and

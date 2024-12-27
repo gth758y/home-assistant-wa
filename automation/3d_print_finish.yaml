@@ -1,7 +1,7 @@
 alias: 3D Print Finished
 trigger:
   platform: state
-  entity_id: binary_sensor.octoprint_printing
+  entity_id: binary_sensor.octoprint_printing_2
   from: 'on'
   to: 'off'
   for:

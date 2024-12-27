@@ -1,0 +1,20 @@
+alias: Morgan Night Lights On
+trigger:
+    platform: state
+    entity_id: binary_sensor.anybody_out_of_bed_while_asleep
+    to: 'off'
+    
+condition:
+  condition: and
+  conditions:
+  - condition: state
+    entity_id: binary_sensor.anybody_home
+    state: 'on'
+  - condition: state
+    entity_id: boolean_input.morgan_lights
+    state: 'on'
+    
+action:
+  - service: scene.turn_on
+    data:
+      entity_id: scene.morgan_night_lights

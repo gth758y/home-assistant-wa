@@ -1,0 +1,9 @@
+alias: Turn off lava lamp when house empty
+trigger:
+  platform: state
+  entity_id: binary_sensor.anybody_home
+  to: 'off'
+action:
+  - service: switch.turn_off
+    target:
+      entity_id: switch.rocket_lava_lamp

@@ -1,0 +1,13 @@
+alias: Send Humidity to Blue Iris
+
+trigger:
+  - platform: state
+    entity_id:
+      - sensor.pws_outdoor_humidity
+  
+action:
+  - service: mqtt.publish
+    data_template:
+      topic: BlueIris/admin
+      payload: macro=2&text={{states('sensor.pws_outdoor_humidity')|float(0)}}
+      

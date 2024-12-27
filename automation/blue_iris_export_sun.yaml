@@ -1,0 +1,12 @@
+alias: Send Sunrise or Sunset to Blue Iris
+
+trigger:
+  - platform: state
+    entity_id:
+      - sensor.next_sunrise_or_sunset
+  
+action:
+  - service: mqtt.publish
+    data_template:
+      topic: BlueIris/admin
+      payload: macro=3&text={{states('sensor.next_sunrise_or_sunset')}}

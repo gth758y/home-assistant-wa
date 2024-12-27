@@ -2,13 +2,16 @@
 
 alias: Turn on circadian lights
 trigger:
-  - platform: template
-    value_template: >-
-          {{ states('sensor.circadian_values') | float > 0
-             and is_state('binary_sensor.house_asleep', 'off')
-             and is_state('binary_sensor.anybody_in_bed', 'off') }}
+  platform: state
+  entity_id: binary_sensor.trigger_circ_lights
+  from: 'off'
+  to: 'on'
 
 action:
   - service: switch.turn_on
     data:
       entity_id: switch.circadian_lighting_circadian_lighting
+      
+  - service: switch.turn_on
+    data:
+      entity_id: switch.circadian_lighting_master_bedroom

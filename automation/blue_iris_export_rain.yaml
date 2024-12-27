@@ -1,0 +1,12 @@
+alias: Send Rain Rate Info to Blue Iris
+
+trigger:
+  - platform: state
+    entity_id:
+      - sensor.pws_hourly_rain
+  
+action:
+  - service: mqtt.publish
+    data_template:
+      topic: BlueIris/admin
+      payload: macro=10&text={{states('sensor.pws_hourly_rain')|float(0)|round(2)}}

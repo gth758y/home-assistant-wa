@@ -1,0 +1,55 @@
+alias: Send 3D Print Info to Blue Iris
+# automation should run every minute beginning when a print starts and ending one hour after it finishes
+
+trigger:
+  - platform: state
+    entity_id:
+      - sensor.octoprint_current_state_2
+      - sensor.octoprint_actual_tool0_temp_2
+      - sensor.octoprint_target_tool0_temp_2
+      - sensor.octoprint_actual_bed_temp_2
+      - sensor.octoprint_target_bed_temp_2
+      - sensor.octoprint_time_elapsed_friendly
+      - sensor.octoprint_time_remaining_friendly
+      - sensor.octoprint_estimated_completion_time
+  
+# used this weird 'not' format to continue running through 1 hour after print finishes
+condition:
+  condition: not
+  conditions:
+    - condition: state
+      entity_id: binary_sensor.octoprint_printing_2
+      state: 'off'
+      for:
+        hours: 1
+
+action:
+  - service: mqtt.publish
+    data_template:
+      topic: BlueIris/admin
+      payload: macro=4&text={{states('sensor.octoprint_current_state_2') }}
+
+  - service: mqtt.publish
+    data_template:
+      topic: BlueIris/admin
+      payload: macro=5&text={{ ((states('sensor.octoprint_actual_tool0_temp_2') | float - 32) * 5 / 9) | round(1) }} / {{ ((states('sensor.octoprint_target_tool0_temp_2') | float - 32) * 5 / 9) | round(1) }}
+      
+  - service: mqtt.publish
+    data_template:
+      topic: BlueIris/admin
+      payload: macro=6&text={{ ((states('sensor.octoprint_actual_bed_temp_2') | float - 32) * 5 / 9) | round(1) }} / {{ ((states('sensor.octoprint_target_bed_temp_2') | float - 32) * 5 / 9) | round(1) }}
+
+  - service: mqtt.publish
+    data_template:
+      topic: BlueIris/admin
+      payload: macro=7&text={{states('sensor.octoprint_time_elapsed_friendly') }}
+      
+  - service: mqtt.publish
+    data_template:
+      topic: BlueIris/admin
+      payload: macro=8&text={{states('sensor.octoprint_time_remaining_friendly') }}
+
+  - service: mqtt.publish
+    data_template:
+      topic: BlueIris/admin
+      payload: macro=9&text={{states('sensor.octoprint_estimated_completion_time') }}

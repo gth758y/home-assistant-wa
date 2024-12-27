@@ -1,0 +1,12 @@
+alias: Send Temperature to Blue Iris
+
+trigger:
+  - platform: state
+    entity_id:
+      - sensor.pws_outdoor_temperature
+  
+action:
+  - service: mqtt.publish
+    data_template:
+      topic: BlueIris/admin
+      payload: macro=1&text={{states('sensor.pws_outdoor_temperature')|float(0)|round(1) }}
