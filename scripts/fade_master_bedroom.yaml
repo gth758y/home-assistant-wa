@@ -1,0 +1,27 @@
+#fade master bedroom
+  sequence:
+    # Check if both Tyler's and Amy's bedroom lights are on before proceeding
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: light.bedroom_tyler
+          state: 'on'
+        - condition: state
+          entity_id: light.bedroom_amy
+          state: 'on'
+          
+    # Fade Tyler's bedroom light to red
+    - service: homeassistant.turn_on
+      data:
+        entity_id: light.bedroom_tyler
+        rgb_color: [1,0,0]
+        brightness: 1
+        transition: 15
+
+    # Fade Amy's bedroom light to red
+    - service: homeassistant.turn_on
+      data:
+        entity_id: light.bedroom_amy
+        rgb_color: [1,0,0]
+        brightness: 1
+        transition: 15

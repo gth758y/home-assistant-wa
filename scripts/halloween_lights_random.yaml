@@ -2,73 +2,70 @@
   sequence:
 
     - service: scene.turn_on
-      entity_id: scene.exterior_halloween_static_1
+      entity_id: scene.exterior_halloween_static_01
         
     - delay:
-        seconds: 30
+        seconds: 20
         
     - service: scene.turn_on
-      entity_id: scene.exterior_halloween_static_2
+      entity_id: scene.exterior_halloween_static_02
       
     - delay:
-        seconds: 30
+        seconds: 20
         
     - service: scene.turn_on
-      entity_id: scene.exterior_halloween_static_3
+      entity_id: scene.exterior_halloween_static_03
         
     - delay:
-        seconds: 30
+        seconds: 20
         
     - service: scene.turn_on
-      entity_id: scene.exterior_halloween_static_1
+      entity_id: scene.exterior_halloween_static_04
         
     - delay:
-        seconds: 30
+        seconds: 20
         
     - service: scene.turn_on
-      entity_id: scene.exterior_halloween_static_2
+      entity_id: scene.exterior_halloween_static_05
       
     - delay:
-        seconds: 30
+        seconds: 20
         
     - service: scene.turn_on
-      entity_id: scene.exterior_halloween_static_3
+      entity_id: scene.exterior_halloween_static_06
+      
+    - delay:
+        seconds: 20
 
     - service: scene.turn_on
-      entity_id: scene.exterior_halloween_static_1
+      entity_id: scene.exterior_halloween_static_07
         
     - delay:
-        seconds: 30
+        seconds: 20
         
     - service: scene.turn_on
-      entity_id: scene.exterior_halloween_static_2
+      entity_id: scene.exterior_halloween_static_08
       
     - delay:
-        seconds: 30
+        seconds: 20
         
     - service: scene.turn_on
-      entity_id: scene.exterior_halloween_static_3
+      entity_id: scene.exterior_halloween_static_09
         
     - delay:
-        seconds: 30
+        seconds: 20
         
     - service: scene.turn_on
-      entity_id: scene.exterior_halloween_static_1
+      entity_id: scene.exterior_halloween_static_10
         
     - delay:
-        seconds: 30
+        seconds: 20
         
     - service: scene.turn_on
-      entity_id: scene.exterior_halloween_static_2
+      entity_id: scene.exterior_halloween_static_07
       
     - delay:
-        seconds: 30
+        seconds: 20
         
     - service: scene.turn_on
-      entity_id: scene.exterior_halloween_static_3
-
-    - delay:
-        seconds: 30
-
-    - service: scene.turn_on
-      entity_id: scene.exterior_halloween_normal
+      entity_id: scene.exterior_halloween_static_03

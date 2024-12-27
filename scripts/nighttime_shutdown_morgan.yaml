@@ -1,0 +1,32 @@
+# Shutdown the MBR lights so Morgan can go to sleep
+  sequence:
+  
+    - service: switch.turn_off
+      data:
+        entity_id: switch.circadian_lighting_master_bedroom
+  
+    - service: scene.turn_on
+      entity_id: scene.mbr_morgan_mbr_ph_1
+      data:
+        transition: 30
+        
+    - delay: "00:05:00"
+
+    - service: scene.turn_on
+      entity_id: scene.mbr_morgan_mbr_ph_2
+      data:
+        transition: 120
+      
+    - delay: "00:02:00"
+    
+    - service: scene.turn_on
+      entity_id: scene.mbr_morgan_mbr_ph_3
+      data:
+        transition: 30
+      
+    - delay: "00:02:00"
+    
+    - service: scene.turn_on
+      entity_id: scene.mbr_morgan_mbr_ph_4
+      data:
+        transition: 30
