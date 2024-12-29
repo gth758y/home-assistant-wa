@@ -112,33 +112,6 @@
         value_template: >-
           {{ is_state('binary_sensor.house_asleep', 'on') }}
               
-  - platform: mqtt
-    name: "Garage Door - Tyler"
-    state_topic: "garagev2/door/1/status"
-    payload_on: "open"
-    payload_off: "closed"
-    availability_topic: "GarHAge_PoE/availability"
-    device_class: garage_door
-    qos: 0
-
-  - platform: mqtt
-    name: "Garage Door - Amy"
-    state_topic: "garagev2/door/2/status"
-    payload_on: "open"
-    payload_off: "closed"
-    availability_topic: "GarHAge_PoE/availability"
-    device_class: garage_door
-    qos: 0
-
-  - platform: mqtt
-    name: "Garage Door - Bikes"
-    state_topic: "garagev2/door/3/status"
-    payload_on: "open"
-    payload_off: "closed"
-    availability_topic: "GarHAge_PoE/availability"
-    device_class: garage_door
-    qos: 0
-
   - platform: template
     sensors:
       garage_open:
@@ -197,53 +170,8 @@
           minutes: 3
         value_template: >-
           {{ is_state('sensor.laundry_room_motion', 'motion detected') }}
-          
-  # - platform: template
-    # sensors:
-      # laundry_room_motion_delay:
-        # friendly_name: "Laundry Room Motion Detection"
-        # delay_off:
-          # minutes: 3
-        # value_template: >-
-          # {{ is_state('sensor.laundry_room_motion', 'motion detected') }}
-          
-  # - platform: template
-    # sensors:
-      # tyler_in_bed:
-        # value_template: >-
-            # {{ states('sensor.bed_mass_calibrated')|float(0) >= 70 }}
             
-  # - platform: template
-    # sensors:
-      # amy_in_bed:
-        # value_template: >-
-            # {{ (states('sensor.bed_mass_calibrated')|float(0) > 50 and states('sensor.bed_mass_calibrated')|float(0) < 70) or states('sensor.bed_mass_calibrated')|float(0) > 130 }}
-            
-  # - platform: template
-    # sensors:
-      # both_in_bed:
-        # value_template: >-
-            # {{ states('sensor.bed_mass_calibrated')|float(0) > 130 }}
-            
-  # - platform: template
-    # sensors:
-      # anybody_in_bed:
-        # value_template: >-
-            # {{ is_state('binary_sensor.tyler_in_bed', 'on') or is_state('binary_sensor.amy_in_bed', 'on') }}
-            
-  - platform: mqtt
-    name: "Front Door Motion"
-    state_topic: blue_iris/motion/front_door/state
-    payload_on: "ON"
-    payload_off: "OFF"
-    device_class: motion
-    
-  - platform: mqtt
-    name: "Back Porch Motion"
-    state_topic: blue_iris/motion/back_porch/state
-    payload_on: "ON"
-    payload_off: "OFF"
-    device_class: motion
+
     
   - platform: template
     sensors:
@@ -283,71 +211,8 @@
         value_template: >-
             {{ is_state('binary_sensor.anybody_on_zwift', 'on') }}
             
-  # - platform: aurora
-    # forecast_threshold: 20
-    
-  - platform: mqtt
-    name: "Driveway Person"
-    state_topic: blue_iris/AI/driveway/person
-    payload_on: "ON"
-    payload_off: "OFF"
-    device_class: motion
-    
-  - platform: mqtt
-    name: "Front Door Person"
-    state_topic: blue_iris/AI/front_door/person
-    payload_on: "ON"
-    payload_off: "OFF"
-    device_class: motion
-    
-  - platform: mqtt
-    name: "Back Porch Person"
-    state_topic: blue_iris/AI/back_porch/person
-    payload_on: "ON"
-    payload_off: "OFF"
-    device_class: motion
-    
-  - platform: mqtt
-    name: "Back Walkway Person"
-    state_topic: blue_iris/AI/back_walkway/person
-    payload_on: "ON"
-    payload_off: "OFF"
-    device_class: motion
-    
-  - platform: mqtt
-    name: "Shop Door Person"
-    state_topic: blue_iris/AI/shop_door/person
-    payload_on: "ON"
-    payload_off: "OFF"
-    device_class: motion
-    
-  - platform: mqtt
-    name: "Driveway Vehicle"
-    state_topic: blue_iris/AI/driveway/vehicle
-    payload_on: "ON"
-    payload_off: "OFF"
-    device_class: moving
-    
-  - platform: mqtt
-    name: "Front Door Vehicle"
-    state_topic: blue_iris/AI/front_door/vehicle
-    payload_on: "ON"
-    payload_off: "OFF"
-    device_class: moving
-    
-  - platform: mqtt
-    name: "LEDBar Office Update"
-    state_topic: "ledbar/office/updateflag"
-    payload_on: "updateMe"
-    payload_off: "weGood"
-    qos: 0
-    
-  - platform: mqtt
-    name: "LEDBar Living Room Update"
-    state_topic: "ledbar/living_room/updateflag"
-    payload_on: "updateMe"
-    payload_off: "weGood"
-    qos: 0
+  
+
 
   - platform: template
     sensors:

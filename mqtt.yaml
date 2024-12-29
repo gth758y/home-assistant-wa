@@ -1,0 +1,281 @@
+  cover:
+    - name: "Garage Door - Tyler"
+      state_topic: "garagev2/door/3/status"
+      command_topic: "garagev2/door/1/action"
+      availability:
+        - topic: "GarHAge_PoE/availability"
+      qos: 0
+      retain: false
+      optimistic: false
+      payload_open: "OPEN"
+      payload_close: "CLOSE"
+      payload_stop: "STATE"
+      state_open: "open"
+      state_closed: "closed"
+      availability_mode: "all"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "Garage Door - Amy"
+      state_topic: "garagev2/door/2/status"
+      command_topic: "garagev2/door/2/action"
+      availability:
+        - topic: "GarHAge_PoE/availability"
+      qos: 0
+      retain: false
+      optimistic: false
+      payload_open: "OPEN"
+      payload_close: "CLOSE"
+      payload_stop: "STATE"
+      state_open: "open"
+      state_closed: "closed"
+      availability_mode: "all"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "Garage Door - Bikes"
+      state_topic: "garagev2/door/1/status"
+      command_topic: "garagev2/door/3/action"
+      availability:
+        - topic: "GarHAge_PoE/availability"
+      qos: 0
+      retain: false
+      optimistic: false
+      payload_open: "OPEN"
+      payload_close: "CLOSE"
+      payload_stop: "STATE"
+      state_open: "open"
+      state_closed: "closed"
+      availability_mode: "all"
+      payload_available: "online"
+      payload_not_available: "offline"
+      
+  sensor:
+    - state_topic: "bruh/sensornode1"
+      name: "Living Room Light Level"
+      unit_of_measurement: "LUX"
+      value_template: "{{ value_json.ldr }}"
+
+    - state_topic: "sensor/kitchen"
+      name: "Kitchen Motion"
+      value_template: "{{ value_json.motion }}"
+
+    - state_topic: "room/laundry/sensor"
+      name: "Laundry Room Motion"
+      value_template: "{{ value_json.motion }}"
+
+    - state_topic: 'location/master_bedrm/tyler'
+      value_template: "{{ value_json.confidence }}"
+      unit_of_measurement: '%'
+      name: 'Tyler Master Bedroom'
+
+    - state_topic: 'location/kitchen/tyler'
+      value_template: "{{ value_json.confidence }}"
+      unit_of_measurement: '%'
+      name: 'Tyler Kitchen'
+
+    - state_topic: 'location/master_bedrm/amy'
+      value_template: "{{ value_json.confidence }}"
+      unit_of_measurement: '%'
+      name: 'Amy Master Bedroom'
+
+    - state_topic: 'location/kitchen/amy'
+      value_template: "{{ value_json.confidence }}"
+      unit_of_measurement: '%'
+      name: 'Amy Kitchen'
+
+    - state_topic: 'location/upstairs/tyler'
+      value_template: "{{ value_json.confidence }}"
+      unit_of_measurement: '%'
+      name: 'Tyler Upstairs'
+
+    - state_topic: 'location/upstairs/amy'
+      value_template: "{{ value_json.confidence }}"
+      unit_of_measurement: '%'
+      name: 'Amy Upstairs'
+
+    - state_topic: "/room/master_bedrm/bed/load"
+      name: "Bed Mass"
+      unit_of_measurement: "units"
+
+    - state_topic: "master_bedroom/bed_occupancy/status"
+      name: "Tyler Bed Occupancy Raw"
+      unit_of_measurement: "mV"
+      value_template: "{{ value_json.tyler_side }}"
+
+    - state_topic: "master_bedroom/bed_occupancy/status"
+      name: "Amy Bed Occupancy Raw"
+      unit_of_measurement: "mV"
+      value_template: "{{ value_json.amy_side }}"
+
+    - state_topic: "weather/sensor/84f3eb9c94da/barometricPressureRelative/state"
+      name: "PWS Altimeter"
+      unit_of_measurement: "inHg"
+
+    - state_topic: "weather/sensor/84f3eb9c94da/humidityIndoor/state"
+      name: "PWS Indoor Humidity"
+      unit_of_measurement: "%"
+
+    - state_topic: "weather/sensor/84f3eb9c94da/humidityOutdoor/state"
+      name: "PWS Outdoor Humidity"
+      unit_of_measurement: "%"
+
+    - state_topic: "weather/sensor/84f3eb9c94da/rainDaily/state"
+      name: "PWS Daily Rain"
+      unit_of_measurement: "in"
+      icon: "mdi:weather-pouring"
+
+    - state_topic: "weather/sensor/84f3eb9c94da/rainEvent/state"
+      name: "PWS Event Rain"
+      unit_of_measurement: "in"
+      icon: "mdi:weather-pouring"
+
+    - state_topic: "weather/sensor/84f3eb9c94da/rainHourly/state"
+      name: "PWS Hourly Rain"
+      unit_of_measurement: "in"
+      icon: "mdi:weather-pouring"
+
+    - state_topic: "weather/sensor/84f3eb9c94da/rainMonthly/state"
+      name: "PWS Monthly Rain"
+      unit_of_measurement: "in"
+      icon: "mdi:weather-pouring"
+
+    - state_topic: "weather/sensor/84f3eb9c94da/rainTotal/state"
+      name: "PWS Total Rain"
+      unit_of_measurement: "in"
+      icon: "mdi:weather-pouring"
+
+    - state_topic: "weather/sensor/84f3eb9c94da/rainWeekly/state"
+      name: "PWS Weekly Rain"
+      unit_of_measurement: "in"
+      icon: "mdi:weather-pouring"
+
+    - state_topic: "weather/sensor/84f3eb9c94da/solarRadiation/state"
+      name: "PWS Solar Radiation"
+      unit_of_measurement: "W/m^2"
+      icon: "mdi:solar-power"
+
+    - state_topic: "weather/sensor/84f3eb9c94da/temperatureIndoor/state"
+      name: "PWS Indoor Temperature"
+      unit_of_measurement: "F"
+
+    - state_topic: "weather/sensor/84f3eb9c94da/temperatureOutdoor/state"
+      name: "PWS Outdoor Temperature"
+      unit_of_measurement: "F"
+
+    - state_topic: "weather/sensor/84f3eb9c94da/windDirection/state"
+      name: "PWS Wind Direction"
+      unit_of_measurement: "deg"
+
+    - state_topic: "weather/sensor/84f3eb9c94da/windGust/state"
+      name: "PWS Wind Gust"
+      unit_of_measurement: "mph"
+      icon: "mdi:weather-windy"
+
+    - state_topic: "weather/sensor/84f3eb9c94da/windMaxDailyGust/state"
+      name: "PWS Maximum Daily Gust"
+      unit_of_measurement: "mph"
+      icon: "mdi:weather-windy"
+
+    - state_topic: "weather/sensor/84f3eb9c94da/windSpeed/state"
+      name: "PWS Wind Speed"
+      unit_of_measurement: "mph"
+      icon: "mdi:weather-windy"
+
+    - state_topic: "weather/sensor/84f3eb9c94da/uv/state"
+      name: "PWS UV Index"
+      icon: "mdi:weather-sunny"
+
+  binary_sensor:
+    - name: "Garage Door - Tyler"
+      state_topic: "garagev2/door/1/status"
+      payload_on: "open"
+      payload_off: "closed"
+      availability:
+        - topic: "GarHAge_PoE/availability"
+      device_class: garage_door
+      qos: 0
+
+    - name: "Garage Door - Amy"
+      state_topic: "garagev2/door/2/status"
+      payload_on: "open"
+      payload_off: "closed"
+      availability:
+        - topic: "GarHAge_PoE/availability"
+      device_class: garage_door
+      qos: 0
+
+    - name: "Garage Door - Bikes"
+      state_topic: "garagev2/door/3/status"
+      payload_on: "open"
+      payload_off: "closed"
+      availability:
+        - topic: "GarHAge_PoE/availability"
+      device_class: garage_door
+      qos: 0
+
+    - name: "Front Door Motion"
+      state_topic: "blue_iris/motion/front_door/state"
+      payload_on: "ON"
+      payload_off: "OFF"
+      device_class: motion
+
+    - name: "Back Porch Motion"
+      state_topic: "blue_iris/motion/back_porch/state"
+      payload_on: "ON"
+      payload_off: "OFF"
+      device_class: motion
+
+    - name: "Driveway Person"
+      state_topic: "blue_iris/AI/driveway/person"
+      payload_on: "ON"
+      payload_off: "OFF"
+      device_class: motion
+
+    - name: "Front Door Person"
+      state_topic: "blue_iris/AI/front_door/person"
+      payload_on: "ON"
+      payload_off: "OFF"
+      device_class: motion
+
+    - name: "Back Porch Person"
+      state_topic: "blue_iris/AI/back_porch/person"
+      payload_on: "ON"
+      payload_off: "OFF"
+      device_class: motion
+
+    - name: "Back Walkway Person"
+      state_topic: "blue_iris/AI/back_walkway/person"
+      payload_on: "ON"
+      payload_off: "OFF"
+      device_class: motion
+
+    - name: "Shop Door Person"
+      state_topic: "blue_iris/AI/shop_door/person"
+      payload_on: "ON"
+      payload_off: "OFF"
+      device_class: motion
+
+    - name: "Driveway Vehicle"
+      state_topic: "blue_iris/AI/driveway/vehicle"
+      payload_on: "ON"
+      payload_off: "OFF"
+      device_class: moving
+
+    - name: "Front Door Vehicle"
+      state_topic: "blue_iris/AI/front_door/vehicle"
+      payload_on: "ON"
+      payload_off: "OFF"
+      device_class: moving
+
+    - name: "LEDBar Office Update"
+      state_topic: "ledbar/office/updateflag"
+      payload_on: "updateMe"
+      payload_off: "weGood"
+      qos: 0
+
+    - name: "LEDBar Living Room Update"
+      state_topic: "ledbar/living_room/updateflag"
+      payload_on: "updateMe"
+      payload_off: "weGood"
+      qos: 0

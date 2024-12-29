@@ -1,68 +1,4 @@
-### Weather/Forecast Info
 
-
-## OctoPrint
- # - platform: octoprint
-   # name: OctoPrint
-   # monitored_conditions:
-    # - Current State
-    # - Temperatures
-    # - Job Percentage
-
- - platform: mqtt
-   state_topic: "bruh/sensornode1"
-   name: "Living Room Light Level"
-   ##This sensor is not calibrated to actual LUX. Rather, this a map of the input voltage ranging from 0 - 1023.
-   unit_of_measurement: "LUX"
-   value_template: '{{ value_json.ldr }}'
-   
- - platform: mqtt
-   state_topic: "sensor/kitchen"
-   name: "Kitchen Motion"
-   value_template: '{{ value_json.motion }}'
-   
- - platform: mqtt
-   state_topic: "room/laundry/sensor"
-   name: "Laundry Room Motion"
-   value_template: '{{ value_json.motion }}'
-
-   
-## occupancy https://community.home-assistant.io/t/reliable-multi-user-distributed-bluetooth-occupancy-presence-detection/50674
- - platform: mqtt
-   state_topic: 'location/master_bedrm/tyler'
-   value_template: '{{ value_json.confidence }}'
-   unit_of_measurement: '%'
-   name: 'Tyler Master Bedroom'
-
- - platform: mqtt
-   state_topic: 'location/kitchen/tyler'
-   value_template: '{{ value_json.confidence }}'
-   unit_of_measurement: '%'
-   name: 'Tyler Kitchen'
-   
- - platform: mqtt
-   state_topic: 'location/master_bedrm/amy'
-   value_template: '{{ value_json.confidence }}'
-   unit_of_measurement: '%'
-   name: 'Amy Master Bedroom'
-
- - platform: mqtt
-   state_topic: 'location/kitchen/amy'
-   value_template: '{{ value_json.confidence }}'
-   unit_of_measurement: '%'
-   name: 'Amy Kitchen'
-   
- - platform: mqtt
-   state_topic: 'location/upstairs/tyler'
-   value_template: '{{ value_json.confidence }}'
-   unit_of_measurement: '%'
-   name: 'Tyler Upstairs'
-   
- - platform: mqtt
-   state_topic: 'location/upstairs/amy'
-   value_template: '{{ value_json.confidence }}'
-   unit_of_measurement: '%'
-   name: 'Amy Upstairs'
    
  - platform: template
    sensors:
@@ -125,34 +61,6 @@
      - 'time_utc'
      - 'beat'
      
- # - platform: waze_travel_time
-   # name: "Tyler to Work"
-   # origin: device_tracker.tyler_pixel4
-   # destination: zone.insitu_eagle_point
-   # region: 'US'
-   # realtime: true
-   
- # - platform: waze_travel_time
-   # name: "Tyler to Home"
-   # origin: device_tracker.tyler_pixel4
-   # destination: zone.home
-   # region: 'US'
-   # realtime: true
-   
- # - platform: waze_travel_time
-   # name: "Amy to Work"
-   # origin: device_tracker.amy_pixel5
-   # destination: zone.simplexity
-   # region: 'US'
-   # realtime: true
-   
- # - platform: waze_travel_time
-   # name: "Amy to Home"
-   # origin: device_tracker.amy_pixel5
-   # destination: zone.home
-   # region: 'US'
-   # realtime: true
-
  - platform: template
    sensors:
      tyler_status:
@@ -204,10 +112,7 @@
             Next Sunrise at {{ sunrise | timestamp_custom('%H:%M', True) }}
           {% endif %}
            
- - platform: mqtt
-   state_topic: "/room/master_bedrm/bed/load"
-   name: Bed Mass
-   unit_of_measurement: "units"
+
    
  - platform: filter
    name: bed_mass_raw_smoothed
@@ -240,35 +145,7 @@
        #"{{ states.climate.living_room.attributes.current_temperature }}"
        unit_of_measurement: '°F'
       
- # - platform: zwift
-   # username: !secret my_zwift_username
-   # password: !secret my_zwift_password
-   # players:
-     # - !secret amy_zwift_id
      
- # - platform: template
-   # sensors:
-     # octoprint_time_remaining_friendly:
-       # friendly_name: Octoprint Time Remaining
-       # value_template: >-
-         # {% set t = states('sensor.octoprint_time_remaining') | int %}
-         # {{ '{:d}d {:02d}h {:02d}m {:02d}s'.format(t // 86400, (t // 3600) % 24, (t % 3600) // 60, (t % 3600) % 60) }}
-          
- # - platform: template
-   # sensors:
-     # octoprint_time_elapsed_friendly:
-       # friendly_name: Octoprint Time Elapsed
-       # value_template: >-
-         # {% set t = states('sensor.octoprint_time_elapsed') | int %}
-         # {{ '{:d}d {:02d}h {:02d}m {:02d}s'.format(t // 86400, (t // 3600) % 24, (t % 3600) // 60, (t % 3600) % 60) }}
-         
- # - platform: template
-   # sensors:
-     # octoprint_estimated_completion_time:
-       # friendly_name: Octoprint ETC
-       # value_template: >-
-         # {{ (states('sensor.octoprint_time_remaining') | float + now().timestamp() | int) | timestamp_custom("%R", true) }}
-         
  - platform: rest
    name: 'PurpleAir'
    resource: http://10.99.4.80/json?live=true
@@ -667,25 +544,7 @@
            }}            
          {%- endif %}
          
- - platform: mqtt
-   state_topic: "master_bedroom/bed_occupancy/status"
-   name: "Tyler Bed Occupancy Raw"   
-   unit_of_measurement: "mV"
-   value_template: '{{ value_json.tyler_side }}'
-   
- - platform: mqtt
-   state_topic: "master_bedroom/bed_occupancy/status"
-   name: "Amy Bed Occupancy Raw"   
-   unit_of_measurement: "mV"
-   value_template: '{{ value_json.amy_side }}'
-   
- - platform: filter
-   name: "Tyler Bed Occupancy Smoothed"
-   entity_id: sensor.tyler_bed_occupancy_raw
-   filters:
-     - filter: time_simple_moving_average
-       window_size: "00:00:05"
-       precision: 0
+
 
  - platform: filter
    name: "Amy Bed Occupancy Smoothed"
@@ -693,104 +552,8 @@
    filters:
      - filter: time_simple_moving_average
        window_size: "00:00:05"
-       precision: 0
-       
-# MQTT Weather Sensors
-       
- - platform: mqtt
-   state_topic: "weather/sensor/84f3eb9c94da/barometricPressureRelative/state"
-   name: "PWS Altimeter"
-   unit_of_measurement: "inHg"
-   
- - platform: mqtt
-   state_topic: "weather/sensor/84f3eb9c94da/humidityIndoor/state"
-   name: "PWS Indoor Humidity"
-   unit_of_measurement: "%"
-   
- - platform: mqtt
-   state_topic: "weather/sensor/84f3eb9c94da/humidityOutdoor/state"
-   name: "PWS Outdoor Humidity"
-   unit_of_measurement: "%"
-   
- - platform: mqtt
-   state_topic: "weather/sensor/84f3eb9c94da/rainDaily/state"
-   name: "PWS Daily Rain"
-   unit_of_measurement: "in"
-   icon: mdi:weather-pouring
-   
- - platform: mqtt
-   state_topic: "weather/sensor/84f3eb9c94da/rainEvent/state"
-   name: "PWS Event Rain"
-   unit_of_measurement: "in"
-   icon: mdi:weather-pouring
-   
- - platform: mqtt
-   state_topic: "weather/sensor/84f3eb9c94da/rainHourly/state"
-   name: "PWS Hourly Rain"
-   unit_of_measurement: "in"
-   icon: mdi:weather-pouring
-   
- - platform: mqtt
-   state_topic: "weather/sensor/84f3eb9c94da/rainMonthly/state"
-   name: "PWS Monthly Rain"
-   unit_of_measurement: "in"
-   icon: mdi:weather-pouring
-   
- - platform: mqtt
-   state_topic: "weather/sensor/84f3eb9c94da/rainTotal/state"
-   name: "PWS Total Rain"
-   unit_of_measurement: "in"
-   icon: mdi:weather-pouring
-   
- - platform: mqtt
-   state_topic: "weather/sensor/84f3eb9c94da/rainWeekly/state"
-   name: "PWS Weekly Rain"
-   unit_of_measurement: "in"
-   icon: mdi:weather-pouring
-   
- - platform: mqtt
-   state_topic: "weather/sensor/84f3eb9c94da/solarRadiation/state"
-   name: "PWS Solar Radiation"
-   unit_of_measurement: "W/m^2"
-   icon: mdi:solar-power
-   
- - platform: mqtt
-   state_topic: "weather/sensor/84f3eb9c94da/temperatureIndoor/state"
-   name: "PWS Indoor Temperature"
-   unit_of_measurement: "F"
-   
- - platform: mqtt
-   state_topic: "weather/sensor/84f3eb9c94da/temperatureOutdoor/state"
-   name: "PWS Outdoor Temperature"
-   unit_of_measurement: "F"
-   
- - platform: mqtt
-   state_topic: "weather/sensor/84f3eb9c94da/windDirection/state"
-   name: "PWS Wind Direction"
-   unit_of_measurement: "deg"
-   
- - platform: mqtt
-   state_topic: "weather/sensor/84f3eb9c94da/windGust/state"
-   name: "PWS Wind Gust"
-   unit_of_measurement: "mph"
-   icon: mdi:weather-windy
-   
- - platform: mqtt
-   state_topic: "weather/sensor/84f3eb9c94da/windMaxDailyGust/state"
-   name: "PWS Maximum Daily Gust"
-   unit_of_measurement: "mph"
-   icon: mdi:weather-windy
-   
- - platform: mqtt
-   state_topic: "weather/sensor/84f3eb9c94da/windSpeed/state"
-   name: "PWS Wind Speed"
-   unit_of_measurement: "mph"
-   icon: mdi:weather-windy
-   
- - platform: mqtt
-   state_topic: "weather/sensor/84f3eb9c94da/uv/state"
-   name: "PWS UV Index"
-   icon: mdi:weather-sunny
+       precision: 0     
+
    
  - platform: template
    sensors:
