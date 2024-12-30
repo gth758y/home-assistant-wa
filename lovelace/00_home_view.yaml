@@ -152,12 +152,14 @@ cards:
                 tap_action:
                   action: toggle
                 icon: mdi:silverware-fork-knife
+                name: kitchen
                 
               - type: entity-button
                 entity: light.guest_room
                 tap_action:
                   action: toggle
                 icon: mdi:bed-empty
+                name: guest room
                 
 
           - type: horizontal-stack
