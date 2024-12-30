@@ -1,5 +1,5 @@
 alias: Send Humidity to Blue Iris
-
+mode: queued
 trigger:
   - platform: state
     entity_id:

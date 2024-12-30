@@ -1,5 +1,5 @@
 alias: Send Rain Rate Info to Blue Iris
-
+mode: queued
 trigger:
   - platform: state
     entity_id:

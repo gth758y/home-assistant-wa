@@ -1,14 +1,17 @@
 alias: Kitchen on - Evening
 trigger:
-    platform: state
-    entity_id: binary_sensor.kitchen_motion_delay
-    to: 'on'
+  platform: state
+  entity_id: binary_sensor.kitchen_motion_delay
+  to: 'on'
 condition:
-    - condition: state
-      entity_id: sensor.time_of_day
-      state: 'Evening'
-      
+  - condition: state
+    entity_id: sensor.time_of_day
+    state: 'Evening'
 action:
-  - service: scene.turn_on
+  - service: light.turn_on
+    entity_id: 
+      - light.kitchen
     data:
-      entity_id: scene.kitchen_dim_white
+      color_temp: 443  # Matches the settings from the scene
+      brightness: 145
+      transition: 1

@@ -1,15 +1,16 @@
 alias: Underbed - Amy On While Sleeping
 trigger:
-    platform: state
-    entity_id: binary_sensor.amy_out_of_bed_while_asleep
-    to: 'on'
-    
+  platform: state
+  entity_id: binary_sensor.amy_out_of_bed_while_asleep
+  to: 'on'
 condition:
-    condition: state
-    entity_id: binary_sensor.amy_home
-    state: 'on'
-    
+  condition: state
+  entity_id: binary_sensor.amy_home
+  state: 'on'
 action:
-  - service: scene.turn_on
+  - service: light.turn_on
+    entity_id: light.wled_underbed_segment_1
     data:
-      entity_id: scene.amy_underbed_nightlight
+      xy_color: [0.7, 0.3]  # Adjust to match your desired color
+      brightness: 64
+      transition: 2

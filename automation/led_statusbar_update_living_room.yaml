@@ -1,4 +1,5 @@
 alias: "Living Room LED Status Bar Update"
+mode: queued
 trigger:
   - platform: state
     entity_id: sensor.living_room_statusbar

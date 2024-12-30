@@ -15,3 +15,7 @@ action:
   - service: switch.turn_on
     data:
       entity_id: switch.circadian_lighting_master_bedroom
+      
+  - service: switch.turn_on
+    data:
+      entity_id: switch.circadian_lighting_open_areas

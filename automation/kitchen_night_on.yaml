@@ -1,14 +1,36 @@
 alias: Kitchen on - Night
 trigger:
-    platform: state
-    entity_id: binary_sensor.kitchen_motion_delay
-    to: 'on'
+  platform: state
+  entity_id: binary_sensor.kitchen_motion_delay
+  to: 'on'
 condition:
-    - condition: state
-      entity_id: sensor.time_of_day
-      state: 'Night'
-      
+  - condition: state
+    entity_id: sensor.time_of_day
+    state: 'Night'
 action:
-  - service: scene.turn_on
+  - service: light.turn_on
+    entity_id:
+      - light.kitchen_overhead_1
+      - light.kitchen_overhead_3
+      - light.kitchen_overhead_4
     data:
-      entity_id: scene.kitchen_bright_red
+      xy_color: [0.7, 0.3]  # Matches bright red from the original scene
+      brightness: 200
+      transition: 1
+  - service: light.turn_on
+    entity_id:
+      - light.kitchen_overhead_2
+      - light.kitchen_overhead_5
+    data:
+      color_temp: 369
+      brightness: 60
+      transition: 1
+  - service: light.turn_on
+    entity_id:
+      - light.kitchen_overhead_6
+      - light.kitchen_overhead_7
+      - light.kitchen_overhead_8
+    data:
+      color_temp: 369
+      brightness: 30
+      transition: 1

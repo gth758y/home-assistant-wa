@@ -1,7 +1,7 @@
 alias: TV on - Denon On
 trigger:
     platform: state
-    entity_id:  media_player.un55js9000
+    entity_id:  media_player.lg_webos_smart_tv
     to: 'on'
 condition:
   condition: state

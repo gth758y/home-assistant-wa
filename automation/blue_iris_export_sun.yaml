@@ -1,5 +1,5 @@
 alias: Send Sunrise or Sunset to Blue Iris
-
+mode: queued
 trigger:
   - platform: state
     entity_id:

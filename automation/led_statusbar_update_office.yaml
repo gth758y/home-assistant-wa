@@ -1,4 +1,5 @@
 alias: "Office LED Status Bar Update"
+mode: queued
 trigger:
   - platform: state
     entity_id: sensor.office_statusbar
