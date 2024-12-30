@@ -50,6 +50,9 @@
     - service: scene.turn_on
       entity_id: scene.living_room_off
       
+    - service: scene.turn_on
+      entity_id: scene.open_areas_off
+      
     - condition: state
       entity_id: input_boolean.visitars
       state: 'off'

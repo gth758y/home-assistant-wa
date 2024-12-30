@@ -1,0 +1,39 @@
+alias: Rotate Hallway Colors
+sequence:
+  - repeat:
+      count: 10  # Use a fixed count for testing; change to 0 for infinite loop after validation
+      sequence:
+        - service: light.turn_on
+          data:
+            entity_id: light.guest_hallway_1
+            xy_color:
+              - "{{ (0.1 + (0.4 * range(0, 100) | random / 100)) | round(2) }}"
+              - "{{ (0.2 + (0.4 * range(0, 100) | random / 100)) | round(2) }}"
+            brightness: 100
+            transition: 5
+        - service: light.turn_on
+          data:
+            entity_id: light.guest_hallway_2
+            xy_color:
+              - "{{ (0.1 + (0.4 * range(0, 100) | random / 100)) | round(2) }}"
+              - "{{ (0.2 + (0.4 * range(0, 100) | random / 100)) | round(2) }}"
+            brightness: 100
+            transition: 5
+        - service: light.turn_on
+          data:
+            entity_id: light.guest_hallway_3
+            xy_color:
+              - "{{ (0.1 + (0.4 * range(0, 100) | random / 100)) | round(2) }}"
+              - "{{ (0.2 + (0.4 * range(0, 100) | random / 100)) | round(2) }}"
+            brightness: 100
+            transition: 5
+        - service: light.turn_on
+          data:
+            entity_id: light.guest_hallway_4
+            xy_color:
+              - "{{ (0.1 + (0.4 * range(0, 100) | random / 100)) | round(2) }}"
+              - "{{ (0.2 + (0.4 * range(0, 100) | random / 100)) | round(2) }}"
+            brightness: 100
+            transition: 5
+        - delay:
+            seconds: 5
