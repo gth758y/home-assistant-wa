@@ -59,7 +59,7 @@
      - 'date_time'
      - 'time_date'
      - 'time_utc'
-     - 'beat'
+     # - 'beat'
      
  - platform: template
    sensors:
@@ -112,31 +112,6 @@
             Next Sunrise at {{ sunrise | timestamp_custom('%H:%M', True) }}
           {% endif %}
            
-
-   
- - platform: filter
-   name: bed_mass_raw_smoothed
-   entity_id: sensor.bed_mass
-   filters:
-     - filter: time_simple_moving_average
-       window_size: 00:00:02
-       precision: 1
-   
- - platform: template
-   sensors:
-     bed_mass_calibrated:
-       value_template: "{{ (states('sensor.bed_mass_raw_smoothed')|float(0) / -1.845238) | round(0) }}"
-       ## changed factor to -1.68668, but reverted back to -1.845238 on 26 Nov 2019
-       unit_of_measurement: 'kg'
-       
- - platform: template
-   sensors:
-     dark_sky_pressure_inhg:
-       friendly_name: Dark Sky Pressure inHg
-       value_template: "{{ (states('sensor.dark_sky_pressure')|float(0) / 33.864) | round(2) }}"
-       unit_of_measurement: 'inHg'
-       icon_template: >-
-         mdi:gauge
          
  - platform: template
    sensors:
@@ -205,12 +180,12 @@
        #'{{ states.sensor.purpleair.attributes["rssi"] }}'
      purpleair_temp:
        friendly_name: "PurpleAir Temperature"
-       value_template: "{{ state_attr('sensor.purpleair', 'current_temp_f') - 8}}"
+       value_template: "{{ (state_attr('sensor.purpleair', 'current_temp_f') | float(0)) - 8 }}"
        #'{{ states.sensor.purpleair.attributes["current_temp_f"] - 8}}'
        unit_of_measurement: "°F"
      purpleair_humidity:
        friendly_name: "PurpleAir Humidity"
-       value_template: "{{ state_attr('sensor.purpleair', 'current_humidity') * 1.04}}"
+       value_template: "{{ (state_attr('sensor.purpleair', 'current_humidity') | float(0)) * 1.04 }}"
        #'{{ states.sensor.purpleair.attributes["current_humidity"] * 1.04}}'
        unit_of_measurement: "%"
      purpleair_dewpoint:
@@ -554,6 +529,13 @@
        window_size: "00:00:05"
        precision: 0     
 
+ - platform: filter
+   name: "Tyler Bed Occupancy Smoothed"
+   entity_id: sensor.tyler_bed_occupancy_raw
+   filters:
+     - filter: time_simple_moving_average
+       window_size: "00:00:05"
+       precision: 0  
    
  - platform: template
    sensors:
@@ -646,10 +628,14 @@
        #state_class: "measurement"
        device_class: "temperature"
        value_template: >
-          {% set T = (states('sensor.hum_temp_morgans_room_temperature') | float - 32) * 5 / 9 %}
-          {% set RH = states('sensor.hum_temp_morgans_room_humidity') | float %}
-          {% set a = 17.27 %}
-          {% set b = 237.7 %}
+        {% set T = ((states('sensor.hum_temp_morgans_room_temperature') | float(default=0) - 32) * 5 / 9) %}
+        {% set RH = states('sensor.hum_temp_morgans_room_humidity') | float(default=50) %}
+        {% set a = 17.27 %}
+        {% set b = 237.7 %}
+        {% if RH > 0 %}
           {% set gamma = (a * T) / (b + T) + log(RH / 100) %}
           {% set dewpoint_c = (b * gamma) / (a - gamma) %}
-          {{ (dewpoint_c * 9 / 5) + 32 | round(2) }}
+          {{ ((dewpoint_c * 9 / 5) + 32) | round(2) }}
+        {% else %}
+          {{ 'unknown' }}
+        {% endif %}

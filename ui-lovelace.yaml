@@ -31,4 +31,4 @@ views:
   - !include lovelace/AA_battery.yaml
   - !include lovelace/FA_bed_temp.yaml
   - !include lovelace/A2_sourdough.yaml
-  - !include lovelace/A3_sprinkler.yaml
+  # - !include lovelace/A3_sprinkler.yaml

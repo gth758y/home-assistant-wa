@@ -101,12 +101,22 @@
     - state_topic: "master_bedroom/bed_occupancy/status"
       name: "Tyler Bed Occupancy Raw"
       unit_of_measurement: "mV"
-      value_template: "{{ value_json.tyler_side }}"
+      value_template: >
+        {% if value_json.tyler_side is defined %}
+          {{ value_json.tyler_side | float(default=3000) }}
+        {% else %}
+          3000
+        {% endif %}
 
     - state_topic: "master_bedroom/bed_occupancy/status"
       name: "Amy Bed Occupancy Raw"
       unit_of_measurement: "mV"
-      value_template: "{{ value_json.amy_side }}"
+      value_template: >
+        {% if value_json.amy_side is defined %}
+          {{ value_json.amy_side | float(default=3000) }}
+        {% else %}
+          3000
+        {% endif %}
 
     - state_topic: "weather/sensor/84f3eb9c94da/barometricPressureRelative/state"
       name: "PWS Altimeter"

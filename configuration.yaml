@@ -11,6 +11,7 @@ homeassistant:
   unit_system: imperial
   time_zone: !secret home_time_zone
   customize: !include customize.yaml
+  country: US
 
 frontend:
   themes: !include themes.yaml
@@ -18,7 +19,7 @@ frontend:
     # - /local/hass-bha-icons.js
 # updater:
 conversation:
-discovery:
+# discovery:
 logbook:
   exclude:
     entities:
@@ -31,9 +32,6 @@ logbook:
 history:
 sun:
 mobile_app:
-sensor: !include sensors.yaml
-binary_sensor: !include binary_sensor.yaml
-# mqtt: !include mqtt.yaml
 
 lovelace:
   mode: yaml
@@ -49,87 +47,20 @@ http:
   trusted_proxies:
     - 10.99.1.23
     - 172.16.0.0/12
-
-#device_tracker: !include device_trackers.yaml
-
-mqtt:
-  broker: 10.99.1.23
-  port: 1883
-  username: !secret mmqtt_user
-  password: !secret mmqtt_pass
-    
-  # sensor:
-    # # Sensor for monitoring the bridge state
-    # - name: Bridge state
-      # unique_id: zigbee2mqtt_bridge_state_sensor
-      # state_topic: "zigbee2mqtt/bridge/state"
-      # value_template: "{{ value_json.state }}"
-      # icon: mdi:router-wireless
-      # entity_category: diagnostic
-      # device:
-        # identifiers: zigbee2mqtt
-        # name: "Zigbee2MQTT"
-        # model: "Zigbee2MQTT"
-        # manufacturer: "Zigbee2MQTT"  
-    # # Sensor for Showing the Zigbee2MQTT Version
-    # - name: Version
-      # unique_id: zigbee2mqtt_version_sensor
-      # state_topic: "zigbee2mqtt/bridge/info"
-      # value_template: "{{ value_json.version }}"
-      # icon: mdi:zigbee
-      # entity_category: diagnostic
-      # device:
-        # identifiers: zigbee2mqtt
-        # name: "Zigbee2MQTT"
-        # model: "Zigbee2MQTT"
-        # manufacturer: "Zigbee2MQTT"  
-    # # Sensor for Showing the Coordinator Version
-    # - name: Coordinator Version
-      # unique_id: zigbee2mqtt_coordinator_version_sensor
-      # state_topic: "zigbee2mqtt/bridge/info"
-      # value_template: "{{ value_json.coordinator.meta.revision }}"
-      # icon: mdi:chip
-      # entity_category: diagnostic
-      # device:
-        # identifiers: zigbee2mqtt
-        # name: "Zigbee2MQTT"
-        # model: "Zigbee2MQTT"
-        # manufacturer: "Zigbee2MQTT"  
-    # - name: Networkmap
-      # unique_id: zigbee2mqtt_networkmap_sensor
-      # # if you change base_topic of Zigbee2mqtt, change state_topic accordingly
-      # state_topic: zigbee2mqtt/bridge/response/networkmap
-      # value_template: >-
-        # {{ now().strftime('%Y-%m-%d %H:%M:%S') }}
-      # # again, if you change base_topic of Zigbee2mqtt, change json_attributes_topic accordingly
-      # json_attributes_topic: zigbee2mqtt/bridge/response/networkmap
-      # json_attributes_template: "{{ value_json.data.value | tojson }}"
-      # entity_category: diagnostic
-      # device:
-        # identifiers: zigbee2mqtt
-        # name: "Zigbee2MQTT"
-        # model: "Zigbee2MQTT"
-        # manufacturer: "Zigbee2MQTT"
-
+ 
 # Enables a map showing the location of tracked devices
-map:
+# map:
 
 # Text to speech
 tts:
   - platform: google_translate
     service_name: google_say
-  
-cover: !include cover.yaml
-
 
 group: !include groups.yaml
 light: !include lights.yaml
 automation: !include_dir_list automation
 script: !include_dir_named scripts
 zone: !include zones.yaml
-# zwave:
-    # usb_path: /dev/ttyACM0
-    # network_key: !secret zwave_key
     
 recorder:
   # purge_interval: 2
@@ -143,11 +74,10 @@ input_datetime: !include input_datetime.yaml
 input_number: !include input_number.yaml
 input_text: !include input_text.yaml
 scene: !include scenes.yaml
-
-# timer:
-  # zigbee_permit_join:
-    # name: Time remaining
-    # duration: 254
+# cover: !include cover.yaml
+sensor: !include sensors.yaml
+binary_sensor: !include binary_sensor.yaml
+mqtt: !include mqtt.yaml
 
 
 
@@ -193,29 +123,8 @@ switch:
       - light.office_hallway_1
       - light.office_hallway_2
       
-# switch:
-  # - name: "Main join"
-    # unique_id: zigbee2mqtt_main_join_switch
-    # state_topic: "zigbee2mqtt/bridge/info"
-    # value_template: '{{ value_json.permit_join | lower }}'
-    # command_topic: "zigbee2mqtt/bridge/request/permit_join"
-    # payload_on: "true"
-    # payload_off: "false"
-    # device:
-      # identifiers: zigbee2mqtt
-      # name: "Zigbee2MQTT"
-      # model: "Zigbee2MQTT"
-      # manufacturer: "Zigbee2MQTT"
 
       
 system_health:
 
-# octoprint:
-  # host: 10.99.1.70
-  # api_key: !secret octo_api_key
 
-# babybuddy:
-  # address: https://10.99.1.23
-  # port: 8000
-  # path: ""
-  # api_key: !secret babybuddy_api_key

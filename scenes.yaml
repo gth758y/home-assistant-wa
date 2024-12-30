@@ -22,6 +22,20 @@
         xy_color: [0.5186, 0.4142]
         brightness: 177
         
+- name: Open Areas Off
+  entities:
+    light.breakfast_area:
+        state: off
+    light.foyer:
+        state: off
+        
+- name: Open Areas On
+  entities:
+    light.breakfast_area:
+        state: on
+    light.foyer:
+        state: on
+        
 - name: Living Room Off
   entities:
     light.living_room:
@@ -108,29 +122,29 @@
   entities:
     light.guest_hallway_1:
         state: on
-        kelvin: 3500
-        brightness_pct: 100
-        transition: 5
+        color_temp: 285
+        brightness: 255
+        
     light.guest_hallway_2:
         state: on
-        kelvin: 3500
-        brightness_pct: 100
-        transition: 5
+        color_temp: 285
+        brightness: 255
+        
     light.guest_hallway_3:
         state: on
-        kelvin: 3500
-        brightness_pct: 100
-        transition: 5
+        color_temp: 285
+        brightness: 255
+        
     light.guest_hallway_4:
         state: on
-        kelvin: 3500
-        brightness_pct: 100
-        transition: 5
+        color_temp: 285
+        brightness: 255
+        
     light.guest_hallway_5:
         state: on
-        kelvin: 3500
-        brightness_pct: 100
-        transition: 5
+        color_temp: 285
+        brightness: 255
+        
     
     
 - name: Exterior Halloween Static 01
@@ -138,76 +152,76 @@
     light.guest_hallway_1:
         state: on
         xy_color: [0.3860,0.5254]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_2:
         state: on
         xy_color: [0.3860,0.5254]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_3:
         state: on
         xy_color: [0.3860,0.5254]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_4:
         state: on
         xy_color: [0.3394,0.2079]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_5:
         state: on
         xy_color: [0.2104,0.3458]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.hue_lightstrip_stored:
         state: on
         xy_color: [0.2487,0.1829]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.hue_lightstrip_2_stored:
         state: on
         xy_color: [0.3309,0.4640]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
         
 - name: Exterior Halloween Static 02
   entities:
     light.guest_hallway_1:
         state: on
         xy_color: [0.5603,0.4589]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_2:
         state: on
         xy_color: [0.4156,0.5076]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_3:
         state: on
         xy_color: [0.3860,0.5254]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_4:
         state: on
         xy_color: [0.2487,0.1829]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_5:
         state: on
         xy_color: [0.2670,0.3322]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.hue_lightstrip_stored:
         state: on
         xy_color: [0.2719,0.3624]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.hue_lightstrip_2_stored:
         state: on
         xy_color: [0.2104,0.3458]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
 
         
 - name: Exterior Halloween Static 03
@@ -215,76 +229,76 @@
     light.guest_hallway_1:
         state: on
         xy_color: [0.2719,0.3624]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_2:
         state: on
         xy_color: [0.3860,0.5254]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_3:
         state: on
         xy_color: [0.5603,0.4589]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_4:
         state: on
         xy_color: [0.2487,0.1829]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_5:
         state: on
         xy_color: [0.3860,0.5254]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.hue_lightstrip_stored:
         state: on
         xy_color: [0.2670,0.3322]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.hue_lightstrip_2_stored:
         state: on
         xy_color: [0.4397,0.5887]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
         
 - name: Exterior Halloween Static 04
   entities:
     light.guest_hallway_1:
         state: on
         xy_color: [0.3309,0.4640]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_2:
         state: on
         xy_color: [0.4156,0.5076]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_3:
         state: on
         xy_color: [0.2487,0.1829]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_4:
         state: on
         xy_color: [0.4156,0.5076]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_5:
         state: on
         xy_color: [0.2104,0.3458]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.hue_lightstrip_stored:
         state: on
         xy_color: [0.4397,0.5887]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.hue_lightstrip_2_stored:
         state: on
         xy_color: [0.2670,0.3322]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
 
   
 - name: Exterior Halloween Static 05
@@ -292,38 +306,38 @@
     light.guest_hallway_1:
         state: on
         xy_color: [0.4397,0.5887]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_2:
         state: on
         xy_color: [0.4156,0.5076]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_3:
         state: on
         xy_color: [0.3309,0.4640]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_4:
         state: on
         xy_color: [0.3134,0.3801]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_5:
         state: on
         xy_color: [0.3309,0.4640]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.hue_lightstrip_stored:
         state: on
         xy_color: [0.3309,0.4640]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.hue_lightstrip_2_stored:
         state: on
         xy_color: [0.2377,0.2698]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
 
   
 - name: Exterior Halloween Static 06
@@ -331,38 +345,38 @@
     light.guest_hallway_1:
         state: on
         xy_color: [0.3309,0.4640]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_2:
         state: on
         xy_color: [0.2487,0.1829]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_3:
         state: on
         xy_color: [0.2719,0.3624]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_4:
         state: on
         xy_color: [0.3860,0.5254]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_5:
         state: on
         xy_color: [0.3860,0.5254]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.hue_lightstrip_stored:
         state: on
         xy_color: [0.2719,0.3624]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.hue_lightstrip_2_stored:
         state: on
         xy_color: [0.5603,0.4589]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
 
   
 - name: Exterior Halloween Static 07
@@ -370,38 +384,38 @@
     light.guest_hallway_1:
         state: on
         xy_color: [0.3134,0.3801]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_2:
         state: on
         xy_color: [0.3309,0.4640]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_3:
         state: on
         xy_color: [0.2104,0.3458]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_4:
         state: on
         xy_color: [0.2377,0.2698]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_5:
         state: on
         xy_color: [0.4397,0.5887]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.hue_lightstrip_stored:
         state: on
         xy_color: [0.4397,0.5887]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.hue_lightstrip_2_stored:
         state: on
         xy_color: [0.3134,0.3801]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
 
   
 - name: Exterior Halloween Static 08
@@ -409,38 +423,38 @@
     light.guest_hallway_1:
         state: on
         xy_color: [0.4397,0.5887]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_2:
         state: on
         xy_color: [0.2487,0.1829]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_3:
         state: on
         xy_color: [0.2487,0.1829]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_4:
         state: on
         xy_color: [0.3394,0.2079]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_5:
         state: on
         xy_color: [0.3134,0.3801]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.hue_lightstrip_stored:
         state: on
         xy_color: [0.3309,0.4640]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.hue_lightstrip_2_stored:
         state: on
         xy_color: [0.4156,0.5076]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
 
   
 - name: Exterior Halloween Static 09
@@ -448,38 +462,38 @@
     light.guest_hallway_1:
         state: on
         xy_color: [0.4156,0.5076]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_2:
         state: on
         xy_color: [0.3134,0.3801]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_3:
         state: on
         xy_color: [0.2377,0.2698]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_4:
         state: on
         xy_color: [0.2487,0.1829]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_5:
         state: on
         xy_color: [0.4397,0.5887]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.hue_lightstrip_stored:
         state: on
         xy_color: [0.3394,0.2079]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.hue_lightstrip_2_stored:
         state: on
         xy_color: [0.4156,0.5076]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
 
   
 - name: Exterior Halloween Static 10
@@ -487,38 +501,38 @@
     light.guest_hallway_1:
         state: on
         xy_color: [0.2719,0.3624]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_2:
         state: on
         xy_color: [0.1353,0.1099]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_3:
         state: on
         xy_color: [0.5603,0.4589]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_4:
         state: on
         xy_color: [0.2104,0.3458]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.guest_hallway_5:
         state: on
         xy_color: [0.4156,0.5076]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.hue_lightstrip_stored:
         state: on
         xy_color: [0.4397,0.5887]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
     light.hue_lightstrip_2_stored:
         state: on
         xy_color: [0.2377,0.2698]
-        brightness_pct: 100
-        transition: 5
+        brightness: 255
+        
 
 
 # - name: Exterior Halloween
@@ -533,9 +547,9 @@
   entities:
     light.television:
         state: on
-        kelvin: 6500
-        brightness_pct: 100
-        transition: 2
+        color_temp: 154
+        brightness: 255
+        
         
 - name: TV Bias Lights Off
   entities:
@@ -563,369 +577,369 @@
     light.bay_window:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.bedroom_amy:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.bedroom_tyler:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.guest_bedroom_closet:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.guest_bedroom_window:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.guest_hallway_1:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.guest_hallway_2:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.guest_hallway_3:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.guest_hallway_4:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.hue_play_1:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.hue_play_2:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.kitchen_overhead_1:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.kitchen_overhead_3:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.kitchen_overhead_4:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.living_room_short_lamp:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.living_room_shortest_lamp:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.living_room_tall_lamp:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.loft_1:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.loft_2:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.loft_3:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.loft_4:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.office_1:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.office_2:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.office_hallway_1:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.office_hallway_2:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.unterbett:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
     light.unterbett_2:
         state: on
         xy_color: [.158,.050]
-        brightness_pct: 100
+        brightness: 255
         
 - name: Whole House Pink
   entities:
     light.bay_window:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.bedroom_amy:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.bedroom_tyler:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.guest_bedroom_closet:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.guest_bedroom_window:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.guest_hallway_1:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.guest_hallway_2:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.guest_hallway_3:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.guest_hallway_4:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.hue_play_1:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.hue_play_2:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.kitchen_overhead_1:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.kitchen_overhead_3:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.kitchen_overhead_4:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.living_room_short_lamp:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.living_room_shortest_lamp:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.living_room_tall_lamp:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.loft_1:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.loft_2:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.loft_3:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.loft_4:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.office_1:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.office_2:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.office_hallway_1:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.office_hallway_2:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.unterbett:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
     light.unterbett_2:
         state: on
         xy_color: [.381,.159]
-        brightness_pct: 100
+        brightness: 255
         
 - name: Whole House Red
   entities:
     light.bay_window:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.bedroom_amy:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.bedroom_tyler:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.guest_bedroom_closet:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.guest_bedroom_window:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.guest_hallway_1:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.guest_hallway_2:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.guest_hallway_3:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.guest_hallway_4:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.hue_play_1:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.hue_play_2:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.kitchen_overhead_1:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.kitchen_overhead_3:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.kitchen_overhead_4:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.living_room_short_lamp:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.living_room_shortest_lamp:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.living_room_tall_lamp:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.loft_1:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.loft_2:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.loft_3:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.loft_4:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.office_1:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.office_2:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.office_hallway_1:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.office_hallway_2:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.unterbett:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
     light.unterbett_2:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 50
+        brightness: 128
         
 - name: Hallway Red Nightlight
   entities:
     light.guest_hallway_1:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 20
+        brightness: 50
     light.guest_hallway_2:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 20
+        brightness: 50
     light.guest_hallway_3:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 20
+        brightness: 50
     light.guest_hallway_4:
         state: on
         xy_color: [.689,.309]
-        brightness_pct: 20
+        brightness: 50
 
 - name: Tyler Underbed Nightlight
   entities:
     light.wled_underbed: #_segment_1:
         state: on
-        color_name: red
+        xy_color: [0.7, 0.3]
         brightness: 64
-        transition: 2
+        
         effect: Solid
         
 - name: Amy Underbed Nightlight
   entities:
     light.wled_underbed_segment_1:
         state: on
-        color_name: red
+        xy_color: [0.7, 0.3]
         brightness: 64
-        transition: 2
+        
         effect: Solid
         
 - name: Tyler Underbed Nightlight Off
@@ -938,37 +952,7 @@
   entities:
     light.wled_underbed_segment_1:
         state: off
-        effect: Solid
-        
-- name: Morgan Feed Lights
-  entities: 
-    light.living_room_short_lamp:
-        state: on
-        color_name: red
-        brightness_pct: 50
-    light.living_room_shortest_lamp:
-        state: on
-        color_name: red
-        brightness_pct: 50
-    light.living_room_tall_lamp:
-        state: on
-        color_name: red
-        brightness_pct: 50
-        
-- name: Morgan Night Lights
-  entities: 
-    light.wled_underbed:
-        state: off
-    light.wled_underbed_segment_1:
-        state: on
-        color_name: red
-        brightness: 64
-        transition: 2
-        effect: Solid
-    light.bedroom_amy:
-        state: off
-    light.bedroom_tyler:
-        state: off
+        effect: Solid        
         
 - name: Kitchen Dim White
   entities:
@@ -976,276 +960,244 @@
         state: on
         color_temp: 443
         brightness: 145
-        transition: 1
         
-- name: Kitchen Dim Red                 ### This is a Hue scene now; got "Too many requests" errors when running this
+        
+- name: Kitchen Dim Red
   entities:
      light.kitchen_overhead_1:
          state: on
-         color_name: red
+         xy_color: [0.7, 0.3]
          #rgb_color: [255, 44, 37]
          brightness: 94
-         transition: 1
+         
      light.kitchen_overhead_3:
          state: on
-         color_name: red
+         xy_color: [0.7, 0.3]
          #rgb_color: [255, 44, 37]
          brightness: 94
-         transition: 1
+         
      light.kitchen_overhead_4:
          state: on
-         color_name: red
+         xy_color: [0.7, 0.3]
          #rgb_color: [255, 44, 37]
          brightness: 94
-         transition: 1
+         
      light.kitchen_overhead_2:
          state: on
          color_temp: 369
          brightness: 47
-         transition: 1
+         
      light.kitchen_overhead_5:
          state: on
          color_temp: 369
          brightness: 47
-         transition: 1
+         
      light.kitchen_overhead_6:
          state: off
-         transition: 1
+         
      light.kitchen_overhead_7:
          state: off
-         transition: 1
+         
      light.kitchen_overhead_8:
          state: off
-         transition: 1
          
-- name: Kitchen Bright Red                 ### This is a Hue scene now; got "Too many requests" errors when running this
+         
+- name: Kitchen Bright Red
   entities:
      light.kitchen_overhead_1:
          state: on
-         color_name: red
+         xy_color: [0.7, 0.3]
          #rgb_color: [255, 44, 37]
          brightness: 200
-         transition: 1
+         
      light.kitchen_overhead_3:
          state: on
-         color_name: red
+         xy_color: [0.7, 0.3]
          #rgb_color: [255, 44, 37]
          brightness: 200
-         transition: 1
+         
      light.kitchen_overhead_4:
          state: on
-         color_name: red
+         xy_color: [0.7, 0.3]
          #rgb_color: [255, 44, 37]
          brightness: 200
-         transition: 1
+         
      light.kitchen_overhead_2:
          state: on
          color_temp: 369
          brightness: 60
-         transition: 1
+         
      light.kitchen_overhead_5:
          state: on
          color_temp: 369
          brightness: 60
-         transition: 1
+         
      light.kitchen_overhead_6:
          state: on
          color_temp: 369
          brightness: 30
-         transition: 1
+         
      light.kitchen_overhead_7:
          state: on
          color_temp: 369
          brightness: 30
-         transition: 1
+         
      light.kitchen_overhead_8:
          state: on
          color_temp: 369
          brightness: 30
-         transition: 1
          
-- name: MBR Morgan MBR Ph 1
-  entities:
-     light.master_bedroom:
-         state: on
-         color_temp: 500
-         brightness: 121
+         
 
-- name: MBR Morgan MBR Ph 2
-  entities:
-     light.master_bedroom:
-         state: on
-         color_temp: 500
-         brightness: 2
-
-- name: MBR Morgan MBR Ph 3
-  entities:
-      light.bedroom_amy:
-          state: on
-          color_name: red
-          brightness: 2
-      light.bedroom_tyler:
-          state: on
-          color_temp: 500
-          brightness: 2
-
-- name: MBR Morgan MBR Ph 4
-  entities:
-      light.bedroom_amy:
-          state: off
-      light.bedroom_tyler:
-          state: on
-          color_name: red
-          brightness: 2
 - name: Whole House NVG
   entities:
     light.bay_window:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.bedroom_amy:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.bedroom_tyler:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.guest_hallway_1:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.guest_hallway_2:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.guest_hallway_3:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.guest_hallway_4:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.kitchen_overhead_1:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.kitchen_overhead_3:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.kitchen_overhead_4:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.living_room_short_lamp:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.living_room_shortest_lamp:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.living_room_tall_lamp:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.loft_1:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.loft_2:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.loft_3:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.loft_4:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.office_1:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.office_2:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.office_hallway_1:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.office_hallway_2:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.unterbett:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.unterbett_2:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.foyer_1:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.foyer_2:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.foyer_3:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.breakfast_area_1:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.breakfast_area_2:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.behind_tv_left:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
     light.behind_tv_right:
         state: on
         xy_color: [.249,.632]
-        brightness_pct: 50
+        brightness: 128
 - name: Living Room Edge Relax
   entities:
       light.foyer_1:
         state: on
         xy_color: [.30,.15]
-        brightness_pct: 70
+        brightness: 179
       light.foyer_2:
         state: on
         xy_color: [.19,.25]
-        brightness_pct: 70
+        brightness: 179
       light.foyer_3:
         state: on
         xy_color: [.25,.10]
-        brightness_pct: 70
+        brightness: 179
       light.breakfast_area_1:
         state: on
         xy_color: [.20,.22]
-        brightness_pct: 70
+        brightness: 179
       light.breakfast_area_2:
         state: on
         xy_color: [.25,.10]
-        brightness_pct: 70
+        brightness: 179
       light.office_hallway_1:
         state: on
         xy_color: [.19,.25]
-        brightness_pct: 70
+        brightness: 179
       light.office_hallway_2:
         state: on
         xy_color: [.30,.15]
-        brightness_pct: 70
+        brightness: 179

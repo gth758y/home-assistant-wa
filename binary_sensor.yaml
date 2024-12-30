@@ -11,18 +11,6 @@
     hysteresis: 50
     entity_id: sensor.living_room_light_level
     
-  # - platform: threshold
-    # name: "Is It Dark PWS"
-    # lower: 10
-    # hysteresis: 2
-    # entity_id: sensor.pws_solar_radiation
-    
-  # - platform: threshold
-    # name: "Is It Kind Of Dark PWS"
-    # lower: 30
-    # hysteresis: 2
-    # entity_id: sensor.pws_solar_radiation
-    
   - platform: template
     sensors:
       is_it_dark_pws:
@@ -92,17 +80,23 @@
     sensors:
       house_asleep:
         value_template: >-
-          {% set hour = states('sensor.time').split(':')[0]|int %}
-          {% set was_asleep = is_state('binary_sensor.house_asleep','on') %}
-          {% set tyler_asleep = is_state('binary_sensor.tyler_home', 'on') and
-                                (is_state('input_select.tyler_status', 'sleeping') or is_state('input_select.tyler_status', 'alarming')) %}
-          {% set amy_asleep = is_state('binary_sensor.amy_home', 'on') and
-                              (is_state('input_select.amy_status', 'sleeping') or is_state('input_select.amy_status', 'alarming')) %}
-          {{ (is_state('binary_sensor.anybody_home', 'off') and (hour > 22 or hour < 6)) or
-             (tyler_asleep and amy_asleep) or
-             (was_asleep and (tyler_asleep or amy_asleep)) or
-             (is_state('binary_sensor.tyler_home', 'off') and amy_asleep) or
-             (is_state('binary_sensor.amy_home', 'off') and tyler_asleep) }}
+            {% set time = states('sensor.time') | default('00:00') %}
+            {% if ':' in time %}
+              {% set hour = time.split(':')[0] | int %}
+            {% else %}
+              {% set hour = 0 %}
+            {% endif %}
+            {% set was_asleep = is_state('binary_sensor.house_asleep', 'on') %}
+            {% set tyler_asleep = is_state('binary_sensor.tyler_home', 'on') and
+               (is_state('input_select.tyler_status', 'sleeping') or is_state('input_select.tyler_status', 'alarming')) %}
+            {% set amy_asleep = is_state('binary_sensor.amy_home', 'on') and
+               (is_state('input_select.amy_status', 'sleeping') or is_state('input_select.amy_status', 'alarming')) %}
+            {{ (is_state('binary_sensor.anybody_home', 'off') and (hour > 22 or hour < 6)) or
+               (tyler_asleep and amy_asleep) or
+               (was_asleep and (tyler_asleep or amy_asleep)) or
+               (is_state('binary_sensor.tyler_home', 'off') and amy_asleep) or
+               (is_state('binary_sensor.amy_home', 'off') and tyler_asleep) }}
+
              
   - platform: template
     sensors:
